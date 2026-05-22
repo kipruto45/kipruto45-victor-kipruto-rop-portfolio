@@ -1,0 +1,21 @@
+bank_code,bank_name,banking_group,headquarters_county,license_date,tier
+001,Kenya Commercial Bank,KCB Group,Nairobi,1970-01-01,Tier 1
+002,Equity Bank Kenya,Equity Group,Nairobi,1984-09-14,Tier 1
+003,Standard Chartered Bank Kenya,Foreign,Nairobi,1911-01-01,Tier 1
+004,ABSA Bank Kenya,Foreign,Nairobi,2005-08-22,Tier 1
+005,Barclays Bank Kenya,Foreign,Nairobi,1912-01-01,Tier 1
+006,DTB Bank Kenya,DTB Group,Nairobi,1973-01-01,Tier 2
+007,I&M Bank,I&M Group,Nairobi,1983-03-15,Tier 2
+008,Investments & Mortgages Bank,Independent,Nairobi,1994-01-01,Tier 2
+009,Bank of Africa Kenya,BOA Group,Nairobi,2011-02-21,Tier 2
+010,ABC Bank Kenya,ABC Group,Nairobi,2002-04-05,Tier 2
+011,African Banking Corporation Kenya,Independent,Mombasa,2007-01-01,Tier 2
+012,KenTrade Bank,Independent,Nairobi,2014-06-16,Tier 3
+013,Consolidated Bank Kenya,Government,Nairobi,1989-01-01,Tier 2
+014,Co-operative Bank Kenya,Cooperative,Nairobi,1965-01-01,Tier 2
+015,NCBA Bank Kenya,NCBA Group,Nairobi,2017-01-01,Tier 1
+016,United Bank for Africa Kenya,UBA Group,Nairobi,2007-05-04,Tier 2
+017,HF Bank Kenya,HF Group,Nairobi,2008-10-06,Tier 3
+018,Prime Bank Kenya,Prime Group,Nairobi,1998-08-03,Tier 2
+019,Spire Bank Kenya,Spire Group,Nairobi,1995-01-01,Tier 3
+020,Diamond Trust Bank Kenya,DTB Group,Nairobi,2008-12-12,Tier 2
