@@ -26,7 +26,7 @@ def load_data(query, db_name, snapshot_name):
 
 # Sidebar
 st.sidebar.title("Equity Group Platform")
-st.sidebar.image("https://upload.wikimedia.org/wikipedia/en/thumb/5/52/Equity_Bank_Logo.svg/1200px-Equity_Bank_Logo.svg.png", width=150)
+st.sidebar.markdown("### 🌍 Equity Group Pan-Africa")
 app_mode = st.sidebar.selectbox("Choose Dashboard", ["Equitel & EazzyPay", "Pan-Africa Consolidation"])
 
 if app_mode == "Equitel & EazzyPay":

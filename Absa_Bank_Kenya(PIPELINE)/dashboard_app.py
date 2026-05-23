@@ -27,7 +27,7 @@ def load_data(query, db_name, snapshot_name):
 
 # Sidebar
 st.sidebar.title("Absa Integrated Platform")
-st.sidebar.image("https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Absa_Group_Logo.svg/1024px-Absa_Group_Logo.svg.png", width=150)
+st.sidebar.markdown("### 🏦 Absa Bank Kenya")
 app_mode = st.sidebar.selectbox("Choose Dashboard", ["Financial KPIs", "Open Banking Analytics"])
 
 if app_mode == "Financial KPIs":
