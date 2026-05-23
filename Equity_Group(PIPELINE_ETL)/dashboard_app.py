@@ -17,11 +17,13 @@ def load_data(query, db_name, snapshot_name):
         return pd.read_sql(query, engine)
     except Exception:
         # Fallback to local snapshots (Streamlit Cloud mode)
-        snapshot_path = f"dashboards/snapshots/{snapshot_name}.csv"
+        base_path = os.path.dirname(__file__)
+        snapshot_path = os.path.join(base_path, "dashboards", "snapshots", f"{snapshot_name}.csv")
+        
         if os.path.exists(snapshot_path):
             return pd.read_csv(snapshot_path)
         else:
-            st.error(f"Data source not found: {snapshot_name}")
+            st.error(f"Data source not found: {snapshot_name} at {snapshot_path}")
             return pd.DataFrame()
 
 # Sidebar
