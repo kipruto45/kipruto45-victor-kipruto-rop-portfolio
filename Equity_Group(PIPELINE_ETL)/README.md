@@ -21,6 +21,25 @@ The projects share a common containerized environment managed at this root level
 - **Unified Orchestrator**: A single Apache Airflow instance managing DAGs for both regional consolidation and mobile analytics.
 - **BI & Visualization**: Integrated Metabase for dashboarding and embedded Matplotlib visuals in executed notebooks.
 
+## 📊 Dashboards
+
+The platform includes pre-defined SQL queries for Metabase dashboards in the `dashboards/` directory.
+
+### Metabase Connection
+1. Access Metabase at `http://localhost:3001`.
+2. Add a new Database:
+   - **Database type**: PostgreSQL
+   - **Host**: `postgres` (or `localhost` if connecting from host)
+   - **Port**: `5432`
+   - **Database name**: `equitel_analytics` or `pan_africa_platform`
+   - **Username**: `equity_admin`
+   - **Password**: `equity_password`
+
+### Available Dashboards
+- **Equitel Adoption**: `dashboards/equitel_adoption_trends.sql`
+- **Pan-Africa Consolidation**: `dashboards/pan_africa_consolidation.sql`
+- **Product Mix & Cross-Sell**: `dashboards/product_mix_cross_sell.sql`
+
 ## 🚦 Getting Started
 
 ### 1. Launch Services

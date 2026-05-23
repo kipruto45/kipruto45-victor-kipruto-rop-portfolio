@@ -22,6 +22,25 @@ The projects share a common containerized environment managed at this root level
 - **BI Layer**: Metabase for cross-project data visualization.
 - **API Layer**: FastAPI service exposing open banking data products.
 
+## 📊 Dashboards
+
+The platform includes pre-defined SQL queries for Metabase dashboards in the `dashboards/` directory.
+
+### Metabase Connection
+1. Access Metabase at `http://localhost:3000`.
+2. Add a new Database:
+   - **Database type**: PostgreSQL
+   - **Host**: `postgres` (or `localhost` if connecting from host)
+   - **Port**: `5432`
+   - **Database name**: `absa_warehouse` or `absa_open_banking`
+   - **Username**: `absa_admin`
+   - **Password**: `absa_password`
+
+### Available Dashboards
+- **Financial Performance**: `dashboards/financial_performance.sql`
+- **Asset Quality & Risk**: `dashboards/asset_quality_risk.sql`
+- **Open Banking Insights**: `dashboards/open_banking_insights.sql`
+
 ## 🚦 Getting Started
 
 ### 1. Environment Setup
