@@ -28,7 +28,10 @@ The platform includes two ways to visualize insights:
 ### 1. Modern Interactive Dashboards (Streamlit)
 A high-fidelity, interactive dashboard built with Streamlit and Plotly.
 - **Access**: `http://localhost:8502`
-- **Features**: Regional profit contribution maps, adoption S-curves, and product cross-sell penetration.
+- **Features**: 
+    - **Financial Consolidation**: Regional profit contribution maps and USD/KES group profitability trends.
+    - **Regional Engagement & Risk**: Bubble charts comparing Digital Maturity vs. Portfolio Risk, Deposit Treemaps, and Loan Penetration benchmarks across 7 African markets.
+    - **Mobile Analytics**: Equitel adoption S-curves and product cross-sell penetration.
 
 ### 2. BI Layer (Metabase)
 Pre-defined SQL queries for Metabase dashboards in the `dashboards/` directory.

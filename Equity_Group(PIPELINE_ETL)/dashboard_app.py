@@ -81,6 +81,7 @@ else:
     # Load Data via Portable Loader
     consolidation = load_data('SELECT * FROM mart_group_consolidation ORDER BY period', 'pan_africa_platform', 'mart_group_consolidation')
     comparison = load_data('SELECT * FROM mart_subsidiary_comparison ORDER BY period, profit_usd DESC', 'pan_africa_platform', 'mart_subsidiary_comparison')
+    engagement = load_data('SELECT * FROM mart_regional_engagement', 'pan_africa_platform', 'mart_regional_engagement')
 
     if not consolidation.empty:
         # Global Metrics
@@ -92,21 +93,41 @@ else:
 
         st.markdown("---")
 
-        st.subheader("Group-Level Profitability Trend (USD)")
-        fig_group = px.area(consolidation, x='period', y='total_profit_usd', color_discrete_sequence=['#A60000'])
-        fig_group.update_layout(template="plotly_white")
-        st.plotly_chart(fig_group, use_container_width=True)
+        tabs = st.tabs(["Financial Consolidation", "Regional Engagement & Risk"])
 
-        col_a, col_b = st.columns(2)
+        with tabs[0]:
+            st.subheader("Group-Level Profitability Trend (USD)")
+            fig_group = px.area(consolidation, x='period', y='total_profit_usd', color_discrete_sequence=['#A60000'])
+            fig_group.update_layout(template="plotly_white")
+            st.plotly_chart(fig_group, use_container_width=True)
 
-        with col_a:
-            st.subheader("Regional Profit Contribution (Latest Period)")
-            latest_period = comparison['period'].iloc[-1]
-            latest_comp = comparison[comparison['period'] == latest_period]
-            fig_sub = px.bar(latest_comp, x='subsidiary', y='profit_usd', color='contribution_percentage', 
-                             color_continuous_scale='Reds', text_auto='.2s')
-            st.plotly_chart(fig_sub, use_container_width=True)
+            col_a, col_b = st.columns(2)
+            with col_a:
+                st.subheader("Regional Profit Contribution")
+                latest_period = comparison['period'].iloc[-1]
+                latest_comp = comparison[comparison['period'] == latest_period]
+                fig_sub = px.bar(latest_comp, x='subsidiary', y='profit_usd', color='contribution_percentage', 
+                                 color_continuous_scale='Reds', text_auto='.2s')
+                st.plotly_chart(fig_sub, use_container_width=True)
+            with col_b:
+                st.subheader("Regional Efficiency")
+                st.dataframe(latest_comp[['subsidiary', 'contribution_percentage', 'profit_usd']], use_container_width=True)
 
-        with col_b:
-            st.subheader("Regional Efficiency Comparison")
-            st.dataframe(latest_comp[['subsidiary', 'contribution_percentage', 'profit_usd', 'profit_kes']], use_container_width=True)
+        with tabs[1]:
+            st.subheader("Regional Digital Engagement vs. Credit Risk")
+            if not engagement.empty:
+                fig_bubble = px.scatter(engagement, x='avg_digital_score', y='high_risk_pct', 
+                                        size='total_customers', color='country', hover_name='country',
+                                        labels={'avg_digital_score': 'Digital Engagement Score', 'high_risk_pct': 'High Risk Customers %'},
+                                        title="Digital Maturity vs Portfolio Risk")
+                st.plotly_chart(fig_bubble, use_container_width=True)
+
+                c1, c2 = st.columns(2)
+                with c1:
+                    st.subheader("Regional Deposit Distribution")
+                    fig_dep = px.treemap(engagement, path=['region', 'country'], values='total_deposits_usd', color='total_deposits_usd', color_continuous_scale='Reds')
+                    st.plotly_chart(fig_dep, use_container_width=True)
+                with c2:
+                    st.subheader("Loan Penetration per Market")
+                    fig_loan = px.bar(engagement.sort_values('loan_penetration_pct'), x='country', y='loan_penetration_pct', color_discrete_sequence=['#8B0000'])
+                    st.plotly_chart(fig_loan, use_container_width=True)
