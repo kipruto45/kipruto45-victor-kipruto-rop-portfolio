@@ -27,11 +27,14 @@ The platform includes two ways to visualize insights:
 
 ### 1. Modern Interactive Dashboards (Streamlit)
 A high-fidelity, interactive dashboard built with Streamlit and Plotly.
-- **Access**: `http://localhost:8502`
-- **Features**: 
-    - **Financial Consolidation**: Regional profit contribution maps and USD/KES group profitability trends.
-    - **Regional Engagement & Risk**: Bubble charts comparing Digital Maturity vs. Portfolio Risk, Deposit Treemaps, and Loan Penetration benchmarks across 7 African markets.
-    - **Mobile Analytics**: Equitel adoption S-curves and product cross-sell penetration.
+
+- **Live Demo**: [🚀 Click Here to Open Dashboard](https://kipruto45-victor-kipruto-rop-portfolio-g8pspygfpttsbfggjaadwy.streamlit.app/)
+- **Local Access**: `http://localhost:8502`
+- **How to Use**:
+    1. **Regional Comparison**: Use the "Pan-Africa Consolidation" mode to see how subsidiaries in DRC, Rwanda, and Uganda compare in USD profit.
+    2. **Risk Analysis**: Switch to the **Regional Engagement & Risk** tab to see bubble charts of Digital Maturity vs. Credit Risk.
+    3. **Growth Tracking**: Use the "Equitel & EazzyPay" mode to track subscriber S-curves and transaction velocity.
+- **Portability**: This dashboard uses a "Portable Mode" fallback—if the live PostgreSQL database is not available, it automatically loads pre-processed data snapshots for instant viewing.
 
 ### 2. BI Layer (Metabase)
 Pre-defined SQL queries for Metabase dashboards in the `dashboards/` directory.

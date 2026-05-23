@@ -5,7 +5,22 @@ This repository contains end-to-end data engineering, ETL, streaming, analytics,
 
 ---
 
-# 👨‍💻 About Me
+# 📊 Live Interactive Dashboards
+
+Experience the live analytical platforms built in this portfolio:
+
+| Dashboard | Access Link | Description |
+|---|---|---|
+| **Equity Group Pan-Africa** | [🚀 View Live Demo](https://kipruto45-victor-kipruto-rop-portfolio-g8pspygfpttsbfggjaadwy.streamlit.app/) | Interactive insights into regional profitability, mobile adoption, and credit risk across 7 countries. |
+
+### How to use the Dashboard:
+1. **Navigate**: Use the sidebar to switch between **"Equitel & EazzyPay"** (Mobile Banking) and **"Pan-Africa Consolidation"** (Regional Analytics).
+2. **Interact**: Hover over Plotly charts to see granular data points, zoom into specific time periods, and filter by subsidiary.
+3. **Insights**: 
+    - Check the **Regional Engagement & Risk** tab to see how Digital Maturity correlates with Portfolio Risk.
+    - View **Group Profitability** trends normalized in USD and KES.
+
+---
 
 I am a Data Engineer focused on:
 
