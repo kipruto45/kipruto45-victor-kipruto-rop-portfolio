@@ -1,5 +1,7 @@
 # 🏦 Equity Group Integrated Data Platform
 
+![Project Architecture](./images/_285059c4-f803-462b-9a02-95b214d40f97.jpeg)
+
 This directory contains the integrated data engineering pipelines for Equity Group, covering multi-national financial consolidation and mobile banking (Equitel/EazzyPay) analytics.
 
 ## 🚀 Overview
