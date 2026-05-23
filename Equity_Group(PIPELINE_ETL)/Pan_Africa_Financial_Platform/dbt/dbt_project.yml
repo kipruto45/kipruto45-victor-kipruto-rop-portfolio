@@ -1,0 +1,16 @@
+name: 'pan_africa_platform'
+version: '1.0.0'
+config-version: 2
+
+profile: 'pan_africa_platform'
+
+model-paths: ["models"]
+seed-paths: ["seeds"]
+test-paths: ["tests"]
+
+models:
+  pan_africa_platform:
+    staging:
+      +materialized: view
+    marts:
+      +materialized: table

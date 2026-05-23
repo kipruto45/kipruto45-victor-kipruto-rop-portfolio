@@ -1,0 +1,331 @@
+[0m11:50:45.204663 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f4f25cabc70>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f4f27ba2340>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f4f254a5370>]}
+
+
+============================== 11:50:45.223337 | b394bc3d-a67e-46f8-8c13-d45be74b5ceb ==============================
+[0m11:50:45.223337 [info ] [MainThread]: Running with dbt=1.9.0-b2
+[0m11:50:45.226562 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': '.', 'fail_fast': 'False', 'warn_error': 'None', 'log_path': '/opt/airflow/projects/pan_africa/dbt/logs', 'version_check': 'True', 'debug': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'empty': 'False', 'quiet': 'False', 'no_print': 'None', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'introspect': 'True', 'invocation_command': 'dbt run --profiles-dir .', 'log_format': 'default', 'target_path': 'None', 'static_parser': 'True', 'send_anonymous_usage_stats': 'True'}
+[0m11:50:45.843668 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'b394bc3d-a67e-46f8-8c13-d45be74b5ceb', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f4f23630b50>]}
+[0m11:50:46.076865 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'b394bc3d-a67e-46f8-8c13-d45be74b5ceb', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f4f26e4daf0>]}
+[0m11:50:46.079809 [info ] [MainThread]: Registered adapter: postgres=1.8.2
+[0m11:50:46.143224 [debug] [MainThread]: checksum: 4cfbbe2a671212f062e88a43cba5322b30b7e3e8e91b953aa4de249eeaade60f, vars: {}, profile: , target: , version: 1.9.0b2
+[0m11:50:46.146918 [info ] [MainThread]: Unable to do partial parsing because saved manifest not found. Starting full parse.
+[0m11:50:46.149477 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'partial_parser', 'label': 'b394bc3d-a67e-46f8-8c13-d45be74b5ceb', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f4f2355ca00>]}
+[0m11:50:51.337347 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': 'b394bc3d-a67e-46f8-8c13-d45be74b5ceb', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f4f221e3880>]}
+[0m11:50:51.685970 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': 'b394bc3d-a67e-46f8-8c13-d45be74b5ceb', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f4f221ac1f0>]}
+[0m11:50:51.687985 [info ] [MainThread]: Found 4 models, 1 source, 423 macros
+[0m11:50:51.690036 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'b394bc3d-a67e-46f8-8c13-d45be74b5ceb', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f4f221fd340>]}
+[0m11:50:51.693689 [info ] [MainThread]: 
+[0m11:50:51.695001 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m11:50:51.696072 [info ] [MainThread]: 
+[0m11:50:51.697747 [debug] [MainThread]: Acquiring new postgres connection 'master'
+[0m11:50:51.710610 [debug] [ThreadPool]: Acquiring new postgres connection 'list_pan_africa_platform'
+[0m11:50:51.874130 [debug] [ThreadPool]: Using postgres connection "list_pan_africa_platform"
+[0m11:50:51.876273 [debug] [ThreadPool]: On list_pan_africa_platform: /* {"app": "dbt", "dbt_version": "1.9.0b2", "profile_name": "pan_africa_platform", "target_name": "dev", "connection_name": "list_pan_africa_platform"} */
+
+    select distinct nspname from pg_namespace
+  
+[0m11:50:51.879055 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m11:50:51.906311 [debug] [ThreadPool]: SQL status: SELECT 4 in 0.027 seconds
+[0m11:50:51.913279 [debug] [ThreadPool]: On list_pan_africa_platform: Close
+[0m11:50:51.924428 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_pan_africa_platform, now list_pan_africa_platform_public)
+[0m11:50:51.959115 [debug] [ThreadPool]: Using postgres connection "list_pan_africa_platform_public"
+[0m11:50:51.961292 [debug] [ThreadPool]: On list_pan_africa_platform_public: BEGIN
+[0m11:50:51.963345 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m11:50:51.982393 [debug] [ThreadPool]: SQL status: BEGIN in 0.019 seconds
+[0m11:50:51.984111 [debug] [ThreadPool]: Using postgres connection "list_pan_africa_platform_public"
+[0m11:50:51.985887 [debug] [ThreadPool]: On list_pan_africa_platform_public: /* {"app": "dbt", "dbt_version": "1.9.0b2", "profile_name": "pan_africa_platform", "target_name": "dev", "connection_name": "list_pan_africa_platform_public"} */
+select
+      'pan_africa_platform' as database,
+      tablename as name,
+      schemaname as schema,
+      'table' as type
+    from pg_tables
+    where schemaname ilike 'public'
+    union all
+    select
+      'pan_africa_platform' as database,
+      viewname as name,
+      schemaname as schema,
+      'view' as type
+    from pg_views
+    where schemaname ilike 'public'
+    union all
+    select
+      'pan_africa_platform' as database,
+      matviewname as name,
+      schemaname as schema,
+      'materialized_view' as type
+    from pg_matviews
+    where schemaname ilike 'public'
+  
+[0m11:50:52.000916 [debug] [ThreadPool]: SQL status: SELECT 1 in 0.013 seconds
+[0m11:50:52.006842 [debug] [ThreadPool]: On list_pan_africa_platform_public: ROLLBACK
+[0m11:50:52.008980 [debug] [ThreadPool]: On list_pan_africa_platform_public: Close
+[0m11:50:52.027831 [debug] [MainThread]: Using postgres connection "master"
+[0m11:50:52.029290 [debug] [MainThread]: On master: BEGIN
+[0m11:50:52.031009 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m11:50:52.051070 [debug] [MainThread]: SQL status: BEGIN in 0.020 seconds
+[0m11:50:52.053715 [debug] [MainThread]: Using postgres connection "master"
+[0m11:50:52.057146 [debug] [MainThread]: On master: /* {"app": "dbt", "dbt_version": "1.9.0b2", "profile_name": "pan_africa_platform", "target_name": "dev", "connection_name": "master"} */
+with relation as (
+        select
+            pg_rewrite.ev_class as class,
+            pg_rewrite.oid as id
+        from pg_rewrite
+    ),
+    class as (
+        select
+            oid as id,
+            relname as name,
+            relnamespace as schema,
+            relkind as kind
+        from pg_class
+    ),
+    dependency as (
+        select distinct
+            pg_depend.objid as id,
+            pg_depend.refobjid as ref
+        from pg_depend
+    ),
+    schema as (
+        select
+            pg_namespace.oid as id,
+            pg_namespace.nspname as name
+        from pg_namespace
+        where nspname != 'information_schema' and nspname not like 'pg\_%'
+    ),
+    referenced as (
+        select
+            relation.id AS id,
+            referenced_class.name ,
+            referenced_class.schema ,
+            referenced_class.kind
+        from relation
+        join class as referenced_class on relation.class=referenced_class.id
+        where referenced_class.kind in ('r', 'v', 'm')
+    ),
+    relationships as (
+        select
+            referenced.name as referenced_name,
+            referenced.schema as referenced_schema_id,
+            dependent_class.name as dependent_name,
+            dependent_class.schema as dependent_schema_id,
+            referenced.kind as kind
+        from referenced
+        join dependency on referenced.id=dependency.id
+        join class as dependent_class on dependency.ref=dependent_class.id
+        where
+            (referenced.name != dependent_class.name or
+             referenced.schema != dependent_class.schema)
+    )
+
+    select
+        referenced_schema.name as referenced_schema,
+        relationships.referenced_name as referenced_name,
+        dependent_schema.name as dependent_schema,
+        relationships.dependent_name as dependent_name
+    from relationships
+    join schema as dependent_schema on relationships.dependent_schema_id=dependent_schema.id
+    join schema as referenced_schema on relationships.referenced_schema_id=referenced_schema.id
+    group by referenced_schema, referenced_name, dependent_schema, dependent_name
+    order by referenced_schema, referenced_name, dependent_schema, dependent_name;
+[0m11:50:52.078481 [debug] [MainThread]: SQL status: SELECT 0 in 0.019 seconds
+[0m11:50:52.083772 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'b394bc3d-a67e-46f8-8c13-d45be74b5ceb', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f4f218d7040>]}
+[0m11:50:52.086385 [debug] [MainThread]: On master: ROLLBACK
+[0m11:50:52.089104 [debug] [MainThread]: Using postgres connection "master"
+[0m11:50:52.090995 [debug] [MainThread]: On master: BEGIN
+[0m11:50:52.093919 [debug] [MainThread]: SQL status: BEGIN in 0.001 seconds
+[0m11:50:52.095947 [debug] [MainThread]: On master: COMMIT
+[0m11:50:52.097371 [debug] [MainThread]: Using postgres connection "master"
+[0m11:50:52.099041 [debug] [MainThread]: On master: COMMIT
+[0m11:50:52.101193 [debug] [MainThread]: SQL status: COMMIT in 0.000 seconds
+[0m11:50:52.102919 [debug] [MainThread]: On master: Close
+[0m11:50:52.128934 [debug] [Thread-1  ]: Began running node model.pan_africa_platform.stg_subsidiaries
+[0m11:50:52.133447 [info ] [Thread-1  ]: 1 of 3 START sql view model public.stg_subsidiaries ............................ [RUN]
+[0m11:50:52.136928 [debug] [Thread-1  ]: Re-using an available connection from the pool (formerly list_pan_africa_platform_public, now model.pan_africa_platform.stg_subsidiaries)
+[0m11:50:52.140275 [debug] [Thread-1  ]: Began compiling node model.pan_africa_platform.stg_subsidiaries
+[0m11:50:52.176376 [debug] [Thread-1  ]: Writing injected SQL for node "model.pan_africa_platform.stg_subsidiaries"
+[0m11:50:52.179729 [debug] [Thread-1  ]: Began executing node model.pan_africa_platform.stg_subsidiaries
+[0m11:50:52.327611 [debug] [Thread-1  ]: Writing runtime sql for node "model.pan_africa_platform.stg_subsidiaries"
+[0m11:50:52.331473 [debug] [Thread-1  ]: Using postgres connection "model.pan_africa_platform.stg_subsidiaries"
+[0m11:50:52.334072 [debug] [Thread-1  ]: On model.pan_africa_platform.stg_subsidiaries: BEGIN
+[0m11:50:52.336305 [debug] [Thread-1  ]: Opening a new connection, currently in state closed
+[0m11:50:52.354493 [debug] [Thread-1  ]: SQL status: BEGIN in 0.018 seconds
+[0m11:50:52.356640 [debug] [Thread-1  ]: Using postgres connection "model.pan_africa_platform.stg_subsidiaries"
+[0m11:50:52.358813 [debug] [Thread-1  ]: On model.pan_africa_platform.stg_subsidiaries: /* {"app": "dbt", "dbt_version": "1.9.0b2", "profile_name": "pan_africa_platform", "target_name": "dev", "node_id": "model.pan_africa_platform.stg_subsidiaries"} */
+
+  create view "pan_africa_platform"."public"."stg_subsidiaries__dbt_tmp"
+    
+    
+  as (
+    with source as (
+    select * from "pan_africa_platform"."public"."raw_subsidiary_financials"
+),
+renamed as (
+    select
+        subsidiary,
+        period,
+        currency,
+        net_profit as profit_local,
+        total_assets as assets_local,
+        profit_usd,
+        profit_kes
+    from source
+)
+select * from renamed
+  );
+[0m11:50:52.366344 [debug] [Thread-1  ]: SQL status: CREATE VIEW in 0.006 seconds
+[0m11:50:52.394981 [debug] [Thread-1  ]: Using postgres connection "model.pan_africa_platform.stg_subsidiaries"
+[0m11:50:52.398178 [debug] [Thread-1  ]: On model.pan_africa_platform.stg_subsidiaries: /* {"app": "dbt", "dbt_version": "1.9.0b2", "profile_name": "pan_africa_platform", "target_name": "dev", "node_id": "model.pan_africa_platform.stg_subsidiaries"} */
+alter table "pan_africa_platform"."public"."stg_subsidiaries__dbt_tmp" rename to "stg_subsidiaries"
+[0m11:50:52.401656 [debug] [Thread-1  ]: SQL status: ALTER TABLE in 0.001 seconds
+[0m11:50:52.462370 [debug] [Thread-1  ]: On model.pan_africa_platform.stg_subsidiaries: COMMIT
+[0m11:50:52.464378 [debug] [Thread-1  ]: Using postgres connection "model.pan_africa_platform.stg_subsidiaries"
+[0m11:50:52.466227 [debug] [Thread-1  ]: On model.pan_africa_platform.stg_subsidiaries: COMMIT
+[0m11:50:52.472235 [debug] [Thread-1  ]: SQL status: COMMIT in 0.004 seconds
+[0m11:50:52.504944 [debug] [Thread-1  ]: Applying DROP to: "pan_africa_platform"."public"."stg_subsidiaries__dbt_backup"
+[0m11:50:52.521906 [debug] [Thread-1  ]: Using postgres connection "model.pan_africa_platform.stg_subsidiaries"
+[0m11:50:52.524713 [debug] [Thread-1  ]: On model.pan_africa_platform.stg_subsidiaries: /* {"app": "dbt", "dbt_version": "1.9.0b2", "profile_name": "pan_africa_platform", "target_name": "dev", "node_id": "model.pan_africa_platform.stg_subsidiaries"} */
+drop view if exists "pan_africa_platform"."public"."stg_subsidiaries__dbt_backup" cascade
+[0m11:50:52.530125 [debug] [Thread-1  ]: SQL status: DROP VIEW in 0.001 seconds
+[0m11:50:52.539820 [debug] [Thread-1  ]: On model.pan_africa_platform.stg_subsidiaries: Close
+[0m11:50:52.549320 [debug] [Thread-1  ]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'b394bc3d-a67e-46f8-8c13-d45be74b5ceb', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f4f216347f0>]}
+[0m11:50:52.552965 [info ] [Thread-1  ]: 1 of 3 OK created sql view model public.stg_subsidiaries ....................... [[32mCREATE VIEW[0m in 0.41s]
+[0m11:50:52.556348 [debug] [Thread-1  ]: Finished running node model.pan_africa_platform.stg_subsidiaries
+[0m11:50:52.561433 [debug] [Thread-3  ]: Began running node model.pan_africa_platform.mart_group_consolidation
+[0m11:50:52.563663 [debug] [Thread-4  ]: Began running node model.pan_africa_platform.mart_subsidiary_comparison
+[0m11:50:52.566704 [info ] [Thread-3  ]: 2 of 3 START sql table model public.mart_group_consolidation ................... [RUN]
+[0m11:50:52.574438 [debug] [Thread-3  ]: Acquiring new postgres connection 'model.pan_africa_platform.mart_group_consolidation'
+[0m11:50:52.569788 [info ] [Thread-4  ]: 3 of 3 START sql table model public.mart_subsidiary_comparison ................. [RUN]
+[0m11:50:52.578219 [debug] [Thread-3  ]: Began compiling node model.pan_africa_platform.mart_group_consolidation
+[0m11:50:52.581052 [debug] [Thread-4  ]: Acquiring new postgres connection 'model.pan_africa_platform.mart_subsidiary_comparison'
+[0m11:50:52.588467 [debug] [Thread-4  ]: Began compiling node model.pan_africa_platform.mart_subsidiary_comparison
+[0m11:50:52.615377 [debug] [Thread-3  ]: Writing injected SQL for node "model.pan_africa_platform.mart_group_consolidation"
+[0m11:50:52.612741 [debug] [Thread-4  ]: Writing injected SQL for node "model.pan_africa_platform.mart_subsidiary_comparison"
+[0m11:50:52.620056 [debug] [Thread-4  ]: Began executing node model.pan_africa_platform.mart_subsidiary_comparison
+[0m11:50:52.622689 [debug] [Thread-3  ]: Began executing node model.pan_africa_platform.mart_group_consolidation
+[0m11:50:52.849767 [debug] [Thread-3  ]: Writing runtime sql for node "model.pan_africa_platform.mart_group_consolidation"
+[0m11:50:52.865240 [debug] [Thread-4  ]: Writing runtime sql for node "model.pan_africa_platform.mart_subsidiary_comparison"
+[0m11:50:52.869638 [debug] [Thread-4  ]: Using postgres connection "model.pan_africa_platform.mart_subsidiary_comparison"
+[0m11:50:52.872004 [debug] [Thread-3  ]: Using postgres connection "model.pan_africa_platform.mart_group_consolidation"
+[0m11:50:52.873837 [debug] [Thread-4  ]: On model.pan_africa_platform.mart_subsidiary_comparison: BEGIN
+[0m11:50:52.876128 [debug] [Thread-3  ]: On model.pan_africa_platform.mart_group_consolidation: BEGIN
+[0m11:50:52.879803 [debug] [Thread-4  ]: Opening a new connection, currently in state init
+[0m11:50:52.882189 [debug] [Thread-3  ]: Opening a new connection, currently in state init
+[0m11:50:52.900820 [debug] [Thread-3  ]: SQL status: BEGIN in 0.019 seconds
+[0m11:50:52.902744 [debug] [Thread-3  ]: Using postgres connection "model.pan_africa_platform.mart_group_consolidation"
+[0m11:50:52.904434 [debug] [Thread-3  ]: On model.pan_africa_platform.mart_group_consolidation: /* {"app": "dbt", "dbt_version": "1.9.0b2", "profile_name": "pan_africa_platform", "target_name": "dev", "node_id": "model.pan_africa_platform.mart_group_consolidation"} */
+
+  
+    
+
+  create  table "pan_africa_platform"."public"."mart_group_consolidation__dbt_tmp"
+  
+  
+    as
+  
+  (
+    with staging as (
+    select * from "pan_africa_platform"."public"."stg_subsidiaries"
+),
+consolidation as (
+    select
+        period,
+        sum(profit_usd) as total_profit_usd,
+        sum(profit_kes) as total_profit_kes,
+        count(distinct subsidiary) as subsidiary_count
+    from staging
+    group by 1
+)
+select * from consolidation
+  );
+  
+[0m11:50:52.908197 [debug] [Thread-4  ]: SQL status: BEGIN in 0.028 seconds
+[0m11:50:52.911233 [debug] [Thread-4  ]: Using postgres connection "model.pan_africa_platform.mart_subsidiary_comparison"
+[0m11:50:52.913995 [debug] [Thread-4  ]: On model.pan_africa_platform.mart_subsidiary_comparison: /* {"app": "dbt", "dbt_version": "1.9.0b2", "profile_name": "pan_africa_platform", "target_name": "dev", "node_id": "model.pan_africa_platform.mart_subsidiary_comparison"} */
+
+  
+    
+
+  create  table "pan_africa_platform"."public"."mart_subsidiary_comparison__dbt_tmp"
+  
+  
+    as
+  
+  (
+    with staging as (
+    select * from "pan_africa_platform"."public"."stg_subsidiaries"
+),
+comparison as (
+    select
+        subsidiary,
+        period,
+        profit_usd,
+        profit_kes,
+        (profit_usd / sum(profit_usd) over (partition by period)) * 100 as contribution_percentage
+    from staging
+)
+select * from comparison
+  );
+  
+[0m11:50:52.925792 [debug] [Thread-3  ]: SQL status: SELECT 4 in 0.018 seconds
+[0m11:50:52.943242 [debug] [Thread-4  ]: SQL status: SELECT 28 in 0.027 seconds
+[0m11:50:52.942003 [debug] [Thread-3  ]: Using postgres connection "model.pan_africa_platform.mart_group_consolidation"
+[0m11:50:52.957213 [debug] [Thread-3  ]: On model.pan_africa_platform.mart_group_consolidation: /* {"app": "dbt", "dbt_version": "1.9.0b2", "profile_name": "pan_africa_platform", "target_name": "dev", "node_id": "model.pan_africa_platform.mart_group_consolidation"} */
+alter table "pan_africa_platform"."public"."mart_group_consolidation__dbt_tmp" rename to "mart_group_consolidation"
+[0m11:50:52.962345 [debug] [Thread-4  ]: Using postgres connection "model.pan_africa_platform.mart_subsidiary_comparison"
+[0m11:50:52.964641 [debug] [Thread-4  ]: On model.pan_africa_platform.mart_subsidiary_comparison: /* {"app": "dbt", "dbt_version": "1.9.0b2", "profile_name": "pan_africa_platform", "target_name": "dev", "node_id": "model.pan_africa_platform.mart_subsidiary_comparison"} */
+alter table "pan_africa_platform"."public"."mart_subsidiary_comparison__dbt_tmp" rename to "mart_subsidiary_comparison"
+[0m11:50:52.966907 [debug] [Thread-3  ]: SQL status: ALTER TABLE in 0.003 seconds
+[0m11:50:52.975145 [debug] [Thread-4  ]: SQL status: ALTER TABLE in 0.006 seconds
+[0m11:50:53.001364 [debug] [Thread-3  ]: On model.pan_africa_platform.mart_group_consolidation: COMMIT
+[0m11:50:53.015774 [debug] [Thread-3  ]: Using postgres connection "model.pan_africa_platform.mart_group_consolidation"
+[0m11:50:53.014670 [debug] [Thread-4  ]: On model.pan_africa_platform.mart_subsidiary_comparison: COMMIT
+[0m11:50:53.020653 [debug] [Thread-3  ]: On model.pan_africa_platform.mart_group_consolidation: COMMIT
+[0m11:50:53.023178 [debug] [Thread-4  ]: Using postgres connection "model.pan_africa_platform.mart_subsidiary_comparison"
+[0m11:50:53.026469 [debug] [Thread-4  ]: On model.pan_africa_platform.mart_subsidiary_comparison: COMMIT
+[0m11:50:53.028986 [debug] [Thread-3  ]: SQL status: COMMIT in 0.003 seconds
+[0m11:50:53.039235 [debug] [Thread-4  ]: SQL status: COMMIT in 0.007 seconds
+[0m11:50:53.054330 [debug] [Thread-3  ]: Applying DROP to: "pan_africa_platform"."public"."mart_group_consolidation__dbt_backup"
+[0m11:50:53.069276 [debug] [Thread-4  ]: Applying DROP to: "pan_africa_platform"."public"."mart_subsidiary_comparison__dbt_backup"
+[0m11:50:53.084303 [debug] [Thread-3  ]: Using postgres connection "model.pan_africa_platform.mart_group_consolidation"
+[0m11:50:53.087329 [debug] [Thread-4  ]: Using postgres connection "model.pan_africa_platform.mart_subsidiary_comparison"
+[0m11:50:53.089723 [debug] [Thread-3  ]: On model.pan_africa_platform.mart_group_consolidation: /* {"app": "dbt", "dbt_version": "1.9.0b2", "profile_name": "pan_africa_platform", "target_name": "dev", "node_id": "model.pan_africa_platform.mart_group_consolidation"} */
+drop table if exists "pan_africa_platform"."public"."mart_group_consolidation__dbt_backup" cascade
+[0m11:50:53.091943 [debug] [Thread-4  ]: On model.pan_africa_platform.mart_subsidiary_comparison: /* {"app": "dbt", "dbt_version": "1.9.0b2", "profile_name": "pan_africa_platform", "target_name": "dev", "node_id": "model.pan_africa_platform.mart_subsidiary_comparison"} */
+drop table if exists "pan_africa_platform"."public"."mart_subsidiary_comparison__dbt_backup" cascade
+[0m11:50:53.096243 [debug] [Thread-4  ]: SQL status: DROP TABLE in 0.001 seconds
+[0m11:50:53.098625 [debug] [Thread-3  ]: SQL status: DROP TABLE in 0.003 seconds
+[0m11:50:53.106744 [debug] [Thread-4  ]: On model.pan_africa_platform.mart_subsidiary_comparison: Close
+[0m11:50:53.114375 [debug] [Thread-3  ]: On model.pan_africa_platform.mart_group_consolidation: Close
+[0m11:50:53.120630 [debug] [Thread-4  ]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'b394bc3d-a67e-46f8-8c13-d45be74b5ceb', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f4f23317760>]}
+[0m11:50:53.129476 [debug] [Thread-3  ]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'b394bc3d-a67e-46f8-8c13-d45be74b5ceb', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f4f23317670>]}
+[0m11:50:53.125908 [info ] [Thread-4  ]: 3 of 3 OK created sql table model public.mart_subsidiary_comparison ............ [[32mSELECT 28[0m in 0.54s]
+[0m11:50:53.137183 [debug] [Thread-4  ]: Finished running node model.pan_africa_platform.mart_subsidiary_comparison
+[0m11:50:53.133825 [info ] [Thread-3  ]: 2 of 3 OK created sql table model public.mart_group_consolidation .............. [[32mSELECT 4[0m in 0.56s]
+[0m11:50:53.143076 [debug] [Thread-3  ]: Finished running node model.pan_africa_platform.mart_group_consolidation
+[0m11:50:53.149088 [debug] [MainThread]: Using postgres connection "master"
+[0m11:50:53.153160 [debug] [MainThread]: On master: BEGIN
+[0m11:50:53.155707 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m11:50:53.174544 [debug] [MainThread]: SQL status: BEGIN in 0.019 seconds
+[0m11:50:53.176865 [debug] [MainThread]: On master: COMMIT
+[0m11:50:53.178932 [debug] [MainThread]: Using postgres connection "master"
+[0m11:50:53.182996 [debug] [MainThread]: On master: COMMIT
+[0m11:50:53.185290 [debug] [MainThread]: SQL status: COMMIT in 0.001 seconds
+[0m11:50:53.187444 [debug] [MainThread]: On master: Close
+[0m11:50:53.191908 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m11:50:53.196130 [debug] [MainThread]: Connection 'model.pan_africa_platform.stg_subsidiaries' was properly closed.
+[0m11:50:53.197423 [debug] [MainThread]: Connection 'model.pan_africa_platform.mart_group_consolidation' was properly closed.
+[0m11:50:53.198619 [debug] [MainThread]: Connection 'model.pan_africa_platform.mart_subsidiary_comparison' was properly closed.
+[0m11:50:53.199934 [info ] [MainThread]: 
+[0m11:50:53.201459 [info ] [MainThread]: Finished running 2 table models, 1 view model in 0 hours 0 minutes and 1.50 seconds (1.50s).
+[0m11:50:53.207988 [debug] [MainThread]: Command end result
+[0m11:50:53.316221 [info ] [MainThread]: 
+[0m11:50:53.318473 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m11:50:53.320350 [info ] [MainThread]: 
+[0m11:50:53.322328 [info ] [MainThread]: Done. PASS=3 WARN=0 ERROR=0 SKIP=0 TOTAL=3
+[0m11:50:53.326368 [debug] [MainThread]: Resource report: {"command_name": "run", "command_success": true, "command_wall_clock_time": 8.269145, "process_user_time": 12.965259, "process_kernel_time": 0.84177, "process_mem_max_rss": "111412", "process_in_blocks": "32", "process_out_blocks": "2592"}
+[0m11:50:53.329420 [debug] [MainThread]: Command `dbt run` succeeded at 11:50:53.328828 after 8.27 seconds
+[0m11:50:53.331300 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f4f25cabc70>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f4f232dedc0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f4f21404f10>]}
+[0m11:50:53.333113 [debug] [MainThread]: Flushing usage events
+[0m11:50:54.603914 [debug] [MainThread]: An error was encountered while trying to flush usage events
