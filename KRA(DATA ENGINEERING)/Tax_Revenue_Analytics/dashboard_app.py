@@ -43,7 +43,7 @@ if not revenue_head.empty:
 
     st.markdown("---")
     
-    tab1, tab2 = st.tabs(["Revenue Breakdown", "Performance Trends"])
+    tab1, tab2, tab3 = st.tabs(["Revenue Breakdown", "Performance Trends", "Macro Context"])
     
     with tab1:
         st.subheader(f"Revenue by Tax Head ({latest_year})")
@@ -66,6 +66,24 @@ if not revenue_head.empty:
             fig_perf = px.line(performance_trend, x='year', y='monthly_performance', markers=True)
             fig_perf.add_hline(y=100, line_dash="dot", line_color="red")
             st.plotly_chart(fig_perf, use_container_width=True)
+
+    with tab3:
+        st.subheader("National Economic Indicators (KNBS)")
+        macro_df = load_data("SELECT * FROM macro_economic_indicators", "macro_economic_indicators")
+        if not macro_df.empty:
+            c1, c2 = st.columns(2)
+            with c1:
+                infl = macro_df[macro_df['indicator'] == 'Inflation Rate']
+                if not infl.empty:
+                    st.metric("Current Inflation Rate", f"{infl['value'].iloc[0]}%", help="Source: KNBS Leading Indicators Feb 2023")
+            
+            with c2:
+                trade = macro_df[macro_df['indicator'].str.contains("Total")]
+                if not trade.empty:
+                    st.write("**Trade Volume (Feb 2023)**")
+                    st.dataframe(trade[['indicator', 'value', 'unit']], hide_index=True)
+            
+            st.info("Macroeconomic indicators provide context for tax revenue performance, especially for VAT and Customs collections.")
 
 else:
     st.warning("No data found. Please run the pipeline first.")
