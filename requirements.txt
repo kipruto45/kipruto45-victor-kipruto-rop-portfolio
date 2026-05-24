@@ -4,3 +4,5 @@ plotly
 sqlalchemy
 psycopg2-binary
 pdfplumber
+requests-html
+openpyxl

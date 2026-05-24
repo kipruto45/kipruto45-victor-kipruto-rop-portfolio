@@ -4,7 +4,9 @@ numpy
 sqlalchemy
 psycopg2-binary
 requests
+requests-html
 streamlit
 plotly
 pdfplumber
 python-dotenv
+openpyxl

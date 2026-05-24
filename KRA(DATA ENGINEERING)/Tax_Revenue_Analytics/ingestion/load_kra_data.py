@@ -4,15 +4,15 @@ import os
 
 def load_kra_revenue(project_dir=None):
     if project_dir is None:
-        if os.path.exists("/opt/airflow/projects/kra_revenue"):
-            project_dir = "/opt/airflow/projects/kra_revenue"
+        if os.path.exists("/opt/airflow/projects/kra"):
+            project_dir = "/opt/airflow/projects/kra/Tax_Revenue_Analytics"
         else:
             project_dir = "KRA(DATA ENGINEERING)/Tax_Revenue_Analytics"
             
     csv_path = os.path.join(project_dir, "ingestion/kra_revenue_performance.csv")
     
-    # Internal Docker connection
-    engine = create_engine('postgresql://kra_admin:kra_password@postgres:5432/kra_warehouse')
+    # Internal Docker connection - use service name from docker-compose
+    engine = create_engine('postgresql://kra_admin:kra_password@postgres-kra:5432/kra_warehouse')
     
     if not os.path.exists("/.dockerenv"):
         # Local connection (outside Docker)

@@ -715,3 +715,687 @@ drop table if exists "kra_warehouse"."public"."mart_revenue_by_tax_head__dbt_bac
 [0m17:30:32.011167 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x70a2df4c3be0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x70a2dce48f40>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x70a2dca816d0>]}
 [0m17:30:32.012907 [debug] [MainThread]: Flushing usage events
 [0m17:30:33.247724 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m17:40:34.950914 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7a1d13a6dd30>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7a1d138bf1c0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7a1d14b9aee0>]}
+
+
+============================== 17:40:34.966025 | fe8ecf71-c96a-4962-829e-4c12c77a1afd ==============================
+[0m17:40:34.966025 [info ] [MainThread]: Running with dbt=1.9.0-b2
+[0m17:40:34.967680 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': '.', 'fail_fast': 'False', 'debug': 'False', 'log_path': '/opt/airflow/projects/kra/Tax_Revenue_Analytics/dbt/logs', 'warn_error': 'None', 'version_check': 'True', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'empty': 'False', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'introspect': 'True', 'log_format': 'default', 'static_parser': 'True', 'target_path': 'None', 'invocation_command': 'dbt run --profiles-dir .', 'send_anonymous_usage_stats': 'True'}
+[0m17:40:35.474860 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'fe8ecf71-c96a-4962-829e-4c12c77a1afd', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7a1d156efa00>]}
+[0m17:40:35.648118 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'fe8ecf71-c96a-4962-829e-4c12c77a1afd', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7a1d113f0a00>]}
+[0m17:40:35.650284 [info ] [MainThread]: Registered adapter: postgres=1.8.2
+[0m17:40:35.696396 [debug] [MainThread]: checksum: 4cfbbe2a671212f062e88a43cba5322b30b7e3e8e91b953aa4de249eeaade60f, vars: {}, profile: , target: , version: 1.9.0b2
+[0m17:40:36.090350 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m17:40:36.091775 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+[0m17:40:36.224595 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': 'fe8ecf71-c96a-4962-829e-4c12c77a1afd', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7a1d11153fa0>]}
+[0m17:40:36.532960 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': 'fe8ecf71-c96a-4962-829e-4c12c77a1afd', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7a1d1106a0d0>]}
+[0m17:40:36.534587 [info ] [MainThread]: Found 5 models, 1 source, 423 macros
+[0m17:40:36.536126 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'fe8ecf71-c96a-4962-829e-4c12c77a1afd', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7a1d111015b0>]}
+[0m17:40:36.540517 [info ] [MainThread]: 
+[0m17:40:36.541831 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m17:40:36.542952 [info ] [MainThread]: 
+[0m17:40:36.544510 [debug] [MainThread]: Acquiring new postgres connection 'master'
+[0m17:40:36.557819 [debug] [ThreadPool]: Acquiring new postgres connection 'list_kra_warehouse'
+[0m17:40:36.687256 [debug] [ThreadPool]: Using postgres connection "list_kra_warehouse"
+[0m17:40:36.688610 [debug] [ThreadPool]: On list_kra_warehouse: /* {"app": "dbt", "dbt_version": "1.9.0b2", "profile_name": "kra_revenue", "target_name": "dev", "connection_name": "list_kra_warehouse"} */
+
+    select distinct nspname from pg_namespace
+  
+[0m17:40:36.689823 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m17:40:36.703636 [debug] [ThreadPool]: SQL status: SELECT 4 in 0.014 seconds
+[0m17:40:36.706949 [debug] [ThreadPool]: On list_kra_warehouse: Close
+[0m17:40:36.710917 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_kra_warehouse, now list_kra_warehouse_public)
+[0m17:40:36.732889 [debug] [ThreadPool]: Using postgres connection "list_kra_warehouse_public"
+[0m17:40:36.734121 [debug] [ThreadPool]: On list_kra_warehouse_public: BEGIN
+[0m17:40:36.735223 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m17:40:36.747728 [debug] [ThreadPool]: SQL status: BEGIN in 0.012 seconds
+[0m17:40:36.749104 [debug] [ThreadPool]: Using postgres connection "list_kra_warehouse_public"
+[0m17:40:36.750768 [debug] [ThreadPool]: On list_kra_warehouse_public: /* {"app": "dbt", "dbt_version": "1.9.0b2", "profile_name": "kra_revenue", "target_name": "dev", "connection_name": "list_kra_warehouse_public"} */
+select
+      'kra_warehouse' as database,
+      tablename as name,
+      schemaname as schema,
+      'table' as type
+    from pg_tables
+    where schemaname ilike 'public'
+    union all
+    select
+      'kra_warehouse' as database,
+      viewname as name,
+      schemaname as schema,
+      'view' as type
+    from pg_views
+    where schemaname ilike 'public'
+    union all
+    select
+      'kra_warehouse' as database,
+      matviewname as name,
+      schemaname as schema,
+      'materialized_view' as type
+    from pg_matviews
+    where schemaname ilike 'public'
+  
+[0m17:40:36.759411 [debug] [ThreadPool]: SQL status: SELECT 20 in 0.007 seconds
+[0m17:40:36.764958 [debug] [ThreadPool]: On list_kra_warehouse_public: ROLLBACK
+[0m17:40:36.766673 [debug] [ThreadPool]: On list_kra_warehouse_public: Close
+[0m17:40:36.792917 [debug] [MainThread]: Using postgres connection "master"
+[0m17:40:36.794164 [debug] [MainThread]: On master: BEGIN
+[0m17:40:36.795268 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m17:40:36.806953 [debug] [MainThread]: SQL status: BEGIN in 0.012 seconds
+[0m17:40:36.808122 [debug] [MainThread]: Using postgres connection "master"
+[0m17:40:36.809533 [debug] [MainThread]: On master: /* {"app": "dbt", "dbt_version": "1.9.0b2", "profile_name": "kra_revenue", "target_name": "dev", "connection_name": "master"} */
+with relation as (
+        select
+            pg_rewrite.ev_class as class,
+            pg_rewrite.oid as id
+        from pg_rewrite
+    ),
+    class as (
+        select
+            oid as id,
+            relname as name,
+            relnamespace as schema,
+            relkind as kind
+        from pg_class
+    ),
+    dependency as (
+        select distinct
+            pg_depend.objid as id,
+            pg_depend.refobjid as ref
+        from pg_depend
+    ),
+    schema as (
+        select
+            pg_namespace.oid as id,
+            pg_namespace.nspname as name
+        from pg_namespace
+        where nspname != 'information_schema' and nspname not like 'pg\_%'
+    ),
+    referenced as (
+        select
+            relation.id AS id,
+            referenced_class.name ,
+            referenced_class.schema ,
+            referenced_class.kind
+        from relation
+        join class as referenced_class on relation.class=referenced_class.id
+        where referenced_class.kind in ('r', 'v', 'm')
+    ),
+    relationships as (
+        select
+            referenced.name as referenced_name,
+            referenced.schema as referenced_schema_id,
+            dependent_class.name as dependent_name,
+            dependent_class.schema as dependent_schema_id,
+            referenced.kind as kind
+        from referenced
+        join dependency on referenced.id=dependency.id
+        join class as dependent_class on dependency.ref=dependent_class.id
+        where
+            (referenced.name != dependent_class.name or
+             referenced.schema != dependent_class.schema)
+    )
+
+    select
+        referenced_schema.name as referenced_schema,
+        relationships.referenced_name as referenced_name,
+        dependent_schema.name as dependent_schema,
+        relationships.dependent_name as dependent_name
+    from relationships
+    join schema as dependent_schema on relationships.dependent_schema_id=dependent_schema.id
+    join schema as referenced_schema on relationships.referenced_schema_id=referenced_schema.id
+    group by referenced_schema, referenced_name, dependent_schema, dependent_name
+    order by referenced_schema, referenced_name, dependent_schema, dependent_name;
+[0m17:40:36.824571 [debug] [MainThread]: SQL status: SELECT 5 in 0.014 seconds
+[0m17:40:36.830782 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'fe8ecf71-c96a-4962-829e-4c12c77a1afd', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7a1d1106a1f0>]}
+[0m17:40:36.832024 [debug] [MainThread]: On master: ROLLBACK
+[0m17:40:36.833168 [debug] [MainThread]: Using postgres connection "master"
+[0m17:40:36.834213 [debug] [MainThread]: On master: BEGIN
+[0m17:40:36.835646 [debug] [MainThread]: SQL status: BEGIN in 0.000 seconds
+[0m17:40:36.836738 [debug] [MainThread]: On master: COMMIT
+[0m17:40:36.837585 [debug] [MainThread]: Using postgres connection "master"
+[0m17:40:36.838322 [debug] [MainThread]: On master: COMMIT
+[0m17:40:36.839582 [debug] [MainThread]: SQL status: COMMIT in 0.000 seconds
+[0m17:40:36.840648 [debug] [MainThread]: On master: Close
+[0m17:40:36.862646 [debug] [Thread-1  ]: Began running node model.kra_revenue.stg_revenue_monthly
+[0m17:40:36.864539 [info ] [Thread-1  ]: 1 of 3 START sql view model public.stg_revenue_monthly ......................... [RUN]
+[0m17:40:36.866254 [debug] [Thread-1  ]: Re-using an available connection from the pool (formerly list_kra_warehouse_public, now model.kra_revenue.stg_revenue_monthly)
+[0m17:40:36.867803 [debug] [Thread-1  ]: Began compiling node model.kra_revenue.stg_revenue_monthly
+[0m17:40:36.895460 [debug] [Thread-1  ]: Writing injected SQL for node "model.kra_revenue.stg_revenue_monthly"
+[0m17:40:36.897340 [debug] [Thread-1  ]: Began executing node model.kra_revenue.stg_revenue_monthly
+[0m17:40:37.011436 [debug] [Thread-1  ]: Writing runtime sql for node "model.kra_revenue.stg_revenue_monthly"
+[0m17:40:37.013517 [debug] [Thread-1  ]: Using postgres connection "model.kra_revenue.stg_revenue_monthly"
+[0m17:40:37.014900 [debug] [Thread-1  ]: On model.kra_revenue.stg_revenue_monthly: BEGIN
+[0m17:40:37.016141 [debug] [Thread-1  ]: Opening a new connection, currently in state closed
+[0m17:40:37.030386 [debug] [Thread-1  ]: SQL status: BEGIN in 0.014 seconds
+[0m17:40:37.031620 [debug] [Thread-1  ]: Using postgres connection "model.kra_revenue.stg_revenue_monthly"
+[0m17:40:37.032842 [debug] [Thread-1  ]: On model.kra_revenue.stg_revenue_monthly: /* {"app": "dbt", "dbt_version": "1.9.0b2", "profile_name": "kra_revenue", "target_name": "dev", "node_id": "model.kra_revenue.stg_revenue_monthly"} */
+
+  create view "kra_warehouse"."public"."stg_revenue_monthly__dbt_tmp"
+    
+    
+  as (
+    with source as (
+    select * from "kra_warehouse"."public"."raw_kra_revenue"
+),
+renamed as (
+    select
+        tax_head,
+        year,
+        month,
+        actual_revenue_m_kes,
+        target_revenue_m_kes,
+        reported_date
+    from source
+)
+select * from renamed
+  );
+[0m17:40:37.038276 [debug] [Thread-1  ]: SQL status: CREATE VIEW in 0.004 seconds
+[0m17:40:37.063852 [debug] [Thread-1  ]: Using postgres connection "model.kra_revenue.stg_revenue_monthly"
+[0m17:40:37.065355 [debug] [Thread-1  ]: On model.kra_revenue.stg_revenue_monthly: /* {"app": "dbt", "dbt_version": "1.9.0b2", "profile_name": "kra_revenue", "target_name": "dev", "node_id": "model.kra_revenue.stg_revenue_monthly"} */
+alter table "kra_warehouse"."public"."stg_revenue_monthly" rename to "stg_revenue_monthly__dbt_backup"
+[0m17:40:37.067533 [debug] [Thread-1  ]: SQL status: ALTER TABLE in 0.001 seconds
+[0m17:40:37.078200 [debug] [Thread-1  ]: Using postgres connection "model.kra_revenue.stg_revenue_monthly"
+[0m17:40:37.079859 [debug] [Thread-1  ]: On model.kra_revenue.stg_revenue_monthly: /* {"app": "dbt", "dbt_version": "1.9.0b2", "profile_name": "kra_revenue", "target_name": "dev", "node_id": "model.kra_revenue.stg_revenue_monthly"} */
+alter table "kra_warehouse"."public"."stg_revenue_monthly__dbt_tmp" rename to "stg_revenue_monthly"
+[0m17:40:37.082156 [debug] [Thread-1  ]: SQL status: ALTER TABLE in 0.001 seconds
+[0m17:40:37.135329 [debug] [Thread-1  ]: On model.kra_revenue.stg_revenue_monthly: COMMIT
+[0m17:40:37.136868 [debug] [Thread-1  ]: Using postgres connection "model.kra_revenue.stg_revenue_monthly"
+[0m17:40:37.138276 [debug] [Thread-1  ]: On model.kra_revenue.stg_revenue_monthly: COMMIT
+[0m17:40:37.140934 [debug] [Thread-1  ]: SQL status: COMMIT in 0.001 seconds
+[0m17:40:37.166124 [debug] [Thread-1  ]: Applying DROP to: "kra_warehouse"."public"."stg_revenue_monthly__dbt_backup"
+[0m17:40:37.179031 [debug] [Thread-1  ]: Using postgres connection "model.kra_revenue.stg_revenue_monthly"
+[0m17:40:37.180766 [debug] [Thread-1  ]: On model.kra_revenue.stg_revenue_monthly: /* {"app": "dbt", "dbt_version": "1.9.0b2", "profile_name": "kra_revenue", "target_name": "dev", "node_id": "model.kra_revenue.stg_revenue_monthly"} */
+drop view if exists "kra_warehouse"."public"."stg_revenue_monthly__dbt_backup" cascade
+[0m17:40:37.184878 [debug] [Thread-1  ]: SQL status: DROP VIEW in 0.003 seconds
+[0m17:40:37.191826 [debug] [Thread-1  ]: On model.kra_revenue.stg_revenue_monthly: Close
+[0m17:40:37.196684 [debug] [Thread-1  ]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'fe8ecf71-c96a-4962-829e-4c12c77a1afd', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7a1d156d1190>]}
+[0m17:40:37.198834 [info ] [Thread-1  ]: 1 of 3 OK created sql view model public.stg_revenue_monthly .................... [[32mCREATE VIEW[0m in 0.33s]
+[0m17:40:37.200676 [debug] [Thread-1  ]: Finished running node model.kra_revenue.stg_revenue_monthly
+[0m17:40:37.202525 [debug] [Thread-3  ]: Began running node model.kra_revenue.mart_revenue_by_tax_head
+[0m17:40:37.204340 [debug] [Thread-4  ]: Began running node model.kra_revenue.mart_target_vs_actual
+[0m17:40:37.206416 [info ] [Thread-3  ]: 2 of 3 START sql table model public.mart_revenue_by_tax_head ................... [RUN]
+[0m17:40:37.210816 [debug] [Thread-3  ]: Acquiring new postgres connection 'model.kra_revenue.mart_revenue_by_tax_head'
+[0m17:40:37.208780 [info ] [Thread-4  ]: 3 of 3 START sql table model public.mart_target_vs_actual ...................... [RUN]
+[0m17:40:37.214914 [debug] [Thread-4  ]: Acquiring new postgres connection 'model.kra_revenue.mart_target_vs_actual'
+[0m17:40:37.212833 [debug] [Thread-3  ]: Began compiling node model.kra_revenue.mart_revenue_by_tax_head
+[0m17:40:37.216305 [debug] [Thread-4  ]: Began compiling node model.kra_revenue.mart_target_vs_actual
+[0m17:40:37.225450 [debug] [Thread-3  ]: Writing injected SQL for node "model.kra_revenue.mart_revenue_by_tax_head"
+[0m17:40:37.235447 [debug] [Thread-4  ]: Writing injected SQL for node "model.kra_revenue.mart_target_vs_actual"
+[0m17:40:37.237542 [debug] [Thread-3  ]: Began executing node model.kra_revenue.mart_revenue_by_tax_head
+[0m17:40:37.257191 [debug] [Thread-4  ]: Began executing node model.kra_revenue.mart_target_vs_actual
+[0m17:40:37.435221 [debug] [Thread-3  ]: Writing runtime sql for node "model.kra_revenue.mart_revenue_by_tax_head"
+[0m17:40:37.441994 [debug] [Thread-4  ]: Writing runtime sql for node "model.kra_revenue.mart_target_vs_actual"
+[0m17:40:37.444313 [debug] [Thread-3  ]: Using postgres connection "model.kra_revenue.mart_revenue_by_tax_head"
+[0m17:40:37.446169 [debug] [Thread-3  ]: On model.kra_revenue.mart_revenue_by_tax_head: BEGIN
+[0m17:40:37.449221 [debug] [Thread-3  ]: Opening a new connection, currently in state init
+[0m17:40:37.447806 [debug] [Thread-4  ]: Using postgres connection "model.kra_revenue.mart_target_vs_actual"
+[0m17:40:37.451219 [debug] [Thread-4  ]: On model.kra_revenue.mart_target_vs_actual: BEGIN
+[0m17:40:37.453004 [debug] [Thread-4  ]: Opening a new connection, currently in state init
+[0m17:40:37.464080 [debug] [Thread-3  ]: SQL status: BEGIN in 0.015 seconds
+[0m17:40:37.465900 [debug] [Thread-3  ]: Using postgres connection "model.kra_revenue.mart_revenue_by_tax_head"
+[0m17:40:37.467920 [debug] [Thread-3  ]: On model.kra_revenue.mart_revenue_by_tax_head: /* {"app": "dbt", "dbt_version": "1.9.0b2", "profile_name": "kra_revenue", "target_name": "dev", "node_id": "model.kra_revenue.mart_revenue_by_tax_head"} */
+
+  
+    
+
+  create  table "kra_warehouse"."public"."mart_revenue_by_tax_head__dbt_tmp"
+  
+  
+    as
+  
+  (
+    with monthly as (
+    select * from "kra_warehouse"."public"."stg_revenue_monthly"
+),
+marts as (
+    select
+        tax_head,
+        year,
+        sum(actual_revenue_m_kes) as annual_actual_revenue,
+        sum(target_revenue_m_kes) as annual_target_revenue,
+        (sum(actual_revenue_m_kes) / nullif(sum(target_revenue_m_kes), 0)) * 100 as performance_percent
+    from monthly
+    group by 1, 2
+)
+select * from marts
+  );
+  
+[0m17:40:37.469564 [debug] [Thread-4  ]: SQL status: BEGIN in 0.017 seconds
+[0m17:40:37.471018 [debug] [Thread-4  ]: Using postgres connection "model.kra_revenue.mart_target_vs_actual"
+[0m17:40:37.472833 [debug] [Thread-4  ]: On model.kra_revenue.mart_target_vs_actual: /* {"app": "dbt", "dbt_version": "1.9.0b2", "profile_name": "kra_revenue", "target_name": "dev", "node_id": "model.kra_revenue.mart_target_vs_actual"} */
+
+  
+    
+
+  create  table "kra_warehouse"."public"."mart_target_vs_actual__dbt_tmp"
+  
+  
+    as
+  
+  (
+    with monthly as (
+    select * from "kra_warehouse"."public"."stg_revenue_monthly"
+),
+summary as (
+    select
+        year,
+        month,
+        sum(actual_revenue_m_kes) as total_actual,
+        sum(target_revenue_m_kes) as total_target,
+        (sum(actual_revenue_m_kes) / nullif(sum(target_revenue_m_kes), 0)) * 100 as monthly_performance
+    from monthly
+    group by 1, 2
+)
+select * from summary
+  );
+  
+[0m17:40:37.479989 [debug] [Thread-4  ]: SQL status: SELECT 5 in 0.005 seconds
+[0m17:40:37.482665 [debug] [Thread-3  ]: SQL status: SELECT 4 in 0.012 seconds
+[0m17:40:37.492769 [debug] [Thread-4  ]: Using postgres connection "model.kra_revenue.mart_target_vs_actual"
+[0m17:40:37.505343 [debug] [Thread-4  ]: On model.kra_revenue.mart_target_vs_actual: /* {"app": "dbt", "dbt_version": "1.9.0b2", "profile_name": "kra_revenue", "target_name": "dev", "node_id": "model.kra_revenue.mart_target_vs_actual"} */
+alter table "kra_warehouse"."public"."mart_target_vs_actual" rename to "mart_target_vs_actual__dbt_backup"
+[0m17:40:37.516682 [debug] [Thread-3  ]: Using postgres connection "model.kra_revenue.mart_revenue_by_tax_head"
+[0m17:40:37.518164 [debug] [Thread-4  ]: SQL status: ALTER TABLE in 0.005 seconds
+[0m17:40:37.519662 [debug] [Thread-3  ]: On model.kra_revenue.mart_revenue_by_tax_head: /* {"app": "dbt", "dbt_version": "1.9.0b2", "profile_name": "kra_revenue", "target_name": "dev", "node_id": "model.kra_revenue.mart_revenue_by_tax_head"} */
+alter table "kra_warehouse"."public"."mart_revenue_by_tax_head" rename to "mart_revenue_by_tax_head__dbt_backup"
+[0m17:40:37.619469 [debug] [Thread-4  ]: Using postgres connection "model.kra_revenue.mart_target_vs_actual"
+[0m17:40:37.620663 [debug] [Thread-3  ]: SQL status: ALTER TABLE in 0.005 seconds
+[0m17:40:37.622711 [debug] [Thread-4  ]: On model.kra_revenue.mart_target_vs_actual: /* {"app": "dbt", "dbt_version": "1.9.0b2", "profile_name": "kra_revenue", "target_name": "dev", "node_id": "model.kra_revenue.mart_target_vs_actual"} */
+alter table "kra_warehouse"."public"."mart_target_vs_actual__dbt_tmp" rename to "mart_target_vs_actual"
+[0m17:40:37.635023 [debug] [Thread-3  ]: Using postgres connection "model.kra_revenue.mart_revenue_by_tax_head"
+[0m17:40:37.636509 [debug] [Thread-4  ]: SQL status: ALTER TABLE in 0.002 seconds
+[0m17:40:37.637736 [debug] [Thread-3  ]: On model.kra_revenue.mart_revenue_by_tax_head: /* {"app": "dbt", "dbt_version": "1.9.0b2", "profile_name": "kra_revenue", "target_name": "dev", "node_id": "model.kra_revenue.mart_revenue_by_tax_head"} */
+alter table "kra_warehouse"."public"."mart_revenue_by_tax_head__dbt_tmp" rename to "mart_revenue_by_tax_head"
+[0m17:40:37.650672 [debug] [Thread-3  ]: SQL status: ALTER TABLE in 0.006 seconds
+[0m17:40:37.658766 [debug] [Thread-4  ]: On model.kra_revenue.mart_target_vs_actual: COMMIT
+[0m17:40:37.666649 [debug] [Thread-4  ]: Using postgres connection "model.kra_revenue.mart_target_vs_actual"
+[0m17:40:37.665259 [debug] [Thread-3  ]: On model.kra_revenue.mart_revenue_by_tax_head: COMMIT
+[0m17:40:37.667628 [debug] [Thread-4  ]: On model.kra_revenue.mart_target_vs_actual: COMMIT
+[0m17:40:37.668778 [debug] [Thread-3  ]: Using postgres connection "model.kra_revenue.mart_revenue_by_tax_head"
+[0m17:40:37.670380 [debug] [Thread-3  ]: On model.kra_revenue.mart_revenue_by_tax_head: COMMIT
+[0m17:40:37.678794 [debug] [Thread-4  ]: SQL status: COMMIT in 0.009 seconds
+[0m17:40:37.686141 [debug] [Thread-3  ]: SQL status: COMMIT in 0.015 seconds
+[0m17:40:37.695821 [debug] [Thread-4  ]: Applying DROP to: "kra_warehouse"."public"."mart_target_vs_actual__dbt_backup"
+[0m17:40:37.699815 [debug] [Thread-3  ]: Applying DROP to: "kra_warehouse"."public"."mart_revenue_by_tax_head__dbt_backup"
+[0m17:40:37.707789 [debug] [Thread-4  ]: Using postgres connection "model.kra_revenue.mart_target_vs_actual"
+[0m17:40:37.710679 [debug] [Thread-3  ]: Using postgres connection "model.kra_revenue.mart_revenue_by_tax_head"
+[0m17:40:37.712046 [debug] [Thread-4  ]: On model.kra_revenue.mart_target_vs_actual: /* {"app": "dbt", "dbt_version": "1.9.0b2", "profile_name": "kra_revenue", "target_name": "dev", "node_id": "model.kra_revenue.mart_target_vs_actual"} */
+drop table if exists "kra_warehouse"."public"."mart_target_vs_actual__dbt_backup" cascade
+[0m17:40:37.713406 [debug] [Thread-3  ]: On model.kra_revenue.mart_revenue_by_tax_head: /* {"app": "dbt", "dbt_version": "1.9.0b2", "profile_name": "kra_revenue", "target_name": "dev", "node_id": "model.kra_revenue.mart_revenue_by_tax_head"} */
+drop table if exists "kra_warehouse"."public"."mart_revenue_by_tax_head__dbt_backup" cascade
+[0m17:40:37.718809 [debug] [Thread-4  ]: SQL status: DROP TABLE in 0.004 seconds
+[0m17:40:37.720305 [debug] [Thread-3  ]: SQL status: DROP TABLE in 0.006 seconds
+[0m17:40:37.725004 [debug] [Thread-4  ]: On model.kra_revenue.mart_target_vs_actual: Close
+[0m17:40:37.728891 [debug] [Thread-3  ]: On model.kra_revenue.mart_revenue_by_tax_head: Close
+[0m17:40:37.730851 [debug] [Thread-4  ]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'fe8ecf71-c96a-4962-829e-4c12c77a1afd', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7a1d105986a0>]}
+[0m17:40:37.732594 [debug] [Thread-3  ]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'fe8ecf71-c96a-4962-829e-4c12c77a1afd', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7a1d102f97f0>]}
+[0m17:40:37.737145 [info ] [Thread-4  ]: 3 of 3 OK created sql table model public.mart_target_vs_actual ................. [[32mSELECT 5[0m in 0.52s]
+[0m17:40:37.739691 [info ] [Thread-3  ]: 2 of 3 OK created sql table model public.mart_revenue_by_tax_head .............. [[32mSELECT 4[0m in 0.52s]
+[0m17:40:37.742395 [debug] [Thread-4  ]: Finished running node model.kra_revenue.mart_target_vs_actual
+[0m17:40:37.744396 [debug] [Thread-3  ]: Finished running node model.kra_revenue.mart_revenue_by_tax_head
+[0m17:40:37.747768 [debug] [MainThread]: Using postgres connection "master"
+[0m17:40:37.749133 [debug] [MainThread]: On master: BEGIN
+[0m17:40:37.750274 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m17:40:37.764523 [debug] [MainThread]: SQL status: BEGIN in 0.014 seconds
+[0m17:40:37.766042 [debug] [MainThread]: On master: COMMIT
+[0m17:40:37.767455 [debug] [MainThread]: Using postgres connection "master"
+[0m17:40:37.768994 [debug] [MainThread]: On master: COMMIT
+[0m17:40:37.770618 [debug] [MainThread]: SQL status: COMMIT in 0.000 seconds
+[0m17:40:37.771839 [debug] [MainThread]: On master: Close
+[0m17:40:37.776520 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m17:40:37.777538 [debug] [MainThread]: Connection 'model.kra_revenue.stg_revenue_monthly' was properly closed.
+[0m17:40:37.778327 [debug] [MainThread]: Connection 'model.kra_revenue.mart_revenue_by_tax_head' was properly closed.
+[0m17:40:37.779226 [debug] [MainThread]: Connection 'model.kra_revenue.mart_target_vs_actual' was properly closed.
+[0m17:40:37.780908 [info ] [MainThread]: 
+[0m17:40:37.782224 [info ] [MainThread]: Finished running 2 table models, 1 view model in 0 hours 0 minutes and 1.24 seconds (1.24s).
+[0m17:40:37.785341 [debug] [MainThread]: Command end result
+[0m17:40:37.883097 [info ] [MainThread]: 
+[0m17:40:37.884665 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m17:40:37.885842 [info ] [MainThread]: 
+[0m17:40:37.887113 [info ] [MainThread]: Done. PASS=3 WARN=0 ERROR=0 SKIP=0 TOTAL=3
+[0m17:40:37.889755 [debug] [MainThread]: Resource report: {"command_name": "run", "command_success": true, "command_wall_clock_time": 3.1022596, "process_user_time": 6.746007, "process_kernel_time": 0.580709, "process_mem_max_rss": "107184", "process_out_blocks": "1768", "process_in_blocks": "0"}
+[0m17:40:37.891392 [debug] [MainThread]: Command `dbt run` succeeded at 17:40:37.891072 after 3.10 seconds
+[0m17:40:37.892679 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7a1d13a6dd30>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7a1d156efa00>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7a1d145b6e50>]}
+[0m17:40:37.894032 [debug] [MainThread]: Flushing usage events
+[0m17:40:39.567586 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m17:42:25.398818 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x764b15e8bdf0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x764b17a45d60>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x764b1561e490>]}
+
+
+============================== 17:42:25.411093 | 77105dba-6595-49f9-a493-42433fddedf7 ==============================
+[0m17:42:25.411093 [info ] [MainThread]: Running with dbt=1.9.0-b2
+[0m17:42:25.412626 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': '.', 'version_check': 'True', 'debug': 'False', 'log_path': '/opt/airflow/projects/kra/Tax_Revenue_Analytics/dbt/logs', 'warn_error': 'None', 'fail_fast': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'empty': 'False', 'log_format': 'default', 'introspect': 'True', 'invocation_command': 'dbt run --profiles-dir .', 'static_parser': 'True', 'target_path': 'None', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'send_anonymous_usage_stats': 'True'}
+[0m17:42:25.854146 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '77105dba-6595-49f9-a493-42433fddedf7', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x764b137cfd90>]}
+[0m17:42:26.030909 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '77105dba-6595-49f9-a493-42433fddedf7', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x764b13798df0>]}
+[0m17:42:26.033053 [info ] [MainThread]: Registered adapter: postgres=1.8.2
+[0m17:42:26.078404 [debug] [MainThread]: checksum: 4cfbbe2a671212f062e88a43cba5322b30b7e3e8e91b953aa4de249eeaade60f, vars: {}, profile: , target: , version: 1.9.0b2
+[0m17:42:26.499997 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m17:42:26.501072 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+[0m17:42:26.642400 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '77105dba-6595-49f9-a493-42433fddedf7', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x764b134f1d90>]}
+[0m17:42:26.985418 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '77105dba-6595-49f9-a493-42433fddedf7', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x764b1340c1c0>]}
+[0m17:42:26.987492 [info ] [MainThread]: Found 5 models, 1 source, 423 macros
+[0m17:42:26.989123 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '77105dba-6595-49f9-a493-42433fddedf7', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x764b134a3cd0>]}
+[0m17:42:26.994320 [info ] [MainThread]: 
+[0m17:42:26.995764 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m17:42:26.997043 [info ] [MainThread]: 
+[0m17:42:26.998934 [debug] [MainThread]: Acquiring new postgres connection 'master'
+[0m17:42:27.015706 [debug] [ThreadPool]: Acquiring new postgres connection 'list_kra_warehouse'
+[0m17:42:27.155790 [debug] [ThreadPool]: Using postgres connection "list_kra_warehouse"
+[0m17:42:27.156969 [debug] [ThreadPool]: On list_kra_warehouse: /* {"app": "dbt", "dbt_version": "1.9.0b2", "profile_name": "kra_revenue", "target_name": "dev", "connection_name": "list_kra_warehouse"} */
+
+    select distinct nspname from pg_namespace
+  
+[0m17:42:27.158189 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m17:42:27.180393 [debug] [ThreadPool]: SQL status: SELECT 4 in 0.022 seconds
+[0m17:42:27.184486 [debug] [ThreadPool]: On list_kra_warehouse: Close
+[0m17:42:27.190713 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_kra_warehouse, now list_kra_warehouse_public)
+[0m17:42:27.212425 [debug] [ThreadPool]: Using postgres connection "list_kra_warehouse_public"
+[0m17:42:27.213766 [debug] [ThreadPool]: On list_kra_warehouse_public: BEGIN
+[0m17:42:27.214870 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m17:42:27.228131 [debug] [ThreadPool]: SQL status: BEGIN in 0.013 seconds
+[0m17:42:27.229665 [debug] [ThreadPool]: Using postgres connection "list_kra_warehouse_public"
+[0m17:42:27.231292 [debug] [ThreadPool]: On list_kra_warehouse_public: /* {"app": "dbt", "dbt_version": "1.9.0b2", "profile_name": "kra_revenue", "target_name": "dev", "connection_name": "list_kra_warehouse_public"} */
+select
+      'kra_warehouse' as database,
+      tablename as name,
+      schemaname as schema,
+      'table' as type
+    from pg_tables
+    where schemaname ilike 'public'
+    union all
+    select
+      'kra_warehouse' as database,
+      viewname as name,
+      schemaname as schema,
+      'view' as type
+    from pg_views
+    where schemaname ilike 'public'
+    union all
+    select
+      'kra_warehouse' as database,
+      matviewname as name,
+      schemaname as schema,
+      'materialized_view' as type
+    from pg_matviews
+    where schemaname ilike 'public'
+  
+[0m17:42:27.239757 [debug] [ThreadPool]: SQL status: SELECT 19 in 0.007 seconds
+[0m17:42:27.243877 [debug] [ThreadPool]: On list_kra_warehouse_public: ROLLBACK
+[0m17:42:27.246905 [debug] [ThreadPool]: On list_kra_warehouse_public: Close
+[0m17:42:27.272837 [debug] [MainThread]: Using postgres connection "master"
+[0m17:42:27.274165 [debug] [MainThread]: On master: BEGIN
+[0m17:42:27.275726 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m17:42:27.294876 [debug] [MainThread]: SQL status: BEGIN in 0.019 seconds
+[0m17:42:27.296342 [debug] [MainThread]: Using postgres connection "master"
+[0m17:42:27.298159 [debug] [MainThread]: On master: /* {"app": "dbt", "dbt_version": "1.9.0b2", "profile_name": "kra_revenue", "target_name": "dev", "connection_name": "master"} */
+with relation as (
+        select
+            pg_rewrite.ev_class as class,
+            pg_rewrite.oid as id
+        from pg_rewrite
+    ),
+    class as (
+        select
+            oid as id,
+            relname as name,
+            relnamespace as schema,
+            relkind as kind
+        from pg_class
+    ),
+    dependency as (
+        select distinct
+            pg_depend.objid as id,
+            pg_depend.refobjid as ref
+        from pg_depend
+    ),
+    schema as (
+        select
+            pg_namespace.oid as id,
+            pg_namespace.nspname as name
+        from pg_namespace
+        where nspname != 'information_schema' and nspname not like 'pg\_%'
+    ),
+    referenced as (
+        select
+            relation.id AS id,
+            referenced_class.name ,
+            referenced_class.schema ,
+            referenced_class.kind
+        from relation
+        join class as referenced_class on relation.class=referenced_class.id
+        where referenced_class.kind in ('r', 'v', 'm')
+    ),
+    relationships as (
+        select
+            referenced.name as referenced_name,
+            referenced.schema as referenced_schema_id,
+            dependent_class.name as dependent_name,
+            dependent_class.schema as dependent_schema_id,
+            referenced.kind as kind
+        from referenced
+        join dependency on referenced.id=dependency.id
+        join class as dependent_class on dependency.ref=dependent_class.id
+        where
+            (referenced.name != dependent_class.name or
+             referenced.schema != dependent_class.schema)
+    )
+
+    select
+        referenced_schema.name as referenced_schema,
+        relationships.referenced_name as referenced_name,
+        dependent_schema.name as dependent_schema,
+        relationships.dependent_name as dependent_name
+    from relationships
+    join schema as dependent_schema on relationships.dependent_schema_id=dependent_schema.id
+    join schema as referenced_schema on relationships.referenced_schema_id=referenced_schema.id
+    group by referenced_schema, referenced_name, dependent_schema, dependent_name
+    order by referenced_schema, referenced_name, dependent_schema, dependent_name;
+[0m17:42:27.314953 [debug] [MainThread]: SQL status: SELECT 4 in 0.015 seconds
+[0m17:42:27.322661 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '77105dba-6595-49f9-a493-42433fddedf7', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x764b129711f0>]}
+[0m17:42:27.324299 [debug] [MainThread]: On master: ROLLBACK
+[0m17:42:27.325875 [debug] [MainThread]: Using postgres connection "master"
+[0m17:42:27.327406 [debug] [MainThread]: On master: BEGIN
+[0m17:42:27.329221 [debug] [MainThread]: SQL status: BEGIN in 0.001 seconds
+[0m17:42:27.330243 [debug] [MainThread]: On master: COMMIT
+[0m17:42:27.331430 [debug] [MainThread]: Using postgres connection "master"
+[0m17:42:27.332436 [debug] [MainThread]: On master: COMMIT
+[0m17:42:27.333997 [debug] [MainThread]: SQL status: COMMIT in 0.000 seconds
+[0m17:42:27.335380 [debug] [MainThread]: On master: Close
+[0m17:42:27.355455 [debug] [Thread-1  ]: Began running node model.kra_revenue.stg_revenue_monthly
+[0m17:42:27.358428 [info ] [Thread-1  ]: 1 of 3 START sql view model public.stg_revenue_monthly ......................... [RUN]
+[0m17:42:27.361157 [debug] [Thread-1  ]: Re-using an available connection from the pool (formerly list_kra_warehouse_public, now model.kra_revenue.stg_revenue_monthly)
+[0m17:42:27.362825 [debug] [Thread-1  ]: Began compiling node model.kra_revenue.stg_revenue_monthly
+[0m17:42:27.389201 [debug] [Thread-1  ]: Writing injected SQL for node "model.kra_revenue.stg_revenue_monthly"
+[0m17:42:27.391407 [debug] [Thread-1  ]: Began executing node model.kra_revenue.stg_revenue_monthly
+[0m17:42:27.507455 [debug] [Thread-1  ]: Writing runtime sql for node "model.kra_revenue.stg_revenue_monthly"
+[0m17:42:27.509547 [debug] [Thread-1  ]: Using postgres connection "model.kra_revenue.stg_revenue_monthly"
+[0m17:42:27.510951 [debug] [Thread-1  ]: On model.kra_revenue.stg_revenue_monthly: BEGIN
+[0m17:42:27.512375 [debug] [Thread-1  ]: Opening a new connection, currently in state closed
+[0m17:42:27.526487 [debug] [Thread-1  ]: SQL status: BEGIN in 0.014 seconds
+[0m17:42:27.527869 [debug] [Thread-1  ]: Using postgres connection "model.kra_revenue.stg_revenue_monthly"
+[0m17:42:27.529201 [debug] [Thread-1  ]: On model.kra_revenue.stg_revenue_monthly: /* {"app": "dbt", "dbt_version": "1.9.0b2", "profile_name": "kra_revenue", "target_name": "dev", "node_id": "model.kra_revenue.stg_revenue_monthly"} */
+
+  create view "kra_warehouse"."public"."stg_revenue_monthly__dbt_tmp"
+    
+    
+  as (
+    with source as (
+    select * from "kra_warehouse"."public"."raw_kra_revenue"
+),
+renamed as (
+    select
+        tax_head,
+        year,
+        month,
+        actual_revenue_m_kes,
+        target_revenue_m_kes,
+        reported_date
+    from source
+)
+select * from renamed
+  );
+[0m17:42:27.533889 [debug] [Thread-1  ]: SQL status: CREATE VIEW in 0.003 seconds
+[0m17:42:27.559124 [debug] [Thread-1  ]: Using postgres connection "model.kra_revenue.stg_revenue_monthly"
+[0m17:42:27.560811 [debug] [Thread-1  ]: On model.kra_revenue.stg_revenue_monthly: /* {"app": "dbt", "dbt_version": "1.9.0b2", "profile_name": "kra_revenue", "target_name": "dev", "node_id": "model.kra_revenue.stg_revenue_monthly"} */
+alter table "kra_warehouse"."public"."stg_revenue_monthly__dbt_tmp" rename to "stg_revenue_monthly"
+[0m17:42:27.563389 [debug] [Thread-1  ]: SQL status: ALTER TABLE in 0.001 seconds
+[0m17:42:27.622395 [debug] [Thread-1  ]: On model.kra_revenue.stg_revenue_monthly: COMMIT
+[0m17:42:27.623978 [debug] [Thread-1  ]: Using postgres connection "model.kra_revenue.stg_revenue_monthly"
+[0m17:42:27.625504 [debug] [Thread-1  ]: On model.kra_revenue.stg_revenue_monthly: COMMIT
+[0m17:42:27.628031 [debug] [Thread-1  ]: SQL status: COMMIT in 0.001 seconds
+[0m17:42:27.652146 [debug] [Thread-1  ]: Applying DROP to: "kra_warehouse"."public"."stg_revenue_monthly__dbt_backup"
+[0m17:42:27.670316 [debug] [Thread-1  ]: Using postgres connection "model.kra_revenue.stg_revenue_monthly"
+[0m17:42:27.672263 [debug] [Thread-1  ]: On model.kra_revenue.stg_revenue_monthly: /* {"app": "dbt", "dbt_version": "1.9.0b2", "profile_name": "kra_revenue", "target_name": "dev", "node_id": "model.kra_revenue.stg_revenue_monthly"} */
+drop view if exists "kra_warehouse"."public"."stg_revenue_monthly__dbt_backup" cascade
+[0m17:42:27.675374 [debug] [Thread-1  ]: SQL status: DROP VIEW in 0.001 seconds
+[0m17:42:27.683779 [debug] [Thread-1  ]: On model.kra_revenue.stg_revenue_monthly: Close
+[0m17:42:27.689314 [debug] [Thread-1  ]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '77105dba-6595-49f9-a493-42433fddedf7', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x764b12b6ab50>]}
+[0m17:42:27.691846 [info ] [Thread-1  ]: 1 of 3 OK created sql view model public.stg_revenue_monthly .................... [[32mCREATE VIEW[0m in 0.33s]
+[0m17:42:27.694077 [debug] [Thread-1  ]: Finished running node model.kra_revenue.stg_revenue_monthly
+[0m17:42:27.696576 [debug] [Thread-3  ]: Began running node model.kra_revenue.mart_revenue_by_tax_head
+[0m17:42:27.698105 [debug] [Thread-4  ]: Began running node model.kra_revenue.mart_target_vs_actual
+[0m17:42:27.700136 [info ] [Thread-3  ]: 2 of 3 START sql table model public.mart_revenue_by_tax_head ................... [RUN]
+[0m17:42:27.702423 [info ] [Thread-4  ]: 3 of 3 START sql table model public.mart_target_vs_actual ...................... [RUN]
+[0m17:42:27.706434 [debug] [Thread-3  ]: Acquiring new postgres connection 'model.kra_revenue.mart_revenue_by_tax_head'
+[0m17:42:27.717320 [debug] [Thread-3  ]: Began compiling node model.kra_revenue.mart_revenue_by_tax_head
+[0m17:42:27.713086 [debug] [Thread-4  ]: Acquiring new postgres connection 'model.kra_revenue.mart_target_vs_actual'
+[0m17:42:27.731250 [debug] [Thread-4  ]: Began compiling node model.kra_revenue.mart_target_vs_actual
+[0m17:42:27.734726 [debug] [Thread-3  ]: Writing injected SQL for node "model.kra_revenue.mart_revenue_by_tax_head"
+[0m17:42:27.742924 [debug] [Thread-3  ]: Began executing node model.kra_revenue.mart_revenue_by_tax_head
+[0m17:42:27.747520 [debug] [Thread-4  ]: Writing injected SQL for node "model.kra_revenue.mart_target_vs_actual"
+[0m17:42:27.764122 [debug] [Thread-4  ]: Began executing node model.kra_revenue.mart_target_vs_actual
+[0m17:42:27.904925 [debug] [Thread-3  ]: Writing runtime sql for node "model.kra_revenue.mart_revenue_by_tax_head"
+[0m17:42:27.908725 [debug] [Thread-4  ]: Writing runtime sql for node "model.kra_revenue.mart_target_vs_actual"
+[0m17:42:27.910774 [debug] [Thread-3  ]: Using postgres connection "model.kra_revenue.mart_revenue_by_tax_head"
+[0m17:42:27.912095 [debug] [Thread-3  ]: On model.kra_revenue.mart_revenue_by_tax_head: BEGIN
+[0m17:42:27.913558 [debug] [Thread-4  ]: Using postgres connection "model.kra_revenue.mart_target_vs_actual"
+[0m17:42:27.914739 [debug] [Thread-3  ]: Opening a new connection, currently in state init
+[0m17:42:27.916053 [debug] [Thread-4  ]: On model.kra_revenue.mart_target_vs_actual: BEGIN
+[0m17:42:27.917905 [debug] [Thread-4  ]: Opening a new connection, currently in state init
+[0m17:42:27.927718 [debug] [Thread-3  ]: SQL status: BEGIN in 0.013 seconds
+[0m17:42:27.929208 [debug] [Thread-3  ]: Using postgres connection "model.kra_revenue.mart_revenue_by_tax_head"
+[0m17:42:27.932805 [debug] [Thread-3  ]: On model.kra_revenue.mart_revenue_by_tax_head: /* {"app": "dbt", "dbt_version": "1.9.0b2", "profile_name": "kra_revenue", "target_name": "dev", "node_id": "model.kra_revenue.mart_revenue_by_tax_head"} */
+
+  
+    
+
+  create  table "kra_warehouse"."public"."mart_revenue_by_tax_head__dbt_tmp"
+  
+  
+    as
+  
+  (
+    with monthly as (
+    select * from "kra_warehouse"."public"."stg_revenue_monthly"
+),
+marts as (
+    select
+        tax_head,
+        year,
+        sum(actual_revenue_m_kes) as annual_actual_revenue,
+        sum(target_revenue_m_kes) as annual_target_revenue,
+        (sum(actual_revenue_m_kes) / nullif(sum(target_revenue_m_kes), 0)) * 100 as performance_percent
+    from monthly
+    group by 1, 2
+)
+select * from marts
+  );
+  
+[0m17:42:27.934561 [debug] [Thread-4  ]: SQL status: BEGIN in 0.017 seconds
+[0m17:42:27.936122 [debug] [Thread-4  ]: Using postgres connection "model.kra_revenue.mart_target_vs_actual"
+[0m17:42:27.937522 [debug] [Thread-4  ]: On model.kra_revenue.mart_target_vs_actual: /* {"app": "dbt", "dbt_version": "1.9.0b2", "profile_name": "kra_revenue", "target_name": "dev", "node_id": "model.kra_revenue.mart_target_vs_actual"} */
+
+  
+    
+
+  create  table "kra_warehouse"."public"."mart_target_vs_actual__dbt_tmp"
+  
+  
+    as
+  
+  (
+    with monthly as (
+    select * from "kra_warehouse"."public"."stg_revenue_monthly"
+),
+summary as (
+    select
+        year,
+        month,
+        sum(actual_revenue_m_kes) as total_actual,
+        sum(target_revenue_m_kes) as total_target,
+        (sum(actual_revenue_m_kes) / nullif(sum(target_revenue_m_kes), 0)) * 100 as monthly_performance
+    from monthly
+    group by 1, 2
+)
+select * from summary
+  );
+  
+[0m17:42:27.945257 [debug] [Thread-4  ]: SQL status: SELECT 192 in 0.006 seconds
+[0m17:42:27.954466 [debug] [Thread-3  ]: SQL status: SELECT 80 in 0.018 seconds
+[0m17:42:27.960652 [debug] [Thread-4  ]: Using postgres connection "model.kra_revenue.mart_target_vs_actual"
+[0m17:42:27.974691 [debug] [Thread-3  ]: Using postgres connection "model.kra_revenue.mart_revenue_by_tax_head"
+[0m17:42:27.976269 [debug] [Thread-4  ]: On model.kra_revenue.mart_target_vs_actual: /* {"app": "dbt", "dbt_version": "1.9.0b2", "profile_name": "kra_revenue", "target_name": "dev", "node_id": "model.kra_revenue.mart_target_vs_actual"} */
+alter table "kra_warehouse"."public"."mart_target_vs_actual" rename to "mart_target_vs_actual__dbt_backup"
+[0m17:42:27.977996 [debug] [Thread-3  ]: On model.kra_revenue.mart_revenue_by_tax_head: /* {"app": "dbt", "dbt_version": "1.9.0b2", "profile_name": "kra_revenue", "target_name": "dev", "node_id": "model.kra_revenue.mart_revenue_by_tax_head"} */
+alter table "kra_warehouse"."public"."mart_revenue_by_tax_head" rename to "mart_revenue_by_tax_head__dbt_backup"
+[0m17:42:27.980270 [debug] [Thread-4  ]: SQL status: ALTER TABLE in 0.001 seconds
+[0m17:42:27.987905 [debug] [Thread-3  ]: SQL status: ALTER TABLE in 0.006 seconds
+[0m17:42:28.002120 [debug] [Thread-4  ]: Using postgres connection "model.kra_revenue.mart_target_vs_actual"
+[0m17:42:28.008996 [debug] [Thread-4  ]: On model.kra_revenue.mart_target_vs_actual: /* {"app": "dbt", "dbt_version": "1.9.0b2", "profile_name": "kra_revenue", "target_name": "dev", "node_id": "model.kra_revenue.mart_target_vs_actual"} */
+alter table "kra_warehouse"."public"."mart_target_vs_actual__dbt_tmp" rename to "mart_target_vs_actual"
+[0m17:42:28.011077 [debug] [Thread-3  ]: Using postgres connection "model.kra_revenue.mart_revenue_by_tax_head"
+[0m17:42:28.012847 [debug] [Thread-3  ]: On model.kra_revenue.mart_revenue_by_tax_head: /* {"app": "dbt", "dbt_version": "1.9.0b2", "profile_name": "kra_revenue", "target_name": "dev", "node_id": "model.kra_revenue.mart_revenue_by_tax_head"} */
+alter table "kra_warehouse"."public"."mart_revenue_by_tax_head__dbt_tmp" rename to "mart_revenue_by_tax_head"
+[0m17:42:28.106106 [debug] [Thread-4  ]: SQL status: ALTER TABLE in 0.002 seconds
+[0m17:42:28.107202 [debug] [Thread-3  ]: SQL status: ALTER TABLE in 0.001 seconds
+[0m17:42:28.146257 [debug] [Thread-3  ]: On model.kra_revenue.mart_revenue_by_tax_head: COMMIT
+[0m17:42:28.152826 [debug] [Thread-3  ]: Using postgres connection "model.kra_revenue.mart_revenue_by_tax_head"
+[0m17:42:28.154666 [debug] [Thread-4  ]: On model.kra_revenue.mart_target_vs_actual: COMMIT
+[0m17:42:28.156152 [debug] [Thread-3  ]: On model.kra_revenue.mart_revenue_by_tax_head: COMMIT
+[0m17:42:28.157748 [debug] [Thread-4  ]: Using postgres connection "model.kra_revenue.mart_target_vs_actual"
+[0m17:42:28.161869 [debug] [Thread-4  ]: On model.kra_revenue.mart_target_vs_actual: COMMIT
+[0m17:42:28.163747 [debug] [Thread-3  ]: SQL status: COMMIT in 0.002 seconds
+[0m17:42:28.171364 [debug] [Thread-4  ]: SQL status: COMMIT in 0.006 seconds
+[0m17:42:28.176847 [debug] [Thread-3  ]: Applying DROP to: "kra_warehouse"."public"."mart_revenue_by_tax_head__dbt_backup"
+[0m17:42:28.189061 [debug] [Thread-4  ]: Applying DROP to: "kra_warehouse"."public"."mart_target_vs_actual__dbt_backup"
+[0m17:42:28.199231 [debug] [Thread-3  ]: Using postgres connection "model.kra_revenue.mart_revenue_by_tax_head"
+[0m17:42:28.203780 [debug] [Thread-4  ]: Using postgres connection "model.kra_revenue.mart_target_vs_actual"
+[0m17:42:28.205643 [debug] [Thread-3  ]: On model.kra_revenue.mart_revenue_by_tax_head: /* {"app": "dbt", "dbt_version": "1.9.0b2", "profile_name": "kra_revenue", "target_name": "dev", "node_id": "model.kra_revenue.mart_revenue_by_tax_head"} */
+drop table if exists "kra_warehouse"."public"."mart_revenue_by_tax_head__dbt_backup" cascade
+[0m17:42:28.207303 [debug] [Thread-4  ]: On model.kra_revenue.mart_target_vs_actual: /* {"app": "dbt", "dbt_version": "1.9.0b2", "profile_name": "kra_revenue", "target_name": "dev", "node_id": "model.kra_revenue.mart_target_vs_actual"} */
+drop table if exists "kra_warehouse"."public"."mart_target_vs_actual__dbt_backup" cascade
+[0m17:42:28.210802 [debug] [Thread-4  ]: SQL status: DROP TABLE in 0.002 seconds
+[0m17:42:28.212150 [debug] [Thread-3  ]: SQL status: DROP TABLE in 0.003 seconds
+[0m17:42:28.215885 [debug] [Thread-4  ]: On model.kra_revenue.mart_target_vs_actual: Close
+[0m17:42:28.221037 [debug] [Thread-3  ]: On model.kra_revenue.mart_revenue_by_tax_head: Close
+[0m17:42:28.225039 [debug] [Thread-4  ]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '77105dba-6595-49f9-a493-42433fddedf7', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x764b1375e3a0>]}
+[0m17:42:28.230261 [debug] [Thread-3  ]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '77105dba-6595-49f9-a493-42433fddedf7', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x764b127d5df0>]}
+[0m17:42:28.228709 [info ] [Thread-4  ]: 3 of 3 OK created sql table model public.mart_target_vs_actual ................. [[32mSELECT 192[0m in 0.51s]
+[0m17:42:28.237267 [debug] [Thread-4  ]: Finished running node model.kra_revenue.mart_target_vs_actual
+[0m17:42:28.233900 [info ] [Thread-3  ]: 2 of 3 OK created sql table model public.mart_revenue_by_tax_head .............. [[32mSELECT 80[0m in 0.53s]
+[0m17:42:28.241739 [debug] [Thread-3  ]: Finished running node model.kra_revenue.mart_revenue_by_tax_head
+[0m17:42:28.245246 [debug] [MainThread]: Using postgres connection "master"
+[0m17:42:28.246413 [debug] [MainThread]: On master: BEGIN
+[0m17:42:28.247854 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m17:42:28.265081 [debug] [MainThread]: SQL status: BEGIN in 0.017 seconds
+[0m17:42:28.266475 [debug] [MainThread]: On master: COMMIT
+[0m17:42:28.268073 [debug] [MainThread]: Using postgres connection "master"
+[0m17:42:28.269609 [debug] [MainThread]: On master: COMMIT
+[0m17:42:28.271265 [debug] [MainThread]: SQL status: COMMIT in 0.000 seconds
+[0m17:42:28.272590 [debug] [MainThread]: On master: Close
+[0m17:42:28.278235 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m17:42:28.279783 [debug] [MainThread]: Connection 'model.kra_revenue.stg_revenue_monthly' was properly closed.
+[0m17:42:28.280875 [debug] [MainThread]: Connection 'model.kra_revenue.mart_revenue_by_tax_head' was properly closed.
+[0m17:42:28.281942 [debug] [MainThread]: Connection 'model.kra_revenue.mart_target_vs_actual' was properly closed.
+[0m17:42:28.283415 [info ] [MainThread]: 
+[0m17:42:28.285351 [info ] [MainThread]: Finished running 2 table models, 1 view model in 0 hours 0 minutes and 1.28 seconds (1.28s).
+[0m17:42:28.289995 [debug] [MainThread]: Command end result
+[0m17:42:28.398108 [info ] [MainThread]: 
+[0m17:42:28.400214 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m17:42:28.401967 [info ] [MainThread]: 
+[0m17:42:28.403914 [info ] [MainThread]: Done. PASS=3 WARN=0 ERROR=0 SKIP=0 TOTAL=3
+[0m17:42:28.408363 [debug] [MainThread]: Resource report: {"command_name": "run", "command_success": true, "command_wall_clock_time": 3.1711187, "process_user_time": 7.295369, "process_kernel_time": 0.597964, "process_mem_max_rss": "107060", "process_out_blocks": "1768", "process_in_blocks": "0"}
+[0m17:42:28.410743 [debug] [MainThread]: Command `dbt run` succeeded at 17:42:28.410069 after 3.17 seconds
+[0m17:42:28.412753 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x764b15e8bdf0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x764b16afe2e0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x764b15c77640>]}
+[0m17:42:28.414583 [debug] [MainThread]: Flushing usage events
+[0m17:42:30.091459 [debug] [MainThread]: An error was encountered while trying to flush usage events

@@ -8,10 +8,17 @@ st.set_page_config(page_title="KRA: VAT Compliance Analytics", layout="wide", pa
 
 def load_data(query, snapshot_name):
     try:
-        host = "postgres-kra" if os.path.exists("/.dockerenv") else "localhost"
-        engine = create_engine(f'postgresql://kra_admin:kra_password@{host}:5438/kra_warehouse')
+        if os.path.exists("/.dockerenv"):
+            host = "postgres-kra"
+            port = "5432"
+        else:
+            host = "localhost"
+            port = "5438"
+            
+        engine = create_engine(f'postgresql://kra_admin:kra_password@{host}:{port}/kra_warehouse')
         return pd.read_sql(query, engine)
-    except Exception:
+    except Exception as e:
+        st.sidebar.warning(f"Live DB connection failed: {e}. Using snapshots.")
         snapshot_path = f"dashboards/snapshots/{snapshot_name}.csv"
         if os.path.exists(snapshot_path):
             return pd.read_csv(snapshot_path)

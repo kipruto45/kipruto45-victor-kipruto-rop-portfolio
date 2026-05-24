@@ -8,11 +8,19 @@ st.set_page_config(page_title="KRA: Tax Revenue Analytics", layout="wide", page_
 
 def load_data(query, snapshot_name):
     try:
-        host = "postgres" if os.path.exists("/.dockerenv") else "localhost"
-        engine = create_engine(f'postgresql://kra_admin:kra_password@{host}:5438/kra_warehouse')
+        # Check if running inside Docker
+        if os.path.exists("/.dockerenv"):
+            host = "postgres-kra"
+            port = "5432"
+        else:
+            host = "localhost"
+            port = "5438"
+            
+        engine = create_engine(f'postgresql://kra_admin:kra_password@{host}:{port}/kra_warehouse')
         return pd.read_sql(query, engine)
-    except Exception:
+    except Exception as e:
         # Fallback to snapshots
+        st.sidebar.warning(f"Live DB connection failed: {e}. Using snapshots.")
         snapshot_path = f"dashboards/snapshots/{snapshot_name}.csv"
         if os.path.exists(snapshot_path):
             return pd.read_csv(snapshot_path)
@@ -49,7 +57,6 @@ if not revenue_head.empty:
 
     with tab2:
         st.subheader("Historical Revenue Growth")
-        # Aggregated yearly trend
         yearly_trend = revenue_head.groupby('year')['annual_actual_revenue'].sum().reset_index()
         fig_trend = px.line(yearly_trend, x='year', y='annual_actual_revenue', markers=True)
         st.plotly_chart(fig_trend, use_container_width=True)
