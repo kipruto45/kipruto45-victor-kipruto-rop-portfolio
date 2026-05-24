@@ -1,5 +1,5 @@
 with source as (
-    select * from {{ source('sector_raw', 'raw_cbk_returns') }}
+    select * from "sector_dwh"."public"."raw_cbk_returns"
 ),
 renamed as (
     select
