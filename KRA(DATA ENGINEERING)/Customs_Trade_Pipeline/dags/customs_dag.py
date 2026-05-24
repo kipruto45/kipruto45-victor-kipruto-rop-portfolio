@@ -28,9 +28,14 @@ with DAG(
         bash_command='python3 /opt/airflow/projects/kra/Customs_Trade_Pipeline/ingestion/load_customs_data.py',
     )
 
+    ingest_rules_of_origin = BashOperator(
+        task_id='ingest_rules_of_origin_pdf',
+        bash_command='python3 /opt/airflow/projects/kra/Customs_Trade_Pipeline/ingestion/parse_rules_of_origin.py',
+    )
+
     dbt_run = BashOperator(
         task_id='dbt_run_customs',
         bash_command='cd /opt/airflow/projects/kra/Customs_Trade_Pipeline/dbt && dbt run --profiles-dir .',
     )
 
-    generate_data >> load_data >> dbt_run
+    generate_data >> load_data >> ingest_rules_of_origin >> dbt_run

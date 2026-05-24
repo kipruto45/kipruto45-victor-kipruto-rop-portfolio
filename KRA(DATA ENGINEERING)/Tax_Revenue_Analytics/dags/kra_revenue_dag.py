@@ -28,9 +28,14 @@ with DAG(
         bash_command='python3 /opt/airflow/projects/kra_revenue/ingestion/load_kra_data.py',
     )
 
+    ingest_historical_pdf = BashOperator(
+        task_id='ingest_fy2021_pdf',
+        bash_command='python3 /opt/airflow/projects/kra_revenue/ingestion/parse_fy2021_pdf.py',
+    )
+
     dbt_run = BashOperator(
         task_id='dbt_run_kra_revenue',
         bash_command='cd /opt/airflow/projects/kra_revenue/dbt && dbt run --profiles-dir .',
     )
 
-    generate_data >> load_data >> dbt_run
+    generate_data >> load_data >> ingest_historical_pdf >> dbt_run

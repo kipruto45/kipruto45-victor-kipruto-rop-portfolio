@@ -14,7 +14,7 @@ Automated ingestion of KRA monthly revenue performance reports to track collecti
 
 ### 2. [Customs & Trade Data Pipeline](Customs_Trade_Pipeline/)
 Import/export intelligence tracking commodity-level trade volumes, duty collection, and contraband risk scoring.
-*   **Features**: HS code tracking, UN Comtrade integration.
+*   **Data Sources**: Real-world integration of **FY 2020/21 Audited Revenue Reports**, **UN Comtrade** international trade benchmarks, and **Rules of Origin** regulatory disclosures.
 
 ### 3. [VAT Compliance & Gap Analysis](VAT_Compliance_Gap_Analysis/)
 Fiscal policy modeling comparing theoretical VAT capacity vs. actual collections by sector.
