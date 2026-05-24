@@ -11,6 +11,11 @@ An advanced trade intelligence pipeline that ingests KRA customs declaration dat
 - **Duty Analytics**: Identifying revenue leakages and under-valuation anomalies.
 - **Risk Scoring**: Automated contraband risk scoring based on origin country and commodity type.
 
+## Data Sources
+- **UN Comtrade**: International trade database (HS-code level benchmarks).
+- **ITC TradeMap Beta**: Kenyan trade corridors and mirror-statistics for discrepancy detection.
+- **KRA Customs & Border Control**: National import/export declaration summaries and Rules of Origin disclosures.
+
 ## 🛠 Tech Stack
 - **Data Ingestion**: Python (API-driven)
 - **Database**: PostgreSQL

@@ -69,6 +69,19 @@ I am a Data Engineer focused on:
 
 ---
 
+# 🛰️ Real-World Data Sources
+
+This portfolio is built on a foundation of real-world data integrated through advanced ingestion pipelines:
+
+- **Central Bank of Kenya (CBK)**: Bank Supervision Annual Reports, Mobile Credit Statistics, and Prudential Guidelines.
+- **Kenya Revenue Authority (KRA)**: Monthly & Annual Revenue Performance Reports, Customs Rules of Origin disclosures.
+- **Kenya National Bureau of Statistics (KNBS)**: Monthly Leading Economic Indicators (Inflation, Trade Volume, GDP).
+- **International Trade Centre (ITC)**: TradeMap Beta international trade benchmarks and company directories.
+- **Safaricom / M-Pesa**: Open API specifications, Annual Sustainability Reports, and GSMA mobile money datasets.
+- **Nairobi Securities Exchange (NSE)**: Audited financial filings for listed commercial banks.
+
+---
+
 # 📊 Key Areas Covered
 
 - Batch Processing

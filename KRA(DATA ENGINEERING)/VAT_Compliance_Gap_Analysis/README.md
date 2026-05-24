@@ -6,6 +6,11 @@
 ## 📋 Overview
 A fiscal policy tool that estimates the "VAT Gap" (the difference between theoretical and actual VAT collections). It uses KNBS GDP expenditure accounts and KRA collection data to model C-efficiency ratios by sector.
 
+## Data Sources
+- **KNBS (Kenya National Bureau of Statistics)**: GDP expenditure accounts and Supply & Use Tables (SUTs).
+- **KRA Revenue Reports**: Sectoral VAT collection data.
+- **IMF RA-GAP**: Methodological frameworks for revenue administration gap analysis.
+
 ## 🚀 Key Features
 - **C-Efficiency Modeling**: Measuring how effective the VAT system is at capturing consumption.
 - **Sectoral Audit Targets**: Identifying sectors with unusually low compliance rates.

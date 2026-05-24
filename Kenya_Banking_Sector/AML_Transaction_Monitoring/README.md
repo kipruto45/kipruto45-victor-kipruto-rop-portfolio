@@ -12,6 +12,10 @@ A sophisticated, rules-based Anti-Money Laundering (AML) monitoring system tailo
 - **Synthetic Data Ingestion**: Custom Python generator producing high-fidelity transaction streams for stress-testing.
 - **SAR Dashboard**: A Streamlit-based interface for managing Suspicious Activity Reports (SARs).
 
+## Data Sources
+- **FATF (Financial Action Task Force)**: International money laundering typologies and detection standards.
+- **CBK AML/CFT Guidelines**: National regulatory reporting requirements and threshold definitions.
+
 ## 🛠 Tech Stack
 - **Engine**: Python 3.x
 - **Data Handling**: Pandas & NumPy

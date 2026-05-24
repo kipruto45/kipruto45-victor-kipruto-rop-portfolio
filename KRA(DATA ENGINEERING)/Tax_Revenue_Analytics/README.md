@@ -12,6 +12,10 @@ A data engineering platform designed to ingest and analyze Kenya Revenue Authori
 - **Historical Trend Analysis**: 15+ years of revenue data for fiscal policy research.
 - **Interactive Dashboard**: Visualizes revenue breakdown and tax head efficiency.
 
+## Data Sources
+- **Kenya Revenue Authority (KRA)**: Monthly Performance Press Releases and Annual Revenue Statements.
+- **Kenya National Bureau of Statistics (KNBS)**: Historical GDP and economic growth data.
+
 ## 🛠 Tech Stack
 - **Ingestion**: Python (pdfplumber)
 - **Warehouse**: PostgreSQL 15

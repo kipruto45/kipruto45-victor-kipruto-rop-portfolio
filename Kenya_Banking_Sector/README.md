@@ -31,6 +31,12 @@ Monitoring the shift from brick-and-mortar to mobile/internet banking across the
 
 ---
 
+## Data Sources
+The analytics in this sector portfolio are derived from:
+- **Central Bank of Kenya (CBK)**: Bank Supervision Annual Reports (2015-2025), Prudential Guidelines, and AML/CFT reporting templates.
+- **Financial Action Task Force (FATF)**: International AML typologies and smurfing detection patterns.
+- **Nairobi Securities Exchange (NSE)**: Multi-year financial filings for all listed commercial banks in Kenya.
+
 ## 🛠 Tech Stack
 *   **Orchestration**: Apache Airflow
 *   **Data Warehouse**: PostgreSQL

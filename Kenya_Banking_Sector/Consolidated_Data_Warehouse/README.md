@@ -12,6 +12,10 @@ The central "Source of Truth" for the Kenyan banking industry. This project auto
 - **Peer Benchmarking**: Compare Tier 1 banks (KCB, Equity, Absa) against the broader sector.
 - **Data Reconciliation**: Built-in logic to bridge gaps between different reporting formats.
 
+## Data Sources
+- **Central Bank of Kenya (CBK)**: Annual Bank Supervision Reports (10+ years).
+- **Institution Disclosures**: Audited financial results from individual commercial banks.
+
 ## 🛠 Tech Stack
 - **Transformation**: dbt (Data Build Tool)
 - **Database**: PostgreSQL 15

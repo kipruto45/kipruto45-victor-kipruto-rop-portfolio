@@ -52,7 +52,11 @@ docs/
 - Slack alerting system
 - Case management queue
 
-### Next Steps
+### Data Sources
+- **FATF Mobile Money Risk Studies**: Typologies for mobile money fraud and money laundering.
+- **Safaricom Fraud Disclosures**: Quantitative data on fraud loss and prevention metrics.
+
+## Next Steps
 1. Gather synthetic fraud training data
 2. Train XGBoost model
 3. Set up Kafka streams for transactions

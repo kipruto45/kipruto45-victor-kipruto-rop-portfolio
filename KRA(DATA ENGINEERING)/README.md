@@ -26,6 +26,13 @@ Scraping business registration data as an economic leading indicator.
 
 ---
 
+## Data Sources
+This portfolio integrates the following real-world authorities and portals:
+- **Kenya Revenue Authority (KRA)**: Monthly/Annual Revenue Performance Reports, Customs & Border Control disclosures, and Rules of Origin guidelines.
+- **Kenya National Bureau of Statistics (KNBS)**: Leading Economic Indicators (Feb 2023) and National Accounts (GDP).
+- **International Trade Centre (ITC)**: TradeMap Beta benchmarks for Kenyan export/import corridors and global HS-code pricing.
+- **UN Comtrade**: International trade database for cross-border trade discrepancy analysis.
+
 ## 🛠 Portfolio Tech Stack
 - **Ingestion**: Python (Requests, Playwright, pdfplumber)
 - **Warehouse**: PostgreSQL 15 / DuckDB
