@@ -1,3 +1,5 @@
+![Kenya Banking Sector Banner](image.png)
+
 # 🏦 Kenya Banking Sector: Integrated Data Engineering Portfolio
 
 ## Overview
