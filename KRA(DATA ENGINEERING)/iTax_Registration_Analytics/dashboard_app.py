@@ -1,28 +1,34 @@
 import streamlit as st
 import pandas as pd
 import plotly.express as px
+from sqlalchemy import create_engine
 import os
 
 st.set_page_config(page_title="KRA: iTax Business Analytics", layout="wide", page_icon="🏢")
 
-def load_data():
-    csv_path = "KRA(DATA ENGINEERING)/iTax_Registration_Analytics/ingestion/itax_registrations.csv"
-    if os.path.exists(csv_path):
-        df = pd.read_csv(csv_path)
-        df['registration_date'] = pd.to_datetime(df['registration_date'])
-        return df
-    return pd.DataFrame()
+def load_data(query, snapshot_name):
+    try:
+        host = "postgres-kra" if os.path.exists("/.dockerenv") else "localhost"
+        engine = create_engine(f'postgresql://kra_admin:kra_password@{host}:5438/kra_warehouse')
+        return pd.read_sql(query, engine)
+    except Exception:
+        snapshot_path = f"dashboards/snapshots/{snapshot_name}.csv"
+        if os.path.exists(snapshot_path):
+            return pd.read_csv(snapshot_path)
+        return pd.DataFrame()
 
 st.title("🏢 KRA: iTax Business Registration Analytics")
 st.markdown("Tracking new business formation rates and taxpayer density by county and sector.")
 
-df = load_data()
+df = load_data("SELECT * FROM mart_registrations_summary", "mart_registrations_summary")
 
 if not df.empty:
+    df['registration_month'] = pd.to_datetime(df['registration_month'])
+    
     col1, col2, col3 = st.columns(3)
-    col1.metric("Total Registered PINs", len(df))
-    col2.metric("Active Taxpayers %", f"{(df['is_active'].mean() * 100):,.1f}%")
-    col3.metric("Top County", df['county'].mode()[0])
+    col1.metric("Total Recorded Periods", len(df))
+    col2.metric("Total New Registrations", df['new_registrations'].sum())
+    col3.metric("Top County", df.groupby('county')['new_registrations'].sum().idxmax())
 
     st.markdown("---")
     
@@ -30,18 +36,14 @@ if not df.empty:
     
     with tab1:
         st.subheader("Monthly Registration Volume")
-        df_monthly = df.set_index('registration_date').resample('M').size().reset_index()
-        df_monthly.columns = ['Date', 'Count']
-        fig_trend = px.area(df_monthly, x='Date', y='Count', title="Business Formation Rate")
+        df_monthly = df.groupby('registration_month')['new_registrations'].sum().reset_index()
+        fig_trend = px.area(df_monthly, x='registration_month', y='new_registrations', title="Business Formation Rate")
         st.plotly_chart(fig_trend, use_container_width=True)
         
     with tab2:
-        st.subheader("Taxpayer Concentration by County")
-        fig_county = px.treemap(df, path=['county', 'sector'], title="Business Density Map")
+        st.subheader("Taxpayer Concentration by County & Sector")
+        fig_county = px.treemap(df, path=['county', 'sector'], values='new_registrations', title="Business Density Map")
         st.plotly_chart(fig_county, use_container_width=True)
 
 else:
-    st.info("Generating data...")
-    from ingestion.generate_itax_data import generate_itax_data
-    generate_itax_data()
-    st.rerun()
+    st.warning("No data found. Ensure the ETL pipeline has run successfully.")

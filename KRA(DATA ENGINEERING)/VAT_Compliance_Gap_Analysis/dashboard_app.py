@@ -1,20 +1,26 @@
 import streamlit as st
 import pandas as pd
 import plotly.express as px
+from sqlalchemy import create_engine
 import os
 
 st.set_page_config(page_title="KRA: VAT Compliance Analytics", layout="wide", page_icon="📉")
 
-def load_data():
-    csv_path = "KRA(DATA ENGINEERING)/VAT_Compliance_Gap_Analysis/ingestion/vat_compliance_data.csv"
-    if os.path.exists(csv_path):
-        return pd.read_csv(csv_path)
-    return pd.DataFrame()
+def load_data(query, snapshot_name):
+    try:
+        host = "postgres-kra" if os.path.exists("/.dockerenv") else "localhost"
+        engine = create_engine(f'postgresql://kra_admin:kra_password@{host}:5438/kra_warehouse')
+        return pd.read_sql(query, engine)
+    except Exception:
+        snapshot_path = f"dashboards/snapshots/{snapshot_name}.csv"
+        if os.path.exists(snapshot_path):
+            return pd.read_csv(snapshot_path)
+        return pd.DataFrame()
 
 st.title("📉 KRA: VAT Compliance & Gap Analysis")
 st.markdown("Sector-level analysis of VAT collection efficiency and theoretical vs. actual revenue.")
 
-df = load_data()
+df = load_data("SELECT * FROM mart_vat_gap_by_sector ORDER BY year DESC, vat_gap_m_kes DESC", "mart_vat_gap_by_sector")
 
 if not df.empty:
     latest_year = df['year'].max()
@@ -42,7 +48,4 @@ if not df.empty:
         st.plotly_chart(fig_trend, use_container_width=True)
 
 else:
-    st.info("Generating data...")
-    from ingestion.generate_vat_data import generate_vat_gap_data
-    generate_vat_gap_data()
-    st.rerun()
+    st.warning("No data found. Ensure the ETL pipeline has run successfully.")

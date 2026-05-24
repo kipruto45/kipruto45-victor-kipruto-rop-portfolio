@@ -1,0 +1,10 @@
+dbt-postgres
+pandas
+numpy
+sqlalchemy
+psycopg2-binary
+requests
+streamlit
+plotly
+pdfplumber
+python-dotenv
