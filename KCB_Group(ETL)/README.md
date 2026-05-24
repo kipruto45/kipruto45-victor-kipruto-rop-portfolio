@@ -1,5 +1,7 @@
 # 🦁 KCB Group Integrated ETL & Analytics Platform
 
+![Project Banner](kcb.png)
+
 ### 🚀 Live Dashboard
 **[View Live Analytics Dashboard](https://kipruto45-victor-kipruto-rop-portfolio-3y88yox8geeqdsvzbqnmzg.streamlit.app)**
 
