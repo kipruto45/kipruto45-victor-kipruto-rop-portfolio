@@ -31,10 +31,26 @@ elif bank_selection == "AML Monitoring Engine":
     st.markdown("[Open AML Monitoring Dashboard](http://localhost:8505)")
 
 elif bank_selection == "KRA Tax Revenue":
-    st.title("🇰🇪 KRA: Tax Revenue Analytics")
+    st.title("🇰🇪 KRA: Integrated Analytics Suite")
     st.info("Monitoring national tax collection performance and fiscal trends.")
-    st.markdown("[Open KRA Revenue Dashboard](http://localhost:8506)")
+
+    c1, c2 = st.columns(2)
+    with c1:
+        st.markdown("### [📈 Tax Revenue Warehouse](http://localhost:8506)")
+        st.write("Track collections vs Treasury targets across all tax heads.")
+
+        st.markdown("### [🚢 Customs & Trade Intelligence](http://localhost:8507)")
+        st.write("Monitor import/export volumes and duty collection risk.")
+
+    with c2:
+        st.markdown("### [📉 VAT Compliance Gap](http://localhost:8508)")
+        st.write("Sector-level analysis of VAT collection efficiency.")
+
+        st.markdown("### [🏢 iTax Business Registration](http://localhost:8509)")
+        st.write("Track business formation rates and taxpayer density.")
+
 elif bank_selection == "KCB Group":
+
 
     st.title("🦁 KCB Group Integrated Analytics")
     st.info("Displaying KCB Group Consolidated Performance and M-Pesa Loan Analytics.")
