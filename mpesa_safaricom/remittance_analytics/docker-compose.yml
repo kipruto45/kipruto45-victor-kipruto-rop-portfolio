@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  postgres-remittance:
+    image: postgres:15
+    environment:
+      POSTGRES_USER: ${DB_USER:-mpesa_admin}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-mpesa_password}
+      POSTGRES_DB: ${DB_NAME:-remittance_warehouse}
+    ports:
+      - "5445:5432"
+
+  remittance-dashboard:
+    image: python:3.11-slim
+    command: bash -c "pip install streamlit plotly pandas sqlalchemy psycopg2-binary && streamlit run dashboards/remittance_dashboard.py --server.port 8514 --server.address 0.0.0.0"
+    ports:
+      - "8514:8514"
+    environment:
+      - STREAMLIT_SERVER_HEADLESS=true
+      - DB_HOST=postgres-remittance
+    volumes:
+      - .:/app
+    working_dir: /app
+    depends_on:
+      - postgres-remittance

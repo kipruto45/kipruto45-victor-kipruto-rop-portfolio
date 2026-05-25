@@ -1,65 +1,25 @@
 version: '3.8'
 
 services:
-  postgis:
-    image: postgis/postgis:15-3.3
-    container_name: mpesa_postgis
-    restart: unless-stopped
-    env_file:
-      - .env
+  postgres-agents:
+    image: postgres:15
     environment:
-      POSTGRES_USER: ${POSTGRES_USER:-mpesa}
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-mpesa_pass}
-      POSTGRES_DB: ${POSTGRES_DB:-mpesa}
+      POSTGRES_USER: ${DB_USER:-mpesa_admin}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-mpesa_password}
+      POSTGRES_DB: ${DB_NAME:-agent_warehouse}
     ports:
-      - "${POSTGRES_PORT:-5433}:5432"
+      - "5443:5432"
+
+  agent-dashboard:
+    image: python:3.11-slim
+    command: bash -c "pip install streamlit plotly pandas sqlalchemy psycopg2-binary && streamlit run dashboards/agent_dashboard.py --server.port 8512 --server.address 0.0.0.0"
+    ports:
+      - "8512:8512"
+    environment:
+      - STREAMLIT_SERVER_HEADLESS=true
+      - DB_HOST=postgres-agents
     volumes:
-      - postgis_data:/var/lib/postgresql/data
-      - ./scripts:/docker-entrypoint-initdb.d:ro
-    healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-mpesa}"]
-      interval: 10s
-      timeout: 5s
-      retries: 5
-    networks:
-      - mpesa_net
-
-  pgadmin:
-    image: dpage/pgadmin4:latest
-    container_name: mpesa_pgadmin
-    restart: unless-stopped
-    environment:
-      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_EMAIL:-admin@mpesa.local}
-      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_PASSWORD:-admin}
-    ports:
-      - "${PGADMIN_PORT:-8080}:80"
+      - .:/app
+    working_dir: /app
     depends_on:
-      postgis:
-        condition: service_healthy
-    networks:
-      - mpesa_net
-
-  # Optional: LocalStack for future S3/MinIO data staging
-  # minio:
-  #   image: minio/minio:latest
-  #   container_name: mpesa_minio
-  #   restart: unless-stopped
-  #   command: server /data --console-address ":9001"
-  #   environment:
-  #     MINIO_ROOT_USER: ${MINIO_USER:-minioadmin}
-  #     MINIO_ROOT_PASSWORD: ${MINIO_PASSWORD:-minioadmin}
-  #   ports:
-  #     - "9000:9000"
-  #     - "9001:9001"
-  #   volumes:
-  #     - minio_data:/data
-  #   networks:
-  #     - mpesa_net
-
-volumes:
-  postgis_data:
-  # minio_data:
-
-networks:
-  mpesa_net:
-    driver: bridge
+      - postgres-agents
