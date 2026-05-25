@@ -67,15 +67,20 @@ with tabs[1]:
     arpu_df = load_data("SELECT * FROM mart_arpu_benchmark", "mart_arpu_benchmark")
     
     if not adoption_df.empty:
-        st.subheader("Equitel & EazzyPay Adoption S-Curve")
-        fig_adoption = px.area(adoption_df, x='month', y='active_users', color='product', 
-                               title="Growth of Digital Banking Users")
+        st.subheader("Equitel & EazzyPay Transaction Growth")
+        # Use period instead of month, transaction_count instead of active_users
+        fig_adoption = px.area(adoption_df, x='period', y='transaction_count', 
+                               title="Growth of Digital Banking Transactions",
+                               labels={'transaction_count': 'Monthly Transactions', 'period': 'Year-Month'})
         st.plotly_chart(fig_adoption, use_container_width=True)
         
         if not arpu_df.empty:
             st.markdown("---")
-            st.subheader("Revenue per User (ARPU) Benchmarking")
-            fig_arpu = px.bar(arpu_df, x='segment', y='arpu_kes', color='segment', barmode='group')
+            st.subheader("Revenue per User (ARPU) Trends")
+            # Use period instead of segment, arpu_kes
+            fig_arpu = px.line(arpu_df, x='period', y='arpu_kes', markers=True,
+                               title="Average Revenue Per User (KES)",
+                               labels={'arpu_kes': 'ARPU (KES)', 'period': 'Year-Month'})
             st.plotly_chart(fig_arpu, use_container_width=True)
     else:
         st.info("Mobile banking analytics data unavailable.")
@@ -85,13 +90,19 @@ with tabs[2]:
     comp_df = load_data("SELECT * FROM mart_subsidiary_comparison", "mart_subsidiary_comparison")
     
     if not comp_df.empty:
-        st.subheader("Multi-Market Efficiency Analysis")
-        # Bubble chart: Assets vs Profit, size by Customer Count
-        fig_bubble = px.scatter(comp_df, x='total_assets_m_kes', y='profit_after_tax_m_kes', 
-                                size='customer_count', color='subsidiary', hover_name='subsidiary',
-                                title="Market Matrix: Assets vs Profitability",
-                                labels={'total_assets_m_kes': 'Total Assets (M KES)', 'profit_after_tax_m_kes': 'Net Profit (M KES)'})
-        st.plotly_chart(fig_bubble, use_container_width=True)
+        st.subheader("Regional Profit Contribution Analysis")
+        # Use profit_kes and contribution_percentage
+        fig_contrib = px.bar(comp_df, x='subsidiary', y='contribution_percentage', 
+                             color='subsidiary', text_auto='.2f',
+                             title="Subsidiary Contribution to Group Profit (%)",
+                             labels={'contribution_percentage': 'Contribution (%)'})
+        st.plotly_chart(fig_contrib, use_container_width=True)
+        
+        st.markdown("---")
+        st.subheader("USD vs KES Profit Comparison")
+        fig_curr = px.bar(comp_df, x='subsidiary', y=['profit_usd', 'profit_kes'], 
+                          title="Profitability by Currency", barmode='group')
+        st.plotly_chart(fig_curr, use_container_width=True)
     else:
         st.info("Comparison matrix data not found.")
 
