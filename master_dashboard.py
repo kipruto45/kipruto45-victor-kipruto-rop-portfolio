@@ -2,25 +2,87 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
-from sqlalchemy import create_engine
 import os
 
 # Page Config
 st.set_page_config(page_title="Kenya Banking Sector: Integrated Analytics", layout="wide", page_icon="🏦")
 
+# Helper to load snapshot data
+def load_snapshot(project, snapshot_name):
+    paths = [
+        f"{project}/dashboards/snapshots/{snapshot_name}.csv",
+        f"{project}/snapshots/{snapshot_name}.csv"
+    ]
+    for path in paths:
+        if os.path.exists(path):
+            return pd.read_csv(path)
+    return pd.DataFrame()
+
 # Sidebar Navigation
 st.sidebar.title("Sector Navigator")
-bank_selection = st.sidebar.selectbox("Select Institution", ["Sector Overview (DWH)", "AML Monitoring Engine", "KRA Tax Revenue", "M-Pesa Fraud Monitor", "KCB Group", "Absa Bank Kenya", "Equity Group"])
+bank_selection = st.sidebar.selectbox("Select View", 
+    ["Executive Summary (2025)", "Sector Overview (DWH)", "AML Monitoring Engine", "KRA Tax Revenue", "M-Pesa Fraud Monitor", "KCB Group", "Absa Bank Kenya", "Equity Group"])
 
 st.sidebar.markdown("---")
-st.sidebar.button("Refresh Data", on_click=lambda: st.session_state.clear())
+st.sidebar.button("Refresh Snapshots", on_click=lambda: st.session_state.clear())
 
-# Data Loader Helper
-def get_engine(db_name, user, password, port=5432):
-    host = "postgres" if os.path.exists("/.dockerenv") else "localhost"
-    return create_engine(f'postgresql://{user}:{password}@{host}:{port}/{db_name}')
+if bank_selection == "Executive Summary (2025)":
+    st.title("🏦 Kenya Banking Sector: 2025 Executive Summary")
+    st.markdown("Comparative performance analysis of Tier 1 Banks based on FY 2025 Audited Results.")
+    
+    # Load Data
+    kcb_df = load_snapshot("KCB_Group(ETL)/Financial_Performance_Tracker", "mart_roe_roa")
+    absa_df = load_snapshot("Absa_Bank_Kenya(PIPELINE)", "mart_profitability")
+    equity_df = load_snapshot("Equity_Group(PIPELINE_ETL)", "mart_subsidiary_performance")
+    
+    # Filter for 2025
+    kcb_2025 = kcb_df[(kcb_df['year'] == 2025) & (kcb_df['subsidiary'] == 'KCB Group Consolidated')] if not kcb_df.empty else pd.DataFrame()
+    absa_2025 = absa_df[absa_df['year'] == 2025] if not absa_df.empty else pd.DataFrame()
+    
+    # Prepare comparison table
+    summary_data = []
+    if not kcb_2025.empty:
+        summary_data.append({
+            "Bank": "KCB Group",
+            "Net Profit (M KES)": kcb_2025['net_profit_m_kes'].iloc[0],
+            "Total Assets (M KES)": kcb_2025['total_assets_m_kes'].iloc[0],
+            "ROE %": kcb_2025['roe_percent'].iloc[0],
+            "ROA %": kcb_2025['roa_percent'].iloc[0]
+        })
+    if not absa_2025.empty:
+        summary_data.append({
+            "Bank": "Absa Kenya",
+            "Net Profit (M KES)": absa_2025['net_profit'].iloc[0],
+            "Total Assets (M KES)": absa_2025['total_assets'].iloc[0],
+            "ROE %": absa_2025['roe_percent'].iloc[0],
+            "ROA %": absa_2025['roa_percent'].iloc[0]
+        })
+        
+    if summary_data:
+        comp_df = pd.DataFrame(summary_data)
+        
+        col1, col2 = st.columns(2)
+        with col1:
+            st.write("### 💰 Profitability Comparison")
+            fig_prof = px.bar(comp_df, x="Bank", y="Net Profit (M KES)", color="Bank", text_auto='.2s')
+            st.plotly_chart(fig_prof, use_container_width=True)
+            
+        with col2:
+            st.write("### 📈 Efficiency (ROE)")
+            fig_roe = px.bar(comp_df, x="Bank", y="ROE %", color="Bank", text_auto='.2f')
+            st.plotly_chart(fig_roe, use_container_width=True)
+            
+        st.write("### 📊 Consolidated 2025 Metrics")
+        st.dataframe(comp_df.style.format({
+            "Net Profit (M KES)": "{:,.0f}",
+            "Total Assets (M KES)": "{:,.0f}",
+            "ROE %": "{:.2f}%",
+            "ROA %": "{:.2f}%"
+        }), use_container_width=True)
+    else:
+        st.warning("No 2025 snapshot data found. Please run 'create_all_snapshots.py' first.")
 
-if bank_selection == "Sector Overview (DWH)":
+elif bank_selection == "Sector Overview (DWH)":
     st.title("🏦 Kenya Banking Sector: Consolidated Analytics")
     st.info("Displaying aggregated metrics for all 38+ licensed banks (CBK Supervision Reports).")
     st.markdown("[Open Detailed Sector Dashboard](http://localhost:8504)")
@@ -33,45 +95,24 @@ elif bank_selection == "AML Monitoring Engine":
 elif bank_selection == "KRA Tax Revenue":
     st.title("🇰🇪 KRA: Integrated Analytics Suite")
     st.info("Monitoring national tax collection performance and fiscal trends.")
-
     c1, c2 = st.columns(2)
     with c1:
         st.markdown("### [📈 Tax Revenue Warehouse](http://localhost:8506)")
-        st.write("Track collections vs Treasury targets across all tax heads.")
-
-        st.markdown("### [🚢 Customs & Trade Intelligence](http://localhost:8507)")
-        st.write("Monitor import/export volumes and duty collection risk.")
-
     with c2:
-        st.markdown("### [📉 VAT Compliance Gap](http://localhost:8508)")
-        st.write("Sector-level analysis of VAT collection efficiency.")
-
-        st.markdown("### [🏢 iTax Business Registration](http://localhost:8509)")
-        st.write("Track business formation rates and taxpayer density.")
+        st.markdown("### [🚢 Customs & Trade Intelligence](http://localhost:8507)")
 
 elif bank_selection == "M-Pesa Fraud Monitor":
     st.title("🕵️ M-Pesa: Fraud & Anomaly Detection")
     st.info("Real-time ML-powered fraud scoring for mobile money transactions.")
-
-    c1, c2, c3 = st.columns(3)
-    with c1:
-        st.markdown("### [🕵️ Fraud Detection](http://localhost:8510)")
-        st.write("XGBoost-powered fraud scoring.")
-    with c2:
-        st.markdown("### [⚡ Real-Time Streaming](http://localhost:8511)")
-        st.write("Live Kafka-based transaction monitor.")
-    with c3:
-        st.markdown("### [🗺️ Agent Network](http://localhost:8512)")
-        st.write("Geospatial density and liquidity maps.")
+    st.markdown("### [🕵️ Fraud Detection](http://localhost:8510)")
 
 elif bank_selection == "KCB Group":
-
     st.title("🦁 KCB Group Integrated Analytics")
-    st.info("Displaying KCB Group Consolidated Performance and M-Pesa Loan Analytics.")
+    st.markdown("[Open KCB Financial Dashboard](http://localhost:8503)")
     
 elif bank_selection == "Absa Bank Kenya":
     st.title("🏦 Absa Kenya Financial Insights")
-    st.info("Displaying Absa Kenya Financial KPIs and Open Banking Analytics.")
+    st.markdown("[Open Absa Financial Dashboard](http://localhost:8501)")
 
 elif bank_selection == "Equity Group":
     st.title("🌍 Equity Group Pan-Africa Insights")
