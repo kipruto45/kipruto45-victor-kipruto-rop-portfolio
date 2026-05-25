@@ -35,7 +35,8 @@ The platform includes a comprehensive Streamlit dashboard providing real-time vi
 
 ### Accessing the Dashboards:
 1. **Interactive Dashboard (Streamlit)**: 
-   - **URL**: [http://localhost:8501](http://localhost:8501)
+   - **Live Demo**: [🚀 View Live Dashboard](https://kipruto45-victor-kipruto-rop-portfolio-cc6ye8wlqrt2vtpsdndigd.streamlit.app/)
+   - **Local URL**: [http://localhost:8501](http://localhost:8501)
    - **Command**: `streamlit run dashboard_app.py` from the project root.
 2. **BI Layer (Metabase)**:
    - **URL**: [http://localhost:3000](http://localhost:3000)
