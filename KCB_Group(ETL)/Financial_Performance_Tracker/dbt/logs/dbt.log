@@ -1334,3 +1334,540 @@ drop table if exists "kcb_financials"."public"."mart_subsidiary_performance__dbt
 [0m13:09:53.429546 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x70a3efb3dd30>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x70a3ed4b8d30>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x70a3f06a71f0>]}
 [0m13:09:53.430876 [debug] [MainThread]: Flushing usage events
 [0m13:09:55.203454 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m09:59:43.720448 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x73270daddd00>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x73270ebbefa0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x73270ebbe550>]}
+
+
+============================== 09:59:43.732160 | 9873c6c6-88f8-403f-bd7c-793a80dddebe ==============================
+[0m09:59:43.732160 [info ] [MainThread]: Running with dbt=1.9.0-b2
+[0m09:59:43.733398 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': '.', 'debug': 'False', 'version_check': 'True', 'log_path': '/opt/airflow/projects/financials/dbt/logs', 'fail_fast': 'False', 'warn_error': 'None', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'empty': 'False', 'log_format': 'default', 'static_parser': 'True', 'invocation_command': 'dbt run --profiles-dir .', 'introspect': 'True', 'target_path': 'None', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'send_anonymous_usage_stats': 'True'}
+[0m09:59:44.143074 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '9873c6c6-88f8-403f-bd7c-793a80dddebe', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x73270f71e9d0>]}
+[0m09:59:44.275734 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '9873c6c6-88f8-403f-bd7c-793a80dddebe', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x73270b43f100>]}
+[0m09:59:44.284841 [info ] [MainThread]: Registered adapter: postgres=1.8.2
+[0m09:59:44.326312 [debug] [MainThread]: checksum: 4cfbbe2a671212f062e88a43cba5322b30b7e3e8e91b953aa4de249eeaade60f, vars: {}, profile: , target: , version: 1.9.0b2
+[0m09:59:44.756688 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m09:59:44.757670 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+[0m09:59:44.899645 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '9873c6c6-88f8-403f-bd7c-793a80dddebe', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x73270b12fe80>]}
+[0m09:59:45.205753 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '9873c6c6-88f8-403f-bd7c-793a80dddebe', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x73270b085370>]}
+[0m09:59:45.207329 [info ] [MainThread]: Found 8 models, 6 data tests, 1 source, 423 macros
+[0m09:59:45.208680 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '9873c6c6-88f8-403f-bd7c-793a80dddebe', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x73270b09ce80>]}
+[0m09:59:45.213720 [info ] [MainThread]: 
+[0m09:59:45.214982 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m09:59:45.216145 [info ] [MainThread]: 
+[0m09:59:45.217787 [debug] [MainThread]: Acquiring new postgres connection 'master'
+[0m09:59:45.230142 [debug] [ThreadPool]: Acquiring new postgres connection 'list_kcb_financials'
+[0m09:59:45.321439 [debug] [ThreadPool]: Using postgres connection "list_kcb_financials"
+[0m09:59:45.322543 [debug] [ThreadPool]: On list_kcb_financials: /* {"app": "dbt", "dbt_version": "1.9.0b2", "profile_name": "financial_performance", "target_name": "dev", "connection_name": "list_kcb_financials"} */
+
+    select distinct nspname from pg_namespace
+  
+[0m09:59:45.323538 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m09:59:45.336489 [debug] [ThreadPool]: SQL status: SELECT 4 in 0.013 seconds
+[0m09:59:45.339976 [debug] [ThreadPool]: On list_kcb_financials: Close
+[0m09:59:45.344177 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_kcb_financials, now list_kcb_financials_public)
+[0m09:59:45.359548 [debug] [ThreadPool]: Using postgres connection "list_kcb_financials_public"
+[0m09:59:45.360442 [debug] [ThreadPool]: On list_kcb_financials_public: BEGIN
+[0m09:59:45.361159 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m09:59:45.370394 [debug] [ThreadPool]: SQL status: BEGIN in 0.009 seconds
+[0m09:59:45.371325 [debug] [ThreadPool]: Using postgres connection "list_kcb_financials_public"
+[0m09:59:45.372261 [debug] [ThreadPool]: On list_kcb_financials_public: /* {"app": "dbt", "dbt_version": "1.9.0b2", "profile_name": "financial_performance", "target_name": "dev", "connection_name": "list_kcb_financials_public"} */
+select
+      'kcb_financials' as database,
+      tablename as name,
+      schemaname as schema,
+      'table' as type
+    from pg_tables
+    where schemaname ilike 'public'
+    union all
+    select
+      'kcb_financials' as database,
+      viewname as name,
+      schemaname as schema,
+      'view' as type
+    from pg_views
+    where schemaname ilike 'public'
+    union all
+    select
+      'kcb_financials' as database,
+      matviewname as name,
+      schemaname as schema,
+      'materialized_view' as type
+    from pg_matviews
+    where schemaname ilike 'public'
+  
+[0m09:59:45.378654 [debug] [ThreadPool]: SQL status: SELECT 7 in 0.005 seconds
+[0m09:59:45.381703 [debug] [ThreadPool]: On list_kcb_financials_public: ROLLBACK
+[0m09:59:45.382788 [debug] [ThreadPool]: On list_kcb_financials_public: Close
+[0m09:59:45.399576 [debug] [MainThread]: Using postgres connection "master"
+[0m09:59:45.400453 [debug] [MainThread]: On master: BEGIN
+[0m09:59:45.401203 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m09:59:45.410855 [debug] [MainThread]: SQL status: BEGIN in 0.010 seconds
+[0m09:59:45.411784 [debug] [MainThread]: Using postgres connection "master"
+[0m09:59:45.413428 [debug] [MainThread]: On master: /* {"app": "dbt", "dbt_version": "1.9.0b2", "profile_name": "financial_performance", "target_name": "dev", "connection_name": "master"} */
+with relation as (
+        select
+            pg_rewrite.ev_class as class,
+            pg_rewrite.oid as id
+        from pg_rewrite
+    ),
+    class as (
+        select
+            oid as id,
+            relname as name,
+            relnamespace as schema,
+            relkind as kind
+        from pg_class
+    ),
+    dependency as (
+        select distinct
+            pg_depend.objid as id,
+            pg_depend.refobjid as ref
+        from pg_depend
+    ),
+    schema as (
+        select
+            pg_namespace.oid as id,
+            pg_namespace.nspname as name
+        from pg_namespace
+        where nspname != 'information_schema' and nspname not like 'pg\_%'
+    ),
+    referenced as (
+        select
+            relation.id AS id,
+            referenced_class.name ,
+            referenced_class.schema ,
+            referenced_class.kind
+        from relation
+        join class as referenced_class on relation.class=referenced_class.id
+        where referenced_class.kind in ('r', 'v', 'm')
+    ),
+    relationships as (
+        select
+            referenced.name as referenced_name,
+            referenced.schema as referenced_schema_id,
+            dependent_class.name as dependent_name,
+            dependent_class.schema as dependent_schema_id,
+            referenced.kind as kind
+        from referenced
+        join dependency on referenced.id=dependency.id
+        join class as dependent_class on dependency.ref=dependent_class.id
+        where
+            (referenced.name != dependent_class.name or
+             referenced.schema != dependent_class.schema)
+    )
+
+    select
+        referenced_schema.name as referenced_schema,
+        relationships.referenced_name as referenced_name,
+        dependent_schema.name as dependent_schema,
+        relationships.dependent_name as dependent_name
+    from relationships
+    join schema as dependent_schema on relationships.dependent_schema_id=dependent_schema.id
+    join schema as referenced_schema on relationships.referenced_schema_id=referenced_schema.id
+    group by referenced_schema, referenced_name, dependent_schema, dependent_name
+    order by referenced_schema, referenced_name, dependent_schema, dependent_name;
+[0m09:59:45.422429 [debug] [MainThread]: SQL status: SELECT 1 in 0.008 seconds
+[0m09:59:45.425015 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '9873c6c6-88f8-403f-bd7c-793a80dddebe', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x73270b03e130>]}
+[0m09:59:45.425827 [debug] [MainThread]: On master: ROLLBACK
+[0m09:59:45.426620 [debug] [MainThread]: Using postgres connection "master"
+[0m09:59:45.427193 [debug] [MainThread]: On master: BEGIN
+[0m09:59:45.428230 [debug] [MainThread]: SQL status: BEGIN in 0.000 seconds
+[0m09:59:45.429203 [debug] [MainThread]: On master: COMMIT
+[0m09:59:45.430005 [debug] [MainThread]: Using postgres connection "master"
+[0m09:59:45.430802 [debug] [MainThread]: On master: COMMIT
+[0m09:59:45.431904 [debug] [MainThread]: SQL status: COMMIT in 0.000 seconds
+[0m09:59:45.432859 [debug] [MainThread]: On master: Close
+[0m09:59:45.446615 [debug] [Thread-1  ]: Began running node model.financial_performance.stg_kcb_financials
+[0m09:59:45.448038 [info ] [Thread-1  ]: 1 of 6 START sql view model public.stg_kcb_financials .......................... [RUN]
+[0m09:59:45.449484 [debug] [Thread-1  ]: Re-using an available connection from the pool (formerly list_kcb_financials_public, now model.financial_performance.stg_kcb_financials)
+[0m09:59:45.450645 [debug] [Thread-1  ]: Began compiling node model.financial_performance.stg_kcb_financials
+[0m09:59:45.469752 [debug] [Thread-1  ]: Writing injected SQL for node "model.financial_performance.stg_kcb_financials"
+[0m09:59:45.471652 [debug] [Thread-1  ]: Began executing node model.financial_performance.stg_kcb_financials
+[0m09:59:45.561509 [debug] [Thread-1  ]: Writing runtime sql for node "model.financial_performance.stg_kcb_financials"
+[0m09:59:45.563516 [debug] [Thread-1  ]: Using postgres connection "model.financial_performance.stg_kcb_financials"
+[0m09:59:45.564837 [debug] [Thread-1  ]: On model.financial_performance.stg_kcb_financials: BEGIN
+[0m09:59:45.566310 [debug] [Thread-1  ]: Opening a new connection, currently in state closed
+[0m09:59:45.580315 [debug] [Thread-1  ]: SQL status: BEGIN in 0.014 seconds
+[0m09:59:45.581497 [debug] [Thread-1  ]: Using postgres connection "model.financial_performance.stg_kcb_financials"
+[0m09:59:45.582588 [debug] [Thread-1  ]: On model.financial_performance.stg_kcb_financials: /* {"app": "dbt", "dbt_version": "1.9.0b2", "profile_name": "financial_performance", "target_name": "dev", "node_id": "model.financial_performance.stg_kcb_financials"} */
+
+  create view "kcb_financials"."public"."stg_kcb_financials__dbt_tmp"
+    
+    
+  as (
+    with source as (
+    select * from "kcb_financials"."public"."raw_kcb_financials"
+),
+renamed as (
+    select
+        subsidiary,
+        year,
+        net_profit_m_kes,
+        total_assets_m_kes,
+        interest_income_m_kes,
+        interest_expense_m_kes,
+        net_interest_income_m_kes,
+        operating_expenses_m_kes,
+        shareholders_equity_m_kes,
+        npl_ratio_percent,
+        customer_count
+    from source
+)
+select * from renamed
+  );
+[0m09:59:45.589914 [debug] [Thread-1  ]: SQL status: CREATE VIEW in 0.006 seconds
+[0m09:59:45.604234 [debug] [Thread-1  ]: Using postgres connection "model.financial_performance.stg_kcb_financials"
+[0m09:59:45.605172 [debug] [Thread-1  ]: On model.financial_performance.stg_kcb_financials: /* {"app": "dbt", "dbt_version": "1.9.0b2", "profile_name": "financial_performance", "target_name": "dev", "node_id": "model.financial_performance.stg_kcb_financials"} */
+alter table "kcb_financials"."public"."stg_kcb_financials" rename to "stg_kcb_financials__dbt_backup"
+[0m09:59:45.606597 [debug] [Thread-1  ]: SQL status: ALTER TABLE in 0.001 seconds
+[0m09:59:45.615694 [debug] [Thread-1  ]: Using postgres connection "model.financial_performance.stg_kcb_financials"
+[0m09:59:45.616946 [debug] [Thread-1  ]: On model.financial_performance.stg_kcb_financials: /* {"app": "dbt", "dbt_version": "1.9.0b2", "profile_name": "financial_performance", "target_name": "dev", "node_id": "model.financial_performance.stg_kcb_financials"} */
+alter table "kcb_financials"."public"."stg_kcb_financials__dbt_tmp" rename to "stg_kcb_financials"
+[0m09:59:45.618603 [debug] [Thread-1  ]: SQL status: ALTER TABLE in 0.001 seconds
+[0m09:59:45.655531 [debug] [Thread-1  ]: On model.financial_performance.stg_kcb_financials: COMMIT
+[0m09:59:45.656555 [debug] [Thread-1  ]: Using postgres connection "model.financial_performance.stg_kcb_financials"
+[0m09:59:45.657324 [debug] [Thread-1  ]: On model.financial_performance.stg_kcb_financials: COMMIT
+[0m09:59:45.659271 [debug] [Thread-1  ]: SQL status: COMMIT in 0.001 seconds
+[0m09:59:45.673191 [debug] [Thread-1  ]: Applying DROP to: "kcb_financials"."public"."stg_kcb_financials__dbt_backup"
+[0m09:59:45.683136 [debug] [Thread-1  ]: Using postgres connection "model.financial_performance.stg_kcb_financials"
+[0m09:59:45.683985 [debug] [Thread-1  ]: On model.financial_performance.stg_kcb_financials: /* {"app": "dbt", "dbt_version": "1.9.0b2", "profile_name": "financial_performance", "target_name": "dev", "node_id": "model.financial_performance.stg_kcb_financials"} */
+drop view if exists "kcb_financials"."public"."stg_kcb_financials__dbt_backup" cascade
+[0m09:59:45.689040 [debug] [Thread-1  ]: SQL status: DROP VIEW in 0.004 seconds
+[0m09:59:45.693658 [debug] [Thread-1  ]: On model.financial_performance.stg_kcb_financials: Close
+[0m09:59:45.696444 [debug] [Thread-1  ]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '9873c6c6-88f8-403f-bd7c-793a80dddebe', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x73270a538e80>]}
+[0m09:59:45.697850 [info ] [Thread-1  ]: 1 of 6 OK created sql view model public.stg_kcb_financials ..................... [[32mCREATE VIEW[0m in 0.25s]
+[0m09:59:45.699448 [debug] [Thread-1  ]: Finished running node model.financial_performance.stg_kcb_financials
+[0m09:59:45.701315 [debug] [Thread-3  ]: Began running node model.financial_performance.mart_nim_trend
+[0m09:59:45.705599 [debug] [Thread-2  ]: Began running node model.financial_performance.mart_roe_roa
+[0m09:59:45.704566 [debug] [Thread-4  ]: Began running node model.financial_performance.mart_npl_ratio
+[0m09:59:45.707434 [debug] [Thread-1  ]: Began running node model.financial_performance.mart_subsidiary_perf
+[0m09:59:45.706729 [info ] [Thread-3  ]: 2 of 6 START sql table model public.mart_nim_trend ............................. [RUN]
+[0m09:59:45.709563 [info ] [Thread-2  ]: 4 of 6 START sql table model public.mart_roe_roa ............................... [RUN]
+[0m09:59:45.716440 [debug] [Thread-2  ]: Acquiring new postgres connection 'model.financial_performance.mart_roe_roa'
+[0m09:59:45.712967 [info ] [Thread-1  ]: 5 of 6 START sql table model public.mart_subsidiary_perf ....................... [RUN]
+[0m09:59:45.714676 [debug] [Thread-3  ]: Acquiring new postgres connection 'model.financial_performance.mart_nim_trend'
+[0m09:59:45.711243 [info ] [Thread-4  ]: 3 of 6 START sql table model public.mart_npl_ratio ............................. [RUN]
+[0m09:59:45.722931 [debug] [Thread-4  ]: Acquiring new postgres connection 'model.financial_performance.mart_npl_ratio'
+[0m09:59:45.720150 [debug] [Thread-1  ]: Re-using an available connection from the pool (formerly model.financial_performance.stg_kcb_financials, now model.financial_performance.mart_subsidiary_perf)
+[0m09:59:45.717415 [debug] [Thread-2  ]: Began compiling node model.financial_performance.mart_roe_roa
+[0m09:59:45.721288 [debug] [Thread-3  ]: Began compiling node model.financial_performance.mart_nim_trend
+[0m09:59:45.724000 [debug] [Thread-4  ]: Began compiling node model.financial_performance.mart_npl_ratio
+[0m09:59:45.725029 [debug] [Thread-1  ]: Began compiling node model.financial_performance.mart_subsidiary_perf
+[0m09:59:45.732732 [debug] [Thread-2  ]: Writing injected SQL for node "model.financial_performance.mart_roe_roa"
+[0m09:59:45.743659 [debug] [Thread-3  ]: Writing injected SQL for node "model.financial_performance.mart_nim_trend"
+[0m09:59:45.751589 [debug] [Thread-4  ]: Writing injected SQL for node "model.financial_performance.mart_npl_ratio"
+[0m09:59:45.758895 [debug] [Thread-1  ]: Writing injected SQL for node "model.financial_performance.mart_subsidiary_perf"
+[0m09:59:45.760869 [debug] [Thread-2  ]: Began executing node model.financial_performance.mart_roe_roa
+[0m09:59:45.762273 [debug] [Thread-3  ]: Began executing node model.financial_performance.mart_nim_trend
+[0m09:59:45.866635 [debug] [Thread-4  ]: Began executing node model.financial_performance.mart_npl_ratio
+[0m09:59:45.894975 [debug] [Thread-1  ]: Began executing node model.financial_performance.mart_subsidiary_perf
+[0m09:59:45.976272 [debug] [Thread-3  ]: Writing runtime sql for node "model.financial_performance.mart_nim_trend"
+[0m09:59:45.979509 [debug] [Thread-2  ]: Writing runtime sql for node "model.financial_performance.mart_roe_roa"
+[0m09:59:45.984600 [debug] [Thread-4  ]: Writing runtime sql for node "model.financial_performance.mart_npl_ratio"
+[0m09:59:45.995527 [debug] [Thread-1  ]: Writing runtime sql for node "model.financial_performance.mart_subsidiary_perf"
+[0m09:59:45.997603 [debug] [Thread-3  ]: Using postgres connection "model.financial_performance.mart_nim_trend"
+[0m09:59:45.999190 [debug] [Thread-3  ]: On model.financial_performance.mart_nim_trend: BEGIN
+[0m09:59:46.000134 [debug] [Thread-3  ]: Opening a new connection, currently in state init
+[0m09:59:46.001270 [debug] [Thread-4  ]: Using postgres connection "model.financial_performance.mart_npl_ratio"
+[0m09:59:46.002500 [debug] [Thread-1  ]: Using postgres connection "model.financial_performance.mart_subsidiary_perf"
+[0m09:59:46.003640 [debug] [Thread-2  ]: Using postgres connection "model.financial_performance.mart_roe_roa"
+[0m09:59:46.005110 [debug] [Thread-4  ]: On model.financial_performance.mart_npl_ratio: BEGIN
+[0m09:59:46.006635 [debug] [Thread-1  ]: On model.financial_performance.mart_subsidiary_perf: BEGIN
+[0m09:59:46.008004 [debug] [Thread-2  ]: On model.financial_performance.mart_roe_roa: BEGIN
+[0m09:59:46.009193 [debug] [Thread-4  ]: Opening a new connection, currently in state init
+[0m09:59:46.010081 [debug] [Thread-1  ]: Opening a new connection, currently in state closed
+[0m09:59:46.010984 [debug] [Thread-2  ]: Opening a new connection, currently in state init
+[0m09:59:46.014803 [debug] [Thread-3  ]: SQL status: BEGIN in 0.014 seconds
+[0m09:59:46.016111 [debug] [Thread-3  ]: Using postgres connection "model.financial_performance.mart_nim_trend"
+[0m09:59:46.017484 [debug] [Thread-3  ]: On model.financial_performance.mart_nim_trend: /* {"app": "dbt", "dbt_version": "1.9.0b2", "profile_name": "financial_performance", "target_name": "dev", "node_id": "model.financial_performance.mart_nim_trend"} */
+
+  
+    
+
+  create  table "kcb_financials"."public"."mart_nim_trend__dbt_tmp"
+  
+  
+    as
+  
+  (
+    with staging as (
+    select * from "kcb_financials"."public"."stg_kcb_financials"
+),
+nim_calc as (
+    select
+        subsidiary,
+        year,
+        net_interest_income_m_kes,
+        total_assets_m_kes,
+        (net_interest_income_m_kes / nullif(total_assets_m_kes, 0)) * 100 as nim_percent
+    from staging
+)
+select * from nim_calc
+  );
+  
+[0m09:59:46.021507 [debug] [Thread-4  ]: SQL status: BEGIN in 0.012 seconds
+[0m09:59:46.023202 [debug] [Thread-1  ]: SQL status: BEGIN in 0.013 seconds
+[0m09:59:46.024544 [debug] [Thread-4  ]: Using postgres connection "model.financial_performance.mart_npl_ratio"
+[0m09:59:46.025430 [debug] [Thread-2  ]: SQL status: BEGIN in 0.014 seconds
+[0m09:59:46.026291 [debug] [Thread-1  ]: Using postgres connection "model.financial_performance.mart_subsidiary_perf"
+[0m09:59:46.027117 [debug] [Thread-3  ]: SQL status: SELECT 36 in 0.008 seconds
+[0m09:59:46.028086 [debug] [Thread-4  ]: On model.financial_performance.mart_npl_ratio: /* {"app": "dbt", "dbt_version": "1.9.0b2", "profile_name": "financial_performance", "target_name": "dev", "node_id": "model.financial_performance.mart_npl_ratio"} */
+
+  
+    
+
+  create  table "kcb_financials"."public"."mart_npl_ratio__dbt_tmp"
+  
+  
+    as
+  
+  (
+    with staging as (
+    select * from "kcb_financials"."public"."stg_kcb_financials"
+),
+asset_quality as (
+    select
+        subsidiary,
+        year,
+        npl_ratio_percent,
+        total_assets_m_kes,
+        (npl_ratio_percent / 100) * total_assets_m_kes as npl_amount_m_kes
+    from staging
+)
+select * from asset_quality
+  );
+  
+[0m09:59:46.029082 [debug] [Thread-2  ]: Using postgres connection "model.financial_performance.mart_roe_roa"
+[0m09:59:46.029999 [debug] [Thread-1  ]: On model.financial_performance.mart_subsidiary_perf: /* {"app": "dbt", "dbt_version": "1.9.0b2", "profile_name": "financial_performance", "target_name": "dev", "node_id": "model.financial_performance.mart_subsidiary_perf"} */
+
+  
+    
+
+  create  table "kcb_financials"."public"."mart_subsidiary_perf__dbt_tmp"
+  
+  
+    as
+  
+  (
+    with staging as (
+    select * from "kcb_financials"."public"."stg_kcb_financials"
+),
+performance as (
+    select
+        subsidiary,
+        year,
+        net_profit_m_kes,
+        total_assets_m_kes,
+        operating_expenses_m_kes,
+        (operating_expenses_m_kes / nullif(net_interest_income_m_kes, 0)) * 100 as cost_to_income_ratio,
+        customer_count
+    from staging
+)
+select * from performance
+  );
+  
+[0m09:59:46.039359 [debug] [Thread-3  ]: Using postgres connection "model.financial_performance.mart_nim_trend"
+[0m09:59:46.041776 [debug] [Thread-2  ]: On model.financial_performance.mart_roe_roa: /* {"app": "dbt", "dbt_version": "1.9.0b2", "profile_name": "financial_performance", "target_name": "dev", "node_id": "model.financial_performance.mart_roe_roa"} */
+
+  
+    
+
+  create  table "kcb_financials"."public"."mart_roe_roa__dbt_tmp"
+  
+  
+    as
+  
+  (
+    with staging as (
+    select * from "kcb_financials"."public"."stg_kcb_financials"
+),
+profitability as (
+    select
+        subsidiary,
+        year,
+        net_profit_m_kes,
+        total_assets_m_kes,
+        shareholders_equity_m_kes,
+        (net_profit_m_kes / nullif(total_assets_m_kes, 0)) * 100 as roa_percent,
+        (net_profit_m_kes / nullif(shareholders_equity_m_kes, 0)) * 100 as roe_percent
+    from staging
+)
+select * from profitability
+  );
+  
+[0m09:59:46.043194 [debug] [Thread-3  ]: On model.financial_performance.mart_nim_trend: /* {"app": "dbt", "dbt_version": "1.9.0b2", "profile_name": "financial_performance", "target_name": "dev", "node_id": "model.financial_performance.mart_nim_trend"} */
+alter table "kcb_financials"."public"."mart_nim_trend" rename to "mart_nim_trend__dbt_backup"
+[0m09:59:46.045869 [debug] [Thread-3  ]: SQL status: ALTER TABLE in 0.001 seconds
+[0m09:59:46.053475 [debug] [Thread-4  ]: SQL status: SELECT 36 in 0.012 seconds
+[0m09:59:46.056681 [debug] [Thread-3  ]: Using postgres connection "model.financial_performance.mart_nim_trend"
+[0m09:59:46.057593 [debug] [Thread-1  ]: SQL status: SELECT 36 in 0.015 seconds
+[0m09:59:46.065471 [debug] [Thread-2  ]: SQL status: SELECT 36 in 0.021 seconds
+[0m09:59:46.069771 [debug] [Thread-4  ]: Using postgres connection "model.financial_performance.mart_npl_ratio"
+[0m09:59:46.071255 [debug] [Thread-3  ]: On model.financial_performance.mart_nim_trend: /* {"app": "dbt", "dbt_version": "1.9.0b2", "profile_name": "financial_performance", "target_name": "dev", "node_id": "model.financial_performance.mart_nim_trend"} */
+alter table "kcb_financials"."public"."mart_nim_trend__dbt_tmp" rename to "mart_nim_trend"
+[0m09:59:46.079114 [debug] [Thread-1  ]: Using postgres connection "model.financial_performance.mart_subsidiary_perf"
+[0m09:59:46.088561 [debug] [Thread-2  ]: Using postgres connection "model.financial_performance.mart_roe_roa"
+[0m09:59:46.089736 [debug] [Thread-4  ]: On model.financial_performance.mart_npl_ratio: /* {"app": "dbt", "dbt_version": "1.9.0b2", "profile_name": "financial_performance", "target_name": "dev", "node_id": "model.financial_performance.mart_npl_ratio"} */
+alter table "kcb_financials"."public"."mart_npl_ratio" rename to "mart_npl_ratio__dbt_backup"
+[0m09:59:46.091054 [debug] [Thread-1  ]: On model.financial_performance.mart_subsidiary_perf: /* {"app": "dbt", "dbt_version": "1.9.0b2", "profile_name": "financial_performance", "target_name": "dev", "node_id": "model.financial_performance.mart_subsidiary_perf"} */
+alter table "kcb_financials"."public"."mart_subsidiary_perf" rename to "mart_subsidiary_perf__dbt_backup"
+[0m09:59:46.092584 [debug] [Thread-2  ]: On model.financial_performance.mart_roe_roa: /* {"app": "dbt", "dbt_version": "1.9.0b2", "profile_name": "financial_performance", "target_name": "dev", "node_id": "model.financial_performance.mart_roe_roa"} */
+alter table "kcb_financials"."public"."mart_roe_roa" rename to "mart_roe_roa__dbt_backup"
+[0m09:59:46.093736 [debug] [Thread-3  ]: SQL status: ALTER TABLE in 0.003 seconds
+[0m09:59:46.095713 [debug] [Thread-4  ]: SQL status: ALTER TABLE in 0.001 seconds
+[0m09:59:46.096676 [debug] [Thread-2  ]: SQL status: ALTER TABLE in 0.002 seconds
+[0m09:59:46.097462 [debug] [Thread-1  ]: SQL status: ALTER TABLE in 0.003 seconds
+[0m09:59:46.115490 [debug] [Thread-3  ]: On model.financial_performance.mart_nim_trend: COMMIT
+[0m09:59:46.119693 [debug] [Thread-4  ]: Using postgres connection "model.financial_performance.mart_npl_ratio"
+[0m09:59:46.133837 [debug] [Thread-2  ]: Using postgres connection "model.financial_performance.mart_roe_roa"
+[0m09:59:46.136390 [debug] [Thread-1  ]: Using postgres connection "model.financial_performance.mart_subsidiary_perf"
+[0m09:59:46.137470 [debug] [Thread-3  ]: Using postgres connection "model.financial_performance.mart_nim_trend"
+[0m09:59:46.138707 [debug] [Thread-4  ]: On model.financial_performance.mart_npl_ratio: /* {"app": "dbt", "dbt_version": "1.9.0b2", "profile_name": "financial_performance", "target_name": "dev", "node_id": "model.financial_performance.mart_npl_ratio"} */
+alter table "kcb_financials"."public"."mart_npl_ratio__dbt_tmp" rename to "mart_npl_ratio"
+[0m09:59:46.140401 [debug] [Thread-2  ]: On model.financial_performance.mart_roe_roa: /* {"app": "dbt", "dbt_version": "1.9.0b2", "profile_name": "financial_performance", "target_name": "dev", "node_id": "model.financial_performance.mart_roe_roa"} */
+alter table "kcb_financials"."public"."mart_roe_roa__dbt_tmp" rename to "mart_roe_roa"
+[0m09:59:46.143122 [debug] [Thread-1  ]: On model.financial_performance.mart_subsidiary_perf: /* {"app": "dbt", "dbt_version": "1.9.0b2", "profile_name": "financial_performance", "target_name": "dev", "node_id": "model.financial_performance.mart_subsidiary_perf"} */
+alter table "kcb_financials"."public"."mart_subsidiary_perf__dbt_tmp" rename to "mart_subsidiary_perf"
+[0m09:59:46.146418 [debug] [Thread-3  ]: On model.financial_performance.mart_nim_trend: COMMIT
+[0m09:59:46.148478 [debug] [Thread-2  ]: SQL status: ALTER TABLE in 0.000 seconds
+[0m09:59:46.149774 [debug] [Thread-1  ]: SQL status: ALTER TABLE in 0.002 seconds
+[0m09:59:46.150879 [debug] [Thread-4  ]: SQL status: ALTER TABLE in 0.003 seconds
+[0m09:59:46.152024 [debug] [Thread-3  ]: SQL status: COMMIT in 0.004 seconds
+[0m09:59:46.157682 [debug] [Thread-2  ]: On model.financial_performance.mart_roe_roa: COMMIT
+[0m09:59:46.175569 [debug] [Thread-2  ]: Using postgres connection "model.financial_performance.mart_roe_roa"
+[0m09:59:46.181609 [debug] [Thread-2  ]: On model.financial_performance.mart_roe_roa: COMMIT
+[0m09:59:46.162665 [debug] [Thread-1  ]: On model.financial_performance.mart_subsidiary_perf: COMMIT
+[0m09:59:46.182945 [debug] [Thread-1  ]: Using postgres connection "model.financial_performance.mart_subsidiary_perf"
+[0m09:59:46.180209 [debug] [Thread-3  ]: Applying DROP to: "kcb_financials"."public"."mart_nim_trend__dbt_backup"
+[0m09:59:46.183768 [debug] [Thread-1  ]: On model.financial_performance.mart_subsidiary_perf: COMMIT
+[0m09:59:46.169335 [debug] [Thread-4  ]: On model.financial_performance.mart_npl_ratio: COMMIT
+[0m09:59:46.189867 [debug] [Thread-2  ]: SQL status: COMMIT in 0.007 seconds
+[0m09:59:46.189496 [debug] [Thread-3  ]: Using postgres connection "model.financial_performance.mart_nim_trend"
+[0m09:59:46.191898 [debug] [Thread-4  ]: Using postgres connection "model.financial_performance.mart_npl_ratio"
+[0m09:59:46.198149 [debug] [Thread-1  ]: SQL status: COMMIT in 0.006 seconds
+[0m09:59:46.202011 [debug] [Thread-2  ]: Applying DROP to: "kcb_financials"."public"."mart_roe_roa__dbt_backup"
+[0m09:59:46.203409 [debug] [Thread-3  ]: On model.financial_performance.mart_nim_trend: /* {"app": "dbt", "dbt_version": "1.9.0b2", "profile_name": "financial_performance", "target_name": "dev", "node_id": "model.financial_performance.mart_nim_trend"} */
+drop table if exists "kcb_financials"."public"."mart_nim_trend__dbt_backup" cascade
+[0m09:59:46.207875 [debug] [Thread-4  ]: On model.financial_performance.mart_npl_ratio: COMMIT
+[0m09:59:46.215881 [debug] [Thread-1  ]: Applying DROP to: "kcb_financials"."public"."mart_subsidiary_perf__dbt_backup"
+[0m09:59:46.217929 [debug] [Thread-2  ]: Using postgres connection "model.financial_performance.mart_roe_roa"
+[0m09:59:46.220297 [debug] [Thread-1  ]: Using postgres connection "model.financial_performance.mart_subsidiary_perf"
+[0m09:59:46.221426 [debug] [Thread-4  ]: SQL status: COMMIT in 0.002 seconds
+[0m09:59:46.222264 [debug] [Thread-2  ]: On model.financial_performance.mart_roe_roa: /* {"app": "dbt", "dbt_version": "1.9.0b2", "profile_name": "financial_performance", "target_name": "dev", "node_id": "model.financial_performance.mart_roe_roa"} */
+drop table if exists "kcb_financials"."public"."mart_roe_roa__dbt_backup" cascade
+[0m09:59:46.223266 [debug] [Thread-3  ]: SQL status: DROP TABLE in 0.004 seconds
+[0m09:59:46.224504 [debug] [Thread-1  ]: On model.financial_performance.mart_subsidiary_perf: /* {"app": "dbt", "dbt_version": "1.9.0b2", "profile_name": "financial_performance", "target_name": "dev", "node_id": "model.financial_performance.mart_subsidiary_perf"} */
+drop table if exists "kcb_financials"."public"."mart_subsidiary_perf__dbt_backup" cascade
+[0m09:59:46.231232 [debug] [Thread-4  ]: Applying DROP to: "kcb_financials"."public"."mart_npl_ratio__dbt_backup"
+[0m09:59:46.234640 [debug] [Thread-3  ]: On model.financial_performance.mart_nim_trend: Close
+[0m09:59:46.235646 [debug] [Thread-2  ]: SQL status: DROP TABLE in 0.003 seconds
+[0m09:59:46.237847 [debug] [Thread-4  ]: Using postgres connection "model.financial_performance.mart_npl_ratio"
+[0m09:59:46.239403 [debug] [Thread-3  ]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '9873c6c6-88f8-403f-bd7c-793a80dddebe', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x73270a538b50>]}
+[0m09:59:46.240409 [debug] [Thread-1  ]: SQL status: DROP TABLE in 0.004 seconds
+[0m09:59:46.244509 [debug] [Thread-2  ]: On model.financial_performance.mart_roe_roa: Close
+[0m09:59:46.245589 [debug] [Thread-4  ]: On model.financial_performance.mart_npl_ratio: /* {"app": "dbt", "dbt_version": "1.9.0b2", "profile_name": "financial_performance", "target_name": "dev", "node_id": "model.financial_performance.mart_npl_ratio"} */
+drop table if exists "kcb_financials"."public"."mart_npl_ratio__dbt_backup" cascade
+[0m09:59:46.250635 [debug] [Thread-1  ]: On model.financial_performance.mart_subsidiary_perf: Close
+[0m09:59:46.247197 [info ] [Thread-3  ]: 2 of 6 OK created sql table model public.mart_nim_trend ........................ [[32mSELECT 36[0m in 0.53s]
+[0m09:59:46.252772 [debug] [Thread-2  ]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '9873c6c6-88f8-403f-bd7c-793a80dddebe', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x73270a538ca0>]}
+[0m09:59:46.254364 [debug] [Thread-3  ]: Finished running node model.financial_performance.mart_nim_trend
+[0m09:59:46.256032 [debug] [Thread-1  ]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '9873c6c6-88f8-403f-bd7c-793a80dddebe', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x73270a4eac10>]}
+[0m09:59:46.257490 [debug] [Thread-4  ]: SQL status: DROP TABLE in 0.005 seconds
+[0m09:59:46.259270 [info ] [Thread-2  ]: 4 of 6 OK created sql table model public.mart_roe_roa .......................... [[32mSELECT 36[0m in 0.54s]
+[0m09:59:46.260508 [debug] [Thread-3  ]: Began running node model.financial_performance.mart_subsidiary_performance
+[0m09:59:46.262197 [info ] [Thread-1  ]: 5 of 6 OK created sql table model public.mart_subsidiary_perf .................. [[32mSELECT 36[0m in 0.54s]
+[0m09:59:46.265677 [debug] [Thread-4  ]: On model.financial_performance.mart_npl_ratio: Close
+[0m09:59:46.267559 [debug] [Thread-2  ]: Finished running node model.financial_performance.mart_roe_roa
+[0m09:59:46.269367 [info ] [Thread-3  ]: 6 of 6 START sql table model public.mart_subsidiary_performance ................ [RUN]
+[0m09:59:46.271276 [debug] [Thread-1  ]: Finished running node model.financial_performance.mart_subsidiary_perf
+[0m09:59:46.272777 [debug] [Thread-4  ]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '9873c6c6-88f8-403f-bd7c-793a80dddebe', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x73270b02feb0>]}
+[0m09:59:46.273989 [debug] [Thread-3  ]: Re-using an available connection from the pool (formerly model.financial_performance.mart_nim_trend, now model.financial_performance.mart_subsidiary_performance)
+[0m09:59:46.275905 [info ] [Thread-4  ]: 3 of 6 OK created sql table model public.mart_npl_ratio ........................ [[32mSELECT 36[0m in 0.55s]
+[0m09:59:46.276991 [debug] [Thread-3  ]: Began compiling node model.financial_performance.mart_subsidiary_performance
+[0m09:59:46.278599 [debug] [Thread-4  ]: Finished running node model.financial_performance.mart_npl_ratio
+[0m09:59:46.288146 [debug] [Thread-3  ]: Writing injected SQL for node "model.financial_performance.mart_subsidiary_performance"
+[0m09:59:46.289543 [debug] [Thread-3  ]: Began executing node model.financial_performance.mart_subsidiary_performance
+[0m09:59:46.299752 [debug] [Thread-3  ]: Writing runtime sql for node "model.financial_performance.mart_subsidiary_performance"
+[0m09:59:46.301238 [debug] [Thread-3  ]: Using postgres connection "model.financial_performance.mart_subsidiary_performance"
+[0m09:59:46.302120 [debug] [Thread-3  ]: On model.financial_performance.mart_subsidiary_performance: BEGIN
+[0m09:59:46.302961 [debug] [Thread-3  ]: Opening a new connection, currently in state closed
+[0m09:59:46.313544 [debug] [Thread-3  ]: SQL status: BEGIN in 0.010 seconds
+[0m09:59:46.314652 [debug] [Thread-3  ]: Using postgres connection "model.financial_performance.mart_subsidiary_performance"
+[0m09:59:46.315750 [debug] [Thread-3  ]: On model.financial_performance.mart_subsidiary_performance: /* {"app": "dbt", "dbt_version": "1.9.0b2", "profile_name": "financial_performance", "target_name": "dev", "node_id": "model.financial_performance.mart_subsidiary_performance"} */
+
+  
+    
+
+  create  table "kcb_financials"."public"."mart_subsidiary_performance__dbt_tmp"
+  
+  
+    as
+  
+  (
+    with staging as (
+    select * from "kcb_financials"."public"."stg_kcb_financials"
+),
+performance as (
+    select
+        subsidiary,
+        year,
+        net_profit_m_kes,
+        total_assets_m_kes,
+        npl_ratio_percent,
+        customer_count,
+        (net_profit_m_kes / nullif(total_assets_m_kes, 0)) * 100 as roa_percent,
+        lag(net_profit_m_kes) over (partition by subsidiary order by year) as prev_year_profit,
+        ((net_profit_m_kes - lag(net_profit_m_kes) over (partition by subsidiary order by year)) / 
+            nullif(lag(net_profit_m_kes) over (partition by subsidiary order by year), 0)) * 100 as profit_growth_percent
+    from staging
+)
+select * from performance
+  );
+  
+[0m09:59:46.325528 [debug] [Thread-3  ]: SQL status: SELECT 36 in 0.009 seconds
+[0m09:59:46.332785 [debug] [Thread-3  ]: Using postgres connection "model.financial_performance.mart_subsidiary_performance"
+[0m09:59:46.333870 [debug] [Thread-3  ]: On model.financial_performance.mart_subsidiary_performance: /* {"app": "dbt", "dbt_version": "1.9.0b2", "profile_name": "financial_performance", "target_name": "dev", "node_id": "model.financial_performance.mart_subsidiary_performance"} */
+alter table "kcb_financials"."public"."mart_subsidiary_performance" rename to "mart_subsidiary_performance__dbt_backup"
+[0m09:59:46.335569 [debug] [Thread-3  ]: SQL status: ALTER TABLE in 0.001 seconds
+[0m09:59:46.344362 [debug] [Thread-3  ]: Using postgres connection "model.financial_performance.mart_subsidiary_performance"
+[0m09:59:46.345482 [debug] [Thread-3  ]: On model.financial_performance.mart_subsidiary_performance: /* {"app": "dbt", "dbt_version": "1.9.0b2", "profile_name": "financial_performance", "target_name": "dev", "node_id": "model.financial_performance.mart_subsidiary_performance"} */
+alter table "kcb_financials"."public"."mart_subsidiary_performance__dbt_tmp" rename to "mart_subsidiary_performance"
+[0m09:59:46.347985 [debug] [Thread-3  ]: SQL status: ALTER TABLE in 0.000 seconds
+[0m09:59:46.353718 [debug] [Thread-3  ]: On model.financial_performance.mart_subsidiary_performance: COMMIT
+[0m09:59:46.354928 [debug] [Thread-3  ]: Using postgres connection "model.financial_performance.mart_subsidiary_performance"
+[0m09:59:46.356155 [debug] [Thread-3  ]: On model.financial_performance.mart_subsidiary_performance: COMMIT
+[0m09:59:46.359719 [debug] [Thread-3  ]: SQL status: COMMIT in 0.002 seconds
+[0m09:59:46.369256 [debug] [Thread-3  ]: Applying DROP to: "kcb_financials"."public"."mart_subsidiary_performance__dbt_backup"
+[0m09:59:46.371411 [debug] [Thread-3  ]: Using postgres connection "model.financial_performance.mart_subsidiary_performance"
+[0m09:59:46.372339 [debug] [Thread-3  ]: On model.financial_performance.mart_subsidiary_performance: /* {"app": "dbt", "dbt_version": "1.9.0b2", "profile_name": "financial_performance", "target_name": "dev", "node_id": "model.financial_performance.mart_subsidiary_performance"} */
+drop table if exists "kcb_financials"."public"."mart_subsidiary_performance__dbt_backup" cascade
+[0m09:59:46.375657 [debug] [Thread-3  ]: SQL status: DROP TABLE in 0.002 seconds
+[0m09:59:46.378924 [debug] [Thread-3  ]: On model.financial_performance.mart_subsidiary_performance: Close
+[0m09:59:46.381427 [debug] [Thread-3  ]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '9873c6c6-88f8-403f-bd7c-793a80dddebe', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x73270a3c6670>]}
+[0m09:59:46.383694 [info ] [Thread-3  ]: 6 of 6 OK created sql table model public.mart_subsidiary_performance ........... [[32mSELECT 36[0m in 0.11s]
+[0m09:59:46.385808 [debug] [Thread-3  ]: Finished running node model.financial_performance.mart_subsidiary_performance
+[0m09:59:46.389344 [debug] [MainThread]: Using postgres connection "master"
+[0m09:59:46.390266 [debug] [MainThread]: On master: BEGIN
+[0m09:59:46.390974 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m09:59:46.401138 [debug] [MainThread]: SQL status: BEGIN in 0.010 seconds
+[0m09:59:46.402015 [debug] [MainThread]: On master: COMMIT
+[0m09:59:46.402693 [debug] [MainThread]: Using postgres connection "master"
+[0m09:59:46.403356 [debug] [MainThread]: On master: COMMIT
+[0m09:59:46.404790 [debug] [MainThread]: SQL status: COMMIT in 0.000 seconds
+[0m09:59:46.405654 [debug] [MainThread]: On master: Close
+[0m09:59:46.406827 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m09:59:46.407780 [debug] [MainThread]: Connection 'model.financial_performance.mart_subsidiary_perf' was properly closed.
+[0m09:59:46.408700 [debug] [MainThread]: Connection 'model.financial_performance.mart_subsidiary_performance' was properly closed.
+[0m09:59:46.409414 [debug] [MainThread]: Connection 'model.financial_performance.mart_roe_roa' was properly closed.
+[0m09:59:46.410097 [debug] [MainThread]: Connection 'model.financial_performance.mart_npl_ratio' was properly closed.
+[0m09:59:46.411348 [info ] [MainThread]: 
+[0m09:59:46.412359 [info ] [MainThread]: Finished running 5 table models, 1 view model in 0 hours 0 minutes and 1.19 seconds (1.19s).
+[0m09:59:46.415810 [debug] [MainThread]: Command end result
+[0m09:59:46.484456 [info ] [MainThread]: 
+[0m09:59:46.485534 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m09:59:46.486517 [info ] [MainThread]: 
+[0m09:59:46.487539 [info ] [MainThread]: Done. PASS=6 WARN=0 ERROR=0 SKIP=0 TOTAL=6
+[0m09:59:46.489692 [debug] [MainThread]: Resource report: {"command_name": "run", "command_success": true, "command_wall_clock_time": 2.9024408, "process_user_time": 5.720296, "process_kernel_time": 0.579726, "process_mem_max_rss": "108320", "process_in_blocks": "23032", "process_out_blocks": "1976"}
+[0m09:59:46.490958 [debug] [MainThread]: Command `dbt run` succeeded at 09:59:46.490759 after 2.90 seconds
+[0m09:59:46.491849 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x73270daddd00>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x73270e776250>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x73270e7821c0>]}
+[0m09:59:46.492795 [debug] [MainThread]: Flushing usage events
+[0m09:59:48.071091 [debug] [MainThread]: An error was encountered while trying to flush usage events
