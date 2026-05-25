@@ -11,13 +11,11 @@ Experience the live analytical platforms built in this portfolio:
 
 | Dashboard | Access Link | Description |
 |---|---|---|
-| **Executive Financial Summary (2025)** | [🚀 View Executive Hub](https://master-dashboard-link.streamlit.app) | Unified comparison of 2025 audited results for KCB Group, Absa Kenya, and Equity Group. |
+| **Executive Financial Summary (2025)** | [🚀 View Executive Hub](https://kipruto45-victor-kipruto-rop-portfolio-g8pspygfpttsbfggjaadwy.streamlit.app/) | Unified comparison of 2025 audited results for KCB Group, Absa Kenya, and Equity Group. |
 | **Absa Bank Kenya** | [🔴 View Absa Dashboard](https://kipruto45-victor-kipruto-rop-portfolio-cc6ye8wlqrt2vtpsdndigd.streamlit.app/) | Integrated view of Financial KPIs, Risk/Capital, and Open Banking API adoption. |
 | **Equity Group Pan-Africa** | [🌍 View Equity Dashboard](https://kipruto45-victor-kipruto-rop-portfolio-g8pspygfpttsbfggjaadwy.streamlit.app/) | Regional profitability, mobile adoption, and market matrix analytics across 7 countries. |
-| **KCB Group Integrated** | [🦁 View KCB Dashboard](https://kcb-dashboard-link.streamlit.app) | Consolidated performance tracking and M-Pesa loan book analytics. |
-| **KRA Revenue & Trade** | [🇰🇪 View KRA Dashboard](https://kra-dashboard-link.streamlit.app) | Real-time monitoring of tax revenue, customs trade, and economic indicators. |
-
-*(Note: Live links for KCB, Absa, and KRA are demonstration placeholders and are best experienced by running the local Docker environment.)*
+| **KCB Group Integrated** | [🦁 View KCB Dashboard](https://kipruto45-victor-kipruto-rop-portfolio-g8pspygfpttsbfggjaadwy.streamlit.app/) | Consolidated performance tracking and M-Pesa loan book analytics. |
+| **KRA Revenue & Trade** | [🇰🇪 View KRA Dashboard](https://kipruto45-victor-kipruto-rop-portfolio-g8pspygfpttsbfggjaadwy.streamlit.app/) | Real-time monitoring of tax revenue, customs trade, and economic indicators. |
 
 ---
 

@@ -24,14 +24,22 @@ Fiscal policy modeling comparing theoretical VAT capacity vs. actual collections
 Scraping business registration data as an economic leading indicator.
 *   **Tech Stack**: Playwright, PostGIS, dbt.
 
----
+## 📊 Integrated Analytics Dashboard
 
-## Data Sources
-This portfolio integrates the following real-world authorities and portals:
-- **Kenya Revenue Authority (KRA)**: Monthly/Annual Revenue Performance Reports, Customs & Border Control disclosures, and Rules of Origin guidelines.
-- **Kenya National Bureau of Statistics (KNBS)**: Leading Economic Indicators (Feb 2023) and National Accounts (GDP).
-- **International Trade Centre (ITC)**: TradeMap Beta benchmarks for Kenyan export/import corridors and global HS-code pricing.
-- **UN Comtrade**: International trade database for cross-border trade discrepancy analysis.
+The platform includes a centralized Streamlit hub that provides deep-dive insights into national revenue and trade performance.
+
+### Key Features:
+- **📈 Tax Revenue Performance**: Monitoring of collections vs. Treasury targets (e.g., VAT, PAYE, Excise).
+- **🚢 Customs & Trade Intelligence**: Analysis of trade volumes (Tons), trade value (KES), and HS-code duty contribution.
+- **📉 Macro-Economic Indicators**: Heatmaps of industry growth rates from the 2026 Economic Survey and Tax-to-GDP efficiency modeling.
+
+### Accessing the Dashboards:
+1. **Interactive Dashboard (Streamlit)**: 
+   - **Live Demo**: [🚀 View KRA Integrated Dashboard](https://kipruto45-victor-kipruto-rop-portfolio-g8pspygfpttsbfggjaadwy.streamlit.app/)
+   - **Local URL**: [http://localhost:8506](http://localhost:8506)
+   - **Command**: `streamlit run dashboard_app.py` from the project root.
+2. **Master Hub**: Accessible via the [Master Dashboard](../master_dashboard.py).
+
 
 ## 🛠 Portfolio Tech Stack
 - **Ingestion**: Python (Requests, Playwright, pdfplumber)
