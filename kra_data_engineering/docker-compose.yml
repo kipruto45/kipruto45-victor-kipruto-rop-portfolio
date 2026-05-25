@@ -1,89 +1,45 @@
+version: '3.8'
+
 services:
   postgres-kra:
     image: postgres:15
-    restart: always
     environment:
-      POSTGRES_USER: kra_admin
-      POSTGRES_PASSWORD: kra_password
-      POSTGRES_DB: postgres
+      POSTGRES_USER: ${DB_USER:-kra_admin}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-kra_password}
+      POSTGRES_DB: ${DB_NAME:-kra_warehouse}
     ports:
       - "5438:5432"
     volumes:
       - postgres_kra_data:/var/lib/postgresql/data
-      - ./Tax_Revenue_Analytics/init-db.sh:/docker-entrypoint-initdb.d/init-db.sh
-    healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U kra_admin"]
-      interval: 10s
-      timeout: 5s
-      retries: 5
+      - ./init-db.sh:/docker-point-initdb.d/init-db.sh
 
   airflow-kra:
-    image: apache/airflow:2.7.1
-    restart: always
-    command: standalone
+    image: apache/airflow:2.7.1-python3.11
     environment:
+      - AIRFLOW__DATABASE__SQL_ALCHEMY_CONN=postgresql+psycopg2://${DB_USER:-kra_admin}:${DB_PASSWORD:-kra_password}@postgres-kra:5432/${DB_NAME:-kra_warehouse}
       - AIRFLOW__CORE__EXECUTOR=LocalExecutor
-      - AIRFLOW__DATABASE__SQL_ALCHEMY_CONN=postgresql+psycopg2://kra_admin:kra_password@postgres-kra/postgres
-      - AIRFLOW__CORE__LOAD_EXAMPLES=False
     volumes:
-      - ./Tax_Revenue_Analytics/dags:/opt/airflow/dags/revenue
-      - ./Customs_Trade_Pipeline/dags:/opt/airflow/dags/customs
+      - ./dags:/opt/airflow/dags
+      - ./dbt:/opt/airflow/dbt
       - .:/opt/airflow/projects/kra
-    depends_on:
-      postgres-kra:
-        condition: service_healthy
     ports:
-      - "8085:8080"
+      - "8084:8080"
+    depends_on:
+      - postgres-kra
 
-  revenue-dashboard:
-    image: apache/airflow:2.7.1
-    restart: always
-    command: bash -c "pip install streamlit plotly sqlalchemy psycopg2-binary pandas && streamlit run /opt/airflow/projects/kra/Tax_Revenue_Analytics/dashboard_app.py --server.port 8506 --server.address 0.0.0.0"
+  kra-dashboard:
+    image: python:3.11-slim
+    command: bash -c "pip install streamlit plotly pandas sqlalchemy psycopg2-binary && streamlit run dashboard_app.py --server.port 8506 --server.address 0.0.0.0"
     ports:
       - "8506:8506"
     environment:
       - STREAMLIT_SERVER_HEADLESS=true
+      - DB_HOST=postgres-kra
     volumes:
-      - .:/opt/airflow/projects/kra
+      - .:/app
+    working_dir: /app
     depends_on:
-      postgres-kra:
-        condition: service_healthy
-
-  customs-dashboard:
-    image: apache/airflow:2.7.1
-    restart: always
-    command: bash -c "pip install streamlit plotly pandas sqlalchemy psycopg2-binary && streamlit run /opt/airflow/projects/kra/Customs_Trade_Pipeline/dashboard_app.py --server.port 8507 --server.address 0.0.0.0"
-    ports:
-      - "8507:8507"
-    environment:
-      - STREAMLIT_SERVER_HEADLESS=true
-    volumes:
-      - .:/opt/airflow/projects/kra
-    depends_on:
-      postgres-kra:
-        condition: service_healthy
-
-  vat-dashboard:
-    image: apache/airflow:2.7.1
-    restart: always
-    command: bash -c "pip install streamlit plotly pandas && streamlit run /opt/airflow/projects/kra/VAT_Compliance_Gap_Analysis/dashboard_app.py --server.port 8508 --server.address 0.0.0.0"
-    ports:
-      - "8508:8508"
-    environment:
-      - STREAMLIT_SERVER_HEADLESS=true
-    volumes:
-      - .:/opt/airflow/projects/kra
-
-  itax-dashboard:
-    image: apache/airflow:2.7.1
-    restart: always
-    command: bash -c "pip install streamlit plotly pandas && streamlit run /opt/airflow/projects/kra/iTax_Registration_Analytics/dashboard_app.py --server.port 8509 --server.address 0.0.0.0"
-    ports:
-      - "8509:8509"
-    environment:
-      - STREAMLIT_SERVER_HEADLESS=true
-    volumes:
-      - .:/opt/airflow/projects/kra
+      - postgres-kra
 
 volumes:
   postgres_kra_data:

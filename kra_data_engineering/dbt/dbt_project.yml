@@ -1,0 +1,15 @@
+name: 'kra_analytics'
+version: '1.0.0'
+config-version: 2
+profile: 'kra_profile'
+
+model-paths: ["models"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+
+models:
+  kra_analytics:
+    staging:
+      +materialized: view
+    marts:
+      +materialized: table

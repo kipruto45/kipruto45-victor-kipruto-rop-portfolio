@@ -1,0 +1,12 @@
+kra_profile:
+  outputs:
+    dev:
+      type: postgres
+      host: "{{ env_var('DB_HOST', 'localhost') }}"
+      user: kra_admin
+      password: kra_password
+      port: 5438
+      dbname: kra_warehouse
+      schema: public
+      threads: 4
+  target: dev

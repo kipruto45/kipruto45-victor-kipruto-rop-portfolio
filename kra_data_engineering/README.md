@@ -1,52 +1,58 @@
-# 🇰🇪 KRA Data Engineering & Analytics Portfolio
+# 🇰🇪 KRA National Revenue & Trade Platform
 
 ## Overview
-This repository contains a suite of data engineering projects designed to automate the ingestion, transformation, and analysis of Kenya Revenue Authority (KRA) data. The portfolio covers national tax revenue analytics, customs and trade monitoring, and business registration trends.
+This platform manages the automated ingestion and analysis of Kenya's national tax revenue, customs trade balances, and macro-economic indicators. It transforms data from PDF reports and structured files into actionable fiscal intelligence.
 
----
+## Architecture
+```mermaid
+graph TD
+    PDF[Revenue Reports] -->|pdfplumber| IS[Ingestion Hub]
+    Trade[TradeData.xlsx] -->|Pandas| IS
+    IS -->|Load| P[PostgreSQL Raw]
+    P -->|dbt Staging| Stg[Staging Layer]
+    Stg -->|dbt Marts| Marts[Revenue & Trade Marts]
+    Marts -->|Streamlit| Dash[KRA Executive Hub]
+    Hub -.->|Orchestration| Airflow[Apache Airflow]
+```
 
-## 🚀 Key Projects
+## Data Sources
+- **KRA Revenue Reports**: FY 2021-2025 audited performance.
+- **Customs & Trade**: Integrated trade statistics and Rules of Origin disclosures.
+- **Economic Surveys**: National GDP and industry growth rates (2026 Survey).
 
-### 1. [Tax Revenue Analytics Warehouse](Tax_Revenue_Analytics/)
-Automated ingestion of KRA monthly revenue performance reports to track collection efficiency against Treasury targets.
-*   **Tech Stack**: Python (pdfplumber), dbt, Airflow, PostgreSQL.
-*   **Dashboard**: `http://localhost:8506`
-
-### 2. [Customs & Trade Data Pipeline](Customs_Trade_Pipeline/)
-Import/export intelligence tracking commodity-level trade volumes, duty collection, and contraband risk scoring.
-*   **Data Sources**: Real-world integration of **FY 2020/21 Audited Revenue Reports**, **UN Comtrade** international trade benchmarks, and **Rules of Origin** regulatory disclosures.
-
-### 3. [VAT Compliance & Gap Analysis](VAT_Compliance_Gap_Analysis/)
-Fiscal policy modeling comparing theoretical VAT capacity vs. actual collections by sector.
-*   **Methodology**: IMF VAT Gap framework.
-
-### 4. [iTax Business Registration Analytics](iTax_Registration_Analytics/)
-Scraping business registration data as an economic leading indicator.
-*   **Tech Stack**: Playwright, PostGIS, dbt.
-
-## 📊 Integrated Analytics Dashboard
-
-The platform includes a centralized Streamlit hub that provides deep-dive insights into national revenue and trade performance.
-
-### Key Features:
-- **📈 Tax Revenue Performance**: Monitoring of collections vs. Treasury targets (e.g., VAT, PAYE, Excise).
-- **🚢 Customs & Trade Intelligence**: Analysis of trade volumes (Tons), trade value (KES), and HS-code duty contribution.
-- **📉 Macro-Economic Indicators**: Heatmaps of industry growth rates from the 2026 Economic Survey and Tax-to-GDP efficiency modeling.
-
-### Accessing the Dashboards:
-1. **Interactive Dashboard (Streamlit)**: 
-   - **Live Demo**: [🚀 View KRA Integrated Dashboard](https://kipruto45-victor-kipruto-rop-portfolio-g8pspygfpttsbfggjaadwy.streamlit.app/)
-   - **Local URL**: [http://localhost:8506](http://localhost:8506)
-   - **Command**: `streamlit run dashboard_app.py` from the project root.
-2. **Master Hub**: Accessible via the [Master Dashboard](../master_dashboard.py).
-
-
-## 🛠 Portfolio Tech Stack
-- **Ingestion**: Python (Requests, Playwright, pdfplumber)
-- **Warehouse**: PostgreSQL 15 / DuckDB
-- **Transformation**: dbt (Data Build Tool)
+## Tech Stack
 - **Orchestration**: Apache Airflow
-- **Visualization**: Streamlit & Plotly
+- **Transformation**: dbt Core (PostgreSQL)
+- **Database**: PostgreSQL 15
+- **Visualization**: Streamlit, Plotly
+- **Environment**: Docker, Docker Compose
 
----
-*Created by Victor Kipruto - Data Engineering Portfolio*
+## Folder Structure
+```text
+kra_data_engineering/
+├── dags/               # Fiscal & Trade ETL DAGs
+├── dbt/                # Consolidated dbt project
+├── ingestion/          # PDF parsing & Excel loading
+├── dashboards/         # Visualization layer
+├── tests/              # Data quality tests
+├── docker-compose.yml  # Local stack definition
+└── README.md
+```
+
+## How to Run
+1. **Launch Stack**:
+   ```bash
+   docker-compose up -d
+   ```
+2. **Execute dbt**:
+   ```bash
+   cd dbt
+   dbt run
+   dbt test
+   ```
+3. **Access Dashboard**: Open `http://localhost:8506`
+
+## Key Metrics / Outputs
+- **YoY Revenue Growth**: Performance by primary tax heads.
+- **Trade Balance**: Import/Export volume by HS-code commodity.
+- **Tax-to-GDP Ratio**: National tax efficiency modeling.
