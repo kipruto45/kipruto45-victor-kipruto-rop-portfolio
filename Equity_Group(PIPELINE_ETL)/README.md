@@ -67,3 +67,24 @@ Detailed insights are available in the executed Jupyter notebooks:
 
 ---
 *Maintained by the Data Engineering Team*
+
+
+## Data Sources
+
+This project utilizes the following data sources:
+- `Equitel_EazzyPay_Analytics/ingestion/eazzypay_transactions.csv`
+- `Equitel_EazzyPay_Analytics/ingestion/equitel_subscribers.csv`
+- `Pan_Africa_Financial_Platform/dbt/seeds/customer_master.csv`
+- `Pan_Africa_Financial_Platform/dbt/seeds/subsidiaries.csv`
+- `Pan_Africa_Financial_Platform/dbt/target/run/pan_africa_platform/seeds/customer_master.csv`
+- `Pan_Africa_Financial_Platform/dbt/target/run/pan_africa_platform/seeds/subsidiaries.csv`
+- `Pan_Africa_Financial_Platform/ingestion/equity_subsidiary_performance.csv`
+- `Pan_Africa_Financial_Platform/ingestion/subsidiary_financials.csv`
+- `dashboards/snapshots/mart_adoption_curve.csv`
+- `dashboards/snapshots/mart_arpu_benchmark.csv`
+- `dashboards/snapshots/mart_cross_sell_rate.csv`
+- `dashboards/snapshots/mart_group_consolidation.csv`
+- `dashboards/snapshots/mart_product_mix.csv`
+- `dashboards/snapshots/mart_regional_engagement.csv`
+- `dashboards/snapshots/mart_subsidiary_comparison.csv`
+- `dashboards/snapshots/mart_subsidiary_performance.csv`

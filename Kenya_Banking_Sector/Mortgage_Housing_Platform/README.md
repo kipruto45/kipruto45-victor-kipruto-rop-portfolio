@@ -7,3 +7,10 @@ Analytics focusing on the mortgage uptake and the affordable housing financing s
 
 ---
 *Developed as part of the Kenya Banking Sector Analytics Portfolio*
+
+
+## Data Sources
+
+This project utilizes the following data sources:
+- `seeds/income_statistics.csv`
+- `seeds/kenya_counties.csv`

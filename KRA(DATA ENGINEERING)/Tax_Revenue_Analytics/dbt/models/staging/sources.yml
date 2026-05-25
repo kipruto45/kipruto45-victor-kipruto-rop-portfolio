@@ -6,3 +6,4 @@ sources:
     schema: public
     tables:
       - name: raw_kra_revenue
+      - name: raw_economic_survey_gdp

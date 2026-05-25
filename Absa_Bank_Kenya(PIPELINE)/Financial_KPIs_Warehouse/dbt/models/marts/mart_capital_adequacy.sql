@@ -4,16 +4,16 @@ with staging as (
 
 capital_metrics as (
     select
-        period,
-        max(case when metric_name = 'Total Capital' then metric_value end) as total_capital,
-        max(case when metric_name = 'Risk-Weighted Assets' then metric_value end) as risk_weighted_assets
+        year,
+        max(case when indicator = 'Total Capital' then value_m_kes end) as total_capital,
+        max(case when indicator = 'Risk-Weighted Assets' then value_m_kes end) as risk_weighted_assets
     from staging
     group by 1
 ),
 
 calculated as (
     select
-        period,
+        year,
         total_capital,
         risk_weighted_assets,
         (total_capital / nullif(risk_weighted_assets, 0)) * 100 as car_percentage

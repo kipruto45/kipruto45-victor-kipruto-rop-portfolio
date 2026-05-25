@@ -6,4 +6,4 @@ sources:
     schema: public
     tables:
       - name: raw_customs_declarations
-      - name: raw_un_comtrade_benchmarks
+      - name: raw_customs_trade_data

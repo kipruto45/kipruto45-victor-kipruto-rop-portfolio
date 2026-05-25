@@ -70,3 +70,20 @@ Detailed insights are available in the executed Jupyter notebooks within each pr
 
 ---
 *Maintained by the Data Engineering Team*
+
+
+## Data Sources
+
+This project utilizes the following data sources:
+- `2025-integrated-annual-report.pdf`
+- `Absa-Group-Limited-Integrated-Report.pdf`
+- `Absa-Group-Pillar-3-disclosure-as-at-31-December-2025.pdf`
+- `Financial_KPIs_Warehouse/ingestion/absa_robust_financials.csv`
+- `Financial_KPIs_Warehouse/ingestion/raw_absa_historical.csv`
+- `Financial_KPIs_Warehouse/seeds/kpi_definitions.csv`
+- `Open_Banking_API_Pipeline/seeds/customer_consent.csv`
+- `dashboards/snapshots/mart_asset_quality.csv`
+- `dashboards/snapshots/mart_customer_activity.csv`
+- `dashboards/snapshots/mart_efficiency_ratio.csv`
+- `dashboards/snapshots/mart_profitability.csv`
+- `dashboards/snapshots/raw_transactions.csv`

@@ -11,3 +11,10 @@ A unique data pipeline comparing the financial performance of Kenyan SACCOs (Sav
 
 ---
 *Developed as part of the Kenya Banking Sector Analytics Portfolio*
+
+
+## Data Sources
+
+This project utilizes the following data sources:
+- `seeds/bank_registry.csv`
+- `seeds/sacco_list.csv`

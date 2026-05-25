@@ -10,7 +10,7 @@ st.set_page_config(page_title="Absa Kenya: Financial Analytics", layout="wide", 
 def load_data(query, snapshot_name):
     try:
         host = "postgres-absa" if os.path.exists("/.dockerenv") else "localhost"
-        engine = create_engine(f'postgresql://absa_admin:absa_password@{host}:5440/absa_warehouse')
+        engine = create_engine(f'postgresql://absa_admin:absa_password@{host}:5432/absa_warehouse')
         return pd.read_sql(query, engine)
     except Exception:
         snapshot_path = f"dashboards/snapshots/{snapshot_name}.csv"

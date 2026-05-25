@@ -7,3 +7,9 @@ A case-study analytics project tracking the performance of NCBA Bank post-merger
 
 ---
 *Developed as part of the Kenya Banking Sector Analytics Portfolio*
+
+
+## Data Sources
+
+This project utilizes the following data sources:
+- `seeds/merger_timeline.csv`

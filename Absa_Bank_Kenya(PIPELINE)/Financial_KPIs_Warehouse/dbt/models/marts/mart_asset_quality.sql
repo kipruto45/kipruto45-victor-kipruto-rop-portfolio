@@ -4,16 +4,16 @@ with staging as (
 
 asset_metrics as (
     select
-        period,
-        max(case when metric_name = 'Non-Performing Loans' then metric_value end) as npl_amount,
-        max(case when metric_name = 'Gross Loans' then metric_value end) as gross_loans
+        year,
+        max(case when indicator = 'Non-Performing Loans' then value_m_kes end) as npl_amount,
+        max(case when indicator = 'Gross Loans' then value_m_kes end) as gross_loans
     from staging
     group by 1
 ),
 
 calculated as (
     select
-        period,
+        year,
         npl_amount,
         gross_loans,
         (npl_amount / nullif(gross_loans, 0)) * 100 as npl_ratio_percentage
