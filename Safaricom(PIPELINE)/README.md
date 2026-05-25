@@ -4,16 +4,16 @@ This directory contains the integrated data engineering pipelines for Safaricom 
 
 ## 🚀 Overview
 
-The platform provides a 360-degree view of Safaricom's operational performance. It integrates automated web scraping of investor relations data, mobile money cohort modeling, and regional network performance tracking.
+The platform provides a high-fidelity 360-degree view of Safaricom PLC's ecosystem. It utilizes a custom **Analytics Engine** that integrates audited financial disclosures, mobile credit risk modeling (Fuliza), and regional network quality benchmarks (CA Kenya).
 
 ## 🛠️ Integrated Projects
 
 | Project Name | Tech Stack | Description |
 | :--- | :--- | :--- |
-| [Financial Results Warehouse](./Financial_Results_Warehouse) | `Python`, `BeautifulSoup`, `SQL` | Automated extraction of quarterly and annual financial metrics from Safaricom IR portal. |
-| [Fuliza Credit Risk Analytics](./Fuliza_Credit_Risk_Analytics) | `Python`, `Pandas`, `ML` | Cohort-based analysis of mobile loan disbursements and repayment velocity. |
-| [Bonga Loyalty Analytics](./Bonga_Loyalty_Analytics) | `Python`, `NLP`, `SQL` | Sentiment analysis of loyalty rewards and redemption pattern modeling. |
-| [Network Quality Pipeline](./Network_Quality_Pipeline) | `Python`, `Spatial`, `API` | Monitoring of regional network availability and average download speeds across Kenya. |
+| [Financial Results Warehouse](./Financial_Results_Warehouse) | `Python`, `BeautifulSoup`, `SQL` | Automated extraction of financial metrics from audited IR reports (2021-2025). |
+| [Fuliza Credit Risk Analytics](./Fuliza_Credit_Risk_Analytics) | `Python`, `Pandas`, `Numpy` | Portfolio quality modeling for Fuliza disbursements (~KES 700B/year) and NPL evolution. |
+| [Bonga Loyalty Analytics](./Bonga_Loyalty_Analytics) | `Python`, `NLP`, `SQL` | Segmentation and redemption efficiency modeling for Safaricom's Bonga Points ecosystem. |
+| [Network Quality Pipeline](./Network_Quality_Pipeline) | `Python`, `Spatial`, `API` | Real-time regional performance tracking (Latency/Speed) across Kenya's telecom corridors. |
 
 ## 📊 Integrated Analytics Dashboard
 

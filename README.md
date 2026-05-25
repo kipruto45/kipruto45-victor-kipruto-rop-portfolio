@@ -63,7 +63,7 @@ I am a Data Engineer focused on:
 | **Kenya_Banking_Sector** | Banking sector-wide analytics and reporting projects | Python, BI, Data Analytics |
 | **KRA(DATA ENGINEERING)** | Kenya Revenue Authority data engineering workflows | Python, SQL, ETL |
 | **mpesa_enterprise_projects** | Enterprise MPESA integration and analytics solutions | Python, APIs, Kafka |
-| **Safaricom Integrated** | [📱 View Safaricom Dashboard](https://kipruto45-victor-kipruto-rop-portfolio-g8pspygfpttsbfggjaadwy.streamlit.app/) | Financial results, Fuliza credit risk, Bonga loyalty, and network quality analytics. |
+| **Safaricom Integrated** | [📱 View Safaricom Dashboard](https://kipruto45-victor-kipruto-rop-portfolio-g8pspygfpttsbfggjaadwy.streamlit.app/) | Robust analytical engine integrating audited financial results, Fuliza risk modeling, and CA Kenya network quality benchmarks. |
 
 ---
 
