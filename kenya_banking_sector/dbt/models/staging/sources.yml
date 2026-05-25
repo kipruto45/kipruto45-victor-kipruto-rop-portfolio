@@ -1,0 +1,8 @@
+version: 2
+
+sources:
+  - name: sector_raw
+    database: sector_warehouse
+    schema: public
+    tables:
+      - name: raw_cbk_supervision_returns

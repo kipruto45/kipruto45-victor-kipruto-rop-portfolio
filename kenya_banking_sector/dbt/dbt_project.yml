@@ -1,0 +1,14 @@
+name: 'banking_sector_analytics'
+version: '1.0.0'
+config-version: 2
+profile: 'sector_profile'
+
+model-paths: ["models"]
+test-paths: ["tests"]
+
+models:
+  banking_sector_analytics:
+    staging:
+      +materialized: view
+    marts:
+      +materialized: table

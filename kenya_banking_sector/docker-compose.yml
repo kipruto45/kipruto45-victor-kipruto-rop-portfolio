@@ -1,52 +1,44 @@
+version: '3.8'
+
 services:
   postgres-sector:
     image: postgres:15
     environment:
-      POSTGRES_USER: sector_admin
-      POSTGRES_PASSWORD: sector_password
-      POSTGRES_DB: postgres
+      POSTGRES_USER: ${DB_USER:-sector_admin}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-sector_password}
+      POSTGRES_DB: ${DB_NAME:-sector_warehouse}
     ports:
       - "5437:5432"
     volumes:
       - postgres_sector_data:/var/lib/postgresql/data
-      - ./Consolidated_Data_Warehouse/init-db.sh:/docker-entrypoint-initdb.d/init-db.sh
 
   airflow-sector:
-    image: apache/airflow:2.7.1
-    command: standalone
+    image: apache/airflow:2.7.1-python3.11
     environment:
+      - AIRFLOW__DATABASE__SQL_ALCHEMY_CONN=postgresql+psycopg2://${DB_USER:-sector_admin}:${DB_PASSWORD:-sector_password}@postgres-sector:5432/${DB_NAME:-sector_warehouse}
       - AIRFLOW__CORE__EXECUTOR=LocalExecutor
-      - AIRFLOW__DATABASE__SQL_ALCHEMY_CONN=postgresql+psycopg2://sector_admin:sector_password@postgres-sector/postgres
-      - AIRFLOW__CORE__LOAD_EXAMPLES=False
     volumes:
-      - ./Consolidated_Data_Warehouse/dags:/opt/airflow/dags
+      - ./dags:/opt/airflow/dags
+      - ./dbt:/opt/airflow/dbt
       - .:/opt/airflow/projects/sector
+    ports:
+      - "8086:8080"
     depends_on:
       - postgres-sector
-    ports:
-      - "8084:8080"
 
-  dwh-dashboard:
-    image: apache/airflow:2.7.1
-    command: bash -c "pip install streamlit plotly sqlalchemy psycopg2-binary pandas && streamlit run /opt/airflow/projects/sector/Consolidated_Data_Warehouse/dashboard_app.py --server.port 8504 --server.address 0.0.0.0"
+  sector-dashboard:
+    image: python:3.11-slim
+    command: bash -c "pip install streamlit plotly pandas sqlalchemy psycopg2-binary && streamlit run dashboard_app.py --server.port 8504 --server.address 0.0.0.0"
     ports:
       - "8504:8504"
     environment:
       - STREAMLIT_SERVER_HEADLESS=true
+      - DB_HOST=postgres-sector
     volumes:
-      - .:/opt/airflow/projects/sector
+      - .:/app
+    working_dir: /app
     depends_on:
       - postgres-sector
-
-  aml-dashboard:
-    image: apache/airflow:2.7.1
-    command: bash -c "pip install streamlit plotly pandas && streamlit run /opt/airflow/projects/sector/AML_Transaction_Monitoring/dashboard_app.py --server.port 8505 --server.address 0.0.0.0"
-    ports:
-      - "8505:8505"
-    environment:
-      - STREAMLIT_SERVER_HEADLESS=true
-    volumes:
-      - .:/opt/airflow/projects/sector
 
 volumes:
   postgres_sector_data:

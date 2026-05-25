@@ -1,56 +1,57 @@
-![Kenya Banking Sector Banner](image.png)
-
-# 🏦 Kenya Banking Sector: Integrated Data Engineering Portfolio
+# 🏦 Kenya Banking Sector Integrated Analytics
 
 ## Overview
-This repository contains a suite of advanced data engineering and analytics platforms focused on the Kenyan Banking Sector. It provides a macro-level view of the entire industry (38+ banks) while deep-diving into specific domains like AML compliance, regional peer analysis, and digital banking adoption.
+This platform provides sector-wide analytical insights into the Kenyan banking ecosystem. It consolidates Central Bank of Kenya (CBK) supervision returns, mortgage market data, and interbank lending rates to provide a comprehensive view of macro-financial stability and peer performance.
 
----
-
-## 🚀 Key Projects
-
-### 1. [Consolidated Data Warehouse (DWH)](Consolidated_Data_Warehouse/)
-A centralized "Source of Truth" for the Kenyan banking industry using CBK Bank Supervision data.
-*   **Tech Stack**: Python (pdfplumber), PostgreSQL, dbt, Apache Airflow.
-*   **Features**: Star-schema design, 10+ years of bank-level time-series data, automated KPI extraction (ROE, NIM, NPL).
-*   **Dashboard**: `http://localhost:8504`
-
-### 2. [AML Transaction Monitoring Rules Engine](AML_Transaction_Monitoring/)
-A rules-based engine designed to detect suspicious financial activities based on FATF typologies and CBK guidelines.
-*   **Tech Stack**: Python, Kafka (Messaging), Redis (Cache), PostgreSQL.
-*   **Features**: Detection of Structuring (Smurfing), PEP matching, and unusual cash spikes.
-*   **Dashboard**: Suspicious Activity Report (SAR) alerts and risk heatmaps.
-
-### 3. [Peer Analysis & Normalization](Peer_Analysis/)
-Comparative analytics for mid-tier banks (Stanbic, StanChart, DTB, I&M).
-*   **Features**: Z-score normalization of financial KPIs, Scale vs. Profitability positioning matrices.
-
-### 4. [Digital Banking Adoption Tracker](Digital_Banking_Adoption_Tracker/)
-Monitoring the shift from brick-and-mortar to mobile/internet banking across the sector.
-*   **Features**: Branch/ATM footprint reduction trends vs. digital transaction growth.
-
----
+## Architecture
+```mermaid
+graph TD
+    CBK[CBK Returns] -->|Load| P[PostgreSQL Raw]
+    Peer[Bank Annual Reports] -->|Ingest| P
+    P -->|dbt Staging| Stg[Staging Layer]
+    Stg -->|dbt Marts| Marts[Sector-wide Marts]
+    Marts -->|Streamlit| Dash[Banking Intelligence Hub]
+    Hub -.->|Orchestration| Airflow[Apache Airflow]
+```
 
 ## Data Sources
-The analytics in this sector portfolio are derived from:
-- **Central Bank of Kenya (CBK)**: Bank Supervision Annual Reports (2015-2025), Prudential Guidelines, and AML/CFT reporting templates.
-- **Financial Action Task Force (FATF)**: International AML typologies and smurfing detection patterns.
-- **Nairobi Securities Exchange (NSE)**: Multi-year financial filings for all listed commercial banks in Kenya.
+- **CBK Supervision Reports**: Aggregate sector metrics (NPL, Liquidity, Capital).
+- **Mortgage Market Surveys**: Yearly residential mortgage data.
+- **Interbank Rates**: Daily lending rate logs from the money market.
 
-## 🛠 Tech Stack
-*   **Orchestration**: Apache Airflow
-*   **Data Warehouse**: PostgreSQL
-*   **Transformation**: dbt (Data Build Tool)
-*   **Visualisation**: Streamlit & Plotly
-*   **Ingestion**: Python (Scrapy, Selenium, pdfplumber)
-*   **Containerization**: Docker & Docker Compose
+## Tech Stack
+- **Orchestration**: Apache Airflow
+- **Transformation**: dbt Core (PostgreSQL)
+- **Database**: PostgreSQL 15
+- **Visualization**: Streamlit, Plotly
+- **Environment**: Docker, Docker Compose
 
----
+## Folder Structure
+```text
+kenya_banking_sector/
+├── dags/               # Sector-wide ETL DAGs
+├── dbt/                # Consolidated dbt project
+├── ingestion/          # CBK and macro-data scrapers
+├── dashboards/         # Visualization layer
+├── tests/              # dbt and python tests
+├── docker-compose.yml  # Local stack definition
+└── README.md
+```
 
-## 📊 Access & Monitoring
-The entire sector is accessible via a unified **Master Dashboard**:
-*   **Local URL**: `http://localhost:8501`
-*   **Live Sector View**: `http://localhost:8504`
+## How to Run
+1. **Launch Stack**:
+   ```bash
+   docker-compose up -d
+   ```
+2. **Execute dbt**:
+   ```bash
+   cd dbt
+   dbt run
+   dbt test
+   ```
+3. **Access Dashboard**: Open `http://localhost:8504`
 
----
-*Created by Victor Kipruto - Data Engineering Portfolio*
+## Key Metrics / Outputs
+- **NIM & NPL Benchmarking**: Comparison across all 38+ licensed banks.
+- **Capital Adequacy Trends**: Sector-wide resilience monitoring.
+- **Interbank Liquidity**: Market-wide lending rate volatility.
