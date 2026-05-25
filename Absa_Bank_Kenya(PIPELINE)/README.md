@@ -24,18 +24,23 @@ The projects share a common containerized environment managed at this root level
 - **BI Layer**: Metabase for cross-project data visualization.
 - **API Layer**: FastAPI service exposing open banking data products.
 
-## 📊 Dashboards
+## 📊 Integrated Analytics Dashboard
 
-The platform includes two ways to visualize insights:
+The platform includes a comprehensive Streamlit dashboard providing real-time visibility into both financial health and digital adoption.
 
-### 1. Modern Interactive Dashboards (Streamlit)
-A high-fidelity, interactive dashboard built with Streamlit and Plotly.
-- **Access**: `http://localhost:8501`
-- **Features**: Interactive time-series trends, NPL ratio analysis, and account distribution charts.
+### Key Features:
+- **💰 Financial KPIs**: Real-time tracking of Net Profit, ROE, and Cost-to-Income ratios based on the latest 2025 audited results.
+- **🛡️ Risk & Capital**: Visualization of Asset Quality (NPL ratios) and Capital Adequacy (CAR) relative to statutory minimums.
+- **🔌 Open Banking Insights**: Monitoring of API transaction volumes and customer activity trends from the Open Banking API pipeline.
 
-### 2. BI Layer (Metabase)
-Pre-defined SQL queries for Metabase dashboards in the `dashboards/` directory.
-- **Access**: `http://localhost:3000`
+### Accessing the Dashboards:
+1. **Interactive Dashboard (Streamlit)**: 
+   - **URL**: [http://localhost:8501](http://localhost:8501)
+   - **Command**: `streamlit run dashboard_app.py` from the project root.
+2. **BI Layer (Metabase)**:
+   - **URL**: [http://localhost:3000](http://localhost:3000)
+   - Pre-defined SQL queries are available in the `dashboards/` directory.
+3. **Master Hub**: Accessible via the [Master Dashboard](../master_dashboard.py).
 
 ## 🚦 Getting Started
 
@@ -63,10 +68,8 @@ make dbt-run-kpi
 make dbt-run-api
 ```
 
-## 📊 Analytical Deliverables
-Detailed insights are available in the executed Jupyter notebooks within each project's `notebooks/` directory:
-- **Rebranding Analysis**: Impact of the Barclays-to-Absa transition on key metrics.
-- **Credit Scoring Model**: Cash-flow based creditworthiness evaluation engine.
+## 🚀 Project Goals
+The platform is designed to provide end-to-end visibility into Absa's operational and customer health, transitioning from traditional report parsing to modern real-time API integrations.
 
 ---
 *Maintained by the Data Engineering Team*
