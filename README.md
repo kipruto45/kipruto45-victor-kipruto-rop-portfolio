@@ -5,6 +5,13 @@ This repository contains end-to-end data engineering, ETL, streaming, analytics,
 
 ---
 
+## 📖 Quick Navigation
+- **[🏗️ Portfolio Architecture](./ARCHITECTURE.md)** — Detailed system design and data flow.
+- **[📂 Project Catalog](./PROJECTS.md)** — Complete list of all 12+ projects with domain focus.
+- **[🛠️ Installation & Setup](./SETUP.md)** — Step-by-step guide to running these projects locally.
+
+---
+
 # 📊 Live Interactive Dashboards
 
 Experience the live analytical platforms built in this portfolio:
