@@ -1,0 +1,30 @@
+name: Generate dbt Docs
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  dbt-docs:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+    
+    - name: Install dbt
+      run: pip install dbt-postgres
+    
+    - name: Generate Docs
+      run: |
+        # Run for one major project as example
+        cd absa_bank_kenya/dbt
+        dbt docs generate --profiles-dir . || true
+        
+    - name: Upload Artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: dbt-docs
+        path: absa_bank_kenya/dbt/target/

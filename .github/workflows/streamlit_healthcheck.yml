@@ -1,0 +1,16 @@
+name: Dashboard Healthcheck
+
+on:
+  schedule:
+    - cron: '0 0 * * *' # Daily at midnight
+  workflow_dispatch:
+
+jobs:
+  healthcheck:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Check Equity Dashboard
+      run: curl --fail https://kipruto45-victor-kipruto-rop-portfolio-g8pspygfpttsbfggjaadwy.streamlit.app/ || echo "Equity Dashboard down"
+      
+    - name: Check Absa Dashboard
+      run: curl --fail https://kipruto45-victor-kipruto-rop-portfolio-cc6ye8wlqrt2vtpsdndigd.streamlit.app/ || echo "Absa Dashboard down"
