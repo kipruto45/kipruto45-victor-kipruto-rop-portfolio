@@ -1,54 +1,45 @@
 version: '3.8'
 
 services:
-  postgres:
+  postgres-equity:
     image: postgres:15
     environment:
-      POSTGRES_USER: equity_admin
-      POSTGRES_PASSWORD: equity_password
-      POSTGRES_DB: postgres
+      POSTGRES_USER: ${DB_USER:-equity_admin}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-equity_password}
+      POSTGRES_DB: ${DB_NAME:-equity_warehouse}
     ports:
-      - "5435:5432"
+      - "5441:5432"
     volumes:
       - postgres_equity_data:/var/lib/postgresql/data
       - ./init-db.sh:/docker-entrypoint-initdb.d/init-db.sh
 
-  airflow:
-    image: apache/airflow:2.7.1
-    command: standalone
+  airflow-equity:
+    image: apache/airflow:2.7.1-python3.11
     environment:
+      - AIRFLOW__DATABASE__SQL_ALCHEMY_CONN=postgresql+psycopg2://${DB_USER:-equity_admin}:${DB_PASSWORD:-equity_password}@postgres-equity:5432/${DB_NAME:-equity_warehouse}
       - AIRFLOW__CORE__EXECUTOR=LocalExecutor
-      - AIRFLOW__DATABASE__SQL_ALCHEMY_CONN=postgresql+psycopg2://equity_admin:equity_password@postgres/postgres
-      - AIRFLOW__CORE__LOAD_EXAMPLES=False
-      - _PIP_ADDITIONAL_DEPENDENCIES=dbt-postgres pandas requests psycopg2-binary sqlalchemy python-dotenv matplotlib
     volumes:
-      - ./Equitel_EazzyPay_Analytics/dags:/opt/airflow/dags/equitel
-      - ./Pan_Africa_Financial_Platform/dags:/opt/airflow/dags/pan_africa
-      - ./Equitel_EazzyPay_Analytics:/opt/airflow/projects/equitel
-      - ./Pan_Africa_Financial_Platform:/opt/airflow/projects/pan_africa
-    depends_on:
-      - postgres
+      - ./dags:/opt/airflow/dags
+      - ./dbt:/opt/airflow/dbt
+      - .:/opt/airflow/projects/equity
     ports:
       - "8082:8080"
-
-  metabase:
-    image: metabase/metabase:latest
-    ports:
-      - "3001:3000"
     depends_on:
-      - postgres
+      - postgres-equity
 
-  dashboard:
-    image: apache/airflow:2.7.1
-    command: bash -c "pip install streamlit plotly && streamlit run /opt/airflow/projects/dashboard_app.py --server.port 8502 --server.address 0.0.0.0"
+  equity-dashboard:
+    image: python:3.11-slim
+    command: bash -c "pip install streamlit plotly pandas sqlalchemy psycopg2-binary && streamlit run dashboard_app.py --server.port 8502 --server.address 0.0.0.0"
     ports:
       - "8502:8502"
     environment:
       - STREAMLIT_SERVER_HEADLESS=true
+      - DB_HOST=postgres-equity
     volumes:
-      - .:/opt/airflow/projects
+      - .:/app
+    working_dir: /app
     depends_on:
-      - postgres
+      - postgres-equity
 
 volumes:
   postgres_equity_data:
