@@ -12,6 +12,7 @@ The platform provides a unified view of Equity Group's Pan-African operations. I
 
 | Project Name | Tech Stack | Description |
 | :--- | :--- | :--- |
+| [Equity Kenya Transaction Analytics](./Equity_Kenya_Transaction_Analytics) | `Python`, `dbt`, `PostgreSQL`, `Plotly` | Deep-dive into Equity Bank Kenya's transaction mix, county distribution, and channel efficiency. |
 | [Equitel & EazzyPay Analytics](./Equitel_EazzyPay_Analytics) | `Python`, `dbt`, `PostgreSQL`, `Airflow`, `Matplotlib` | Analysis of mobile banking adoption, transaction velocity, and ARPU trends. |
 | [Pan-Africa Financial Platform](./Pan_Africa_Financial_Platform) | `Python`, `dbt`, `PostgreSQL`, `Airflow`, `Forex Logic` | Multi-subsidiary financial consolidation with automated currency normalization to USD and KES. |
 
@@ -29,6 +30,7 @@ The platform includes a detailed multi-tab Streamlit dashboard providing insight
 
 ### Key Features:
 - **🌍 Regional Performance**: Tracking of Assets, Profit, and Digital Adoption across 7 markets (Kenya, DRC, Rwanda, Uganda, etc.).
+- **🇰🇪 Equity Kenya Transactions**: Deep-dive into local transaction mix by channel (EazzyPay, Equitel, ATM) and geographic distribution by County.
 - **📱 Digital & Equitel Analytics**: Modeling of EazzyPay/Equitel user growth curves and Revenue per User (ARPU).
 - **📊 Market Comparison**: Efficiency analysis using interactive scatter-bubble charts (Assets vs. Profitability).
 
@@ -69,6 +71,10 @@ The platform provides a unified view of Equity Group's Pan-African operations, h
 ## Data Sources
 
 This project utilizes the following data sources:
+- `Equity_Kenya_Transaction_Analytics/dashboards/snapshots/mart_kenya_channel_performance.csv`
+- `Equity_Kenya_Transaction_Analytics/dashboards/snapshots/mart_kenya_county_activity.csv`
+- `Equity_Kenya_Transaction_Analytics/dashboards/snapshots/mart_kenya_transaction_trends.csv`
+- `Equity_Kenya_Transaction_Analytics/ingestion/equity_kenya_transactions_raw.csv`
 - `Equitel_EazzyPay_Analytics/ingestion/eazzypay_transactions.csv`
 - `Equitel_EazzyPay_Analytics/ingestion/equitel_subscribers.csv`
 - `Pan_Africa_Financial_Platform/dbt/seeds/customer_master.csv`

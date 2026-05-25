@@ -13,7 +13,7 @@ Experience the live analytical platforms built in this portfolio:
 |---|---|---|
 | **Executive Financial Summary (2025)** | [🚀 View Executive Hub](https://kipruto45-victor-kipruto-rop-portfolio-g8pspygfpttsbfggjaadwy.streamlit.app/) | Unified comparison of 2025 audited results for KCB Group, Absa Kenya, and Equity Group. |
 | **Absa Bank Kenya** | [🔴 View Absa Dashboard](https://kipruto45-victor-kipruto-rop-portfolio-cc6ye8wlqrt2vtpsdndigd.streamlit.app/) | Integrated view of Financial KPIs, Risk/Capital, and Open Banking API adoption. |
-| **Equity Group Pan-Africa** | [🌍 View Equity Dashboard](https://kipruto45-victor-kipruto-rop-portfolio-g8pspygfpttsbfggjaadwy.streamlit.app/) | Regional profitability, mobile adoption, and market matrix analytics across 7 countries. |
+| **Equity Group Pan-Africa** | [🌍 View Equity Dashboard](https://kipruto45-victor-kipruto-rop-portfolio-g8pspygfpttsbfggjaadwy.streamlit.app/) | Regional profitability, mobile adoption, and Kenya-specific transaction matrix analytics. |
 | **KCB Group Integrated** | [🦁 View KCB Dashboard](https://kipruto45-victor-kipruto-rop-portfolio-g8pspygfpttsbfggjaadwy.streamlit.app/) | Consolidated performance tracking and M-Pesa loan book analytics. |
 | **KRA Revenue & Trade** | [🇰🇪 View KRA Dashboard](https://kipruto45-victor-kipruto-rop-portfolio-g8pspygfpttsbfggjaadwy.streamlit.app/) | Real-time monitoring of tax revenue, customs trade, and economic indicators. |
 
@@ -58,6 +58,7 @@ I am a Data Engineer focused on:
 | **Remittance_Analytics** | Cross-border remittance analytics and reporting | Python, SQL, Dashboards |
 | **Absa_Bank_Kenya(PIPELINE)** | Banking ETL and analytics pipeline | Python, ETL, SQL |
 | **Equity_Group(PIPELINE_ETL)** | Enterprise-grade ETL workflows for banking data | Python, Airflow, PostgreSQL |
+| **Equity_Kenya_Transaction_Analytics** | Deep-dive into local transaction mix, county distribution, and channel efficiency | Python, dbt, SQL |
 | **KCB_Group(ETL)** | Data ingestion and transformation workflows | Python, SQL, ETL |
 | **Kenya_Banking_Sector** | Banking sector-wide analytics and reporting projects | Python, BI, Data Analytics |
 | **KRA(DATA ENGINEERING)** | Kenya Revenue Authority data engineering workflows | Python, SQL, ETL |

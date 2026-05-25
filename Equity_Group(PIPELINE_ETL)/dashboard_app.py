@@ -10,22 +10,22 @@ st.set_page_config(page_title="Equity Group: Integrated Pan-Africa Analytics", l
 # Robust path handling for Streamlit Cloud
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
-def load_data(query, snapshot_name):
+def load_data(query, snapshot_name, project_subfolder="."):
     try:
         host = "postgres-equity" if os.path.exists("/.dockerenv") else "localhost"
         engine = create_engine(f'postgresql://equity_admin:equity_password@{host}:5441/equity_warehouse')
         return pd.read_sql(query, engine)
     except Exception:
-        snapshot_path = os.path.join(BASE_DIR, "dashboards", "snapshots", f"{snapshot_name}.csv")
+        snapshot_path = os.path.join(BASE_DIR, project_subfolder, "dashboards", "snapshots", f"{snapshot_name}.csv")
         if os.path.exists(snapshot_path):
             return pd.read_csv(snapshot_path)
         return pd.DataFrame()
 
 st.title("🏦 Equity Group: Integrated Pan-Africa Financial Hub")
-st.markdown("Consolidated real-time monitoring of 7 regional markets and mobile banking ecosystems.")
+st.markdown("Consolidated real-time monitoring of regional markets and Kenya-specific transaction ecosystems.")
 
 # Navigation Tabs
-tabs = st.tabs(["🌍 Regional Performance", "📱 Digital & Equitel Analytics", "📊 Market Comparison"])
+tabs = st.tabs(["🌍 Regional Performance", "🇰🇪 Equity Kenya Transactions", "📱 Digital & Equitel Analytics", "📊 Market Comparison"])
 
 # Tab 1: Regional Performance
 with tabs[0]:
@@ -61,14 +61,50 @@ with tabs[0]:
     else:
         st.warning("Regional performance data not found.")
 
-# Tab 2: Digital & Equitel Analytics
+# Tab 2: Equity Kenya Transactions (New)
 with tabs[1]:
+    st.subheader("🇰🇪 Equity Bank Kenya: Transaction Ecosystem")
+    
+    kenya_sub = "Equity_Kenya_Transaction_Analytics"
+    channel_df = load_data("SELECT * FROM mart_kenya_channel_performance", "mart_kenya_channel_performance", kenya_sub)
+    county_df = load_data("SELECT * FROM mart_kenya_county_activity", "mart_kenya_county_activity", kenya_sub)
+    trends_df = load_data("SELECT * FROM mart_kenya_transaction_trends", "mart_kenya_transaction_trends", kenya_sub)
+
+    if not channel_df.empty:
+        col1, col2 = st.columns([1, 2])
+        
+        with col1:
+            st.write("#### Channel Mix")
+            fig_chan = px.pie(channel_df, names='channel', values='total_volume_kes', hole=0.5, title="Volume by Channel")
+            st.plotly_chart(fig_chan, use_container_width=True)
+            
+        with col2:
+            st.write("#### Transaction Trends (2025)")
+            if not trends_df.empty:
+                trends_df['date'] = pd.to_datetime(trends_df['date'])
+                fig_trend = px.line(trends_df, x='date', y='total_volume', title="Daily Transaction Volume (KES)")
+                st.plotly_chart(fig_trend, use_container_width=True)
+
+        st.markdown("---")
+        c3, c4 = st.columns(2)
+        with c3:
+            st.write("#### Activity by County")
+            fig_county = px.bar(county_df.sort_values('volume_kes', ascending=False), x='county', y='volume_kes', color='volume_kes', color_continuous_scale='Reds')
+            st.plotly_chart(fig_county, use_container_width=True)
+        with c4:
+            st.write("#### Channel Efficiency")
+            fig_eff = px.bar(channel_df, x='channel', y='avg_transaction_value', text_auto='.2s', title="Avg Transaction Value by Channel (KES)")
+            st.plotly_chart(fig_eff, use_container_width=True)
+    else:
+        st.info("Kenya-specific transaction data not found.")
+
+# Tab 3: Digital & Equitel Analytics
+with tabs[2]:
     adoption_df = load_data("SELECT * FROM mart_adoption_curve", "mart_adoption_curve")
     arpu_df = load_data("SELECT * FROM mart_arpu_benchmark", "mart_arpu_benchmark")
     
     if not adoption_df.empty:
         st.subheader("Equitel & EazzyPay Transaction Growth")
-        # Use period instead of month, transaction_count instead of active_users
         fig_adoption = px.area(adoption_df, x='period', y='transaction_count', 
                                title="Growth of Digital Banking Transactions",
                                labels={'transaction_count': 'Monthly Transactions', 'period': 'Year-Month'})
@@ -77,7 +113,6 @@ with tabs[1]:
         if not arpu_df.empty:
             st.markdown("---")
             st.subheader("Revenue per User (ARPU) Trends")
-            # Use period instead of segment, arpu_kes
             fig_arpu = px.line(arpu_df, x='period', y='arpu_kes', markers=True,
                                title="Average Revenue Per User (KES)",
                                labels={'arpu_kes': 'ARPU (KES)', 'period': 'Year-Month'})
@@ -85,13 +120,12 @@ with tabs[1]:
     else:
         st.info("Mobile banking analytics data unavailable.")
 
-# Tab 3: Market Comparison
-with tabs[2]:
+# Tab 4: Market Comparison
+with tabs[3]:
     comp_df = load_data("SELECT * FROM mart_subsidiary_comparison", "mart_subsidiary_comparison")
     
     if not comp_df.empty:
         st.subheader("Regional Profit Contribution Analysis")
-        # Use profit_kes and contribution_percentage
         fig_contrib = px.bar(comp_df, x='subsidiary', y='contribution_percentage', 
                              color='subsidiary', text_auto='.2f',
                              title="Subsidiary Contribution to Group Profit (%)",
@@ -111,7 +145,6 @@ logo_path = os.path.join(BASE_DIR, "images", "pan.png")
 if os.path.exists(logo_path):
     st.sidebar.image(logo_path, width=150)
 else:
-    # Root execution fallback
     logo_path_root = os.path.join(BASE_DIR, "Equity_Group(PIPELINE_ETL)", "images", "pan.png")
     if os.path.exists(logo_path_root):
         st.sidebar.image(logo_path_root, width=150)
@@ -122,9 +155,10 @@ if st.sidebar.button("Refresh Results"):
 
 st.sidebar.markdown("""
 **Data Sources:**
+- Equity Bank Kenya Transaction Logs (2025)
 - Equity Group FY 2025 Audited Reports
 - CBK Regional Supervision Disclosures
 - Equitel/EazzyPay Ingestion Logs
 """)
 
-st.sidebar.info("Dashboard integrates Regional Consolidation and Mobile Banking Analytics projects.")
+st.sidebar.info("Dashboard integrates Pan-Africa Consolidation, Kenya Transaction Analytics, and Mobile Banking projects.")
